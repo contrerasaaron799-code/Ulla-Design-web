@@ -379,7 +379,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .focus-card .btn-add-cart {
   background: var(--accent);
-  color: #fff;
+  color: #000000;
   border: none;
   padding: 8px 16px;
   border-radius: var(--radius-button);
