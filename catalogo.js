@@ -82,7 +82,6 @@ function renderCatalog(items) {
         // Guardamos TODOS los datos en atributos data- para el modal
         card.setAttribute('data-name', itemName);
         card.setAttribute('data-image', itemImage);
-        card.setAttribute('data-category', itemCategory);
         card.setAttribute('data-uso', item.uso || '');
         card.setAttribute('data-material', item.material || item.elementos || item.description || '');
         card.setAttribute('data-base', item.base || '');
@@ -91,21 +90,20 @@ function renderCatalog(items) {
         
         if (itemDetalleImg) card.setAttribute('data-detalle', itemDetalleImg);
 
-        // TARJETA LIMPIA: Solo la imagen. Sin texto oculto.
+        // TARJETA LIMPIA: Solo la imagen.
         card.innerHTML = `
             <img src="${itemImage}" alt="${itemName}">
         `;
         grid.appendChild(card);
 
-        /* --- EVENTO DE CLIC CORREGIDO --- */
+        /* --- EVENTO DE CLIC --- */
         card.addEventListener('click', (e) => {
-            // Si el clic fue en el botón de carrito (no existe en la tarjeta, pero por seguridad lo dejamos)
             if (e.target.classList.contains('btn-add-cart')) return;
             
             // Si tiene imagen de detalle (tableros), abrimos el modal de tableros
             const detalleUrl = card.getAttribute('data-detalle');
             if (detalleUrl) {
-                openDetailModal(detalleUrl);
+                openDetailModal(card); // Pasamos la tarjeta entera para el botón
                 return;
             }
 
@@ -118,11 +116,23 @@ function renderCatalog(items) {
 
 // ================= FUNCIONES DE LOS MODALES =================
 
-/* MODAL DE DETALLES DE TABLEROS (YA CON X ROJA LIMPIA) */
-function openDetailModal(imgSrc) {
+/* MODAL DE DETALLES DE TABLEROS (AHORA CON BOTÓN DE AGREGAR AL CARRITO) */
+function openDetailModal(card) {
+    const imgSrc = card.getAttribute('data-detalle');
+    const name = card.getAttribute('data-name');
+    const image = card.getAttribute('data-image');
+    const category = card.getAttribute('data-category');
+
     document.getElementById('detailImage').src = imgSrc;
     document.getElementById('detailModal').classList.add('show');
     document.body.style.overflow = 'hidden';
+
+    // Configurar el botón del modal de tableros
+    const btn = document.getElementById('detailModalAddCart');
+    btn.onclick = function() { 
+        addToCart(name, image, category); 
+        closeDetailModal(); 
+    };
 }
 function closeDetailModal() {
     document.getElementById('detailModal').classList.remove('show');
@@ -132,9 +142,8 @@ function handleDetailModalClick(e) {
     if (e.target.id === 'detailModal') closeDetailModal();
 }
 
-/* NUEVO MODAL DE PRODUCTO (CON IMAGEN GRANDE Y DATOS A UN LADO) */
+/* MODAL DE PRODUCTO NORMAL */
 function openProductModal(card) {
-    // Obtener datos de la tarjeta
     const name = card.getAttribute('data-name');
     const image = card.getAttribute('data-image');
     const category = card.getAttribute('data-category');
@@ -144,7 +153,6 @@ function openProductModal(card) {
     const medidas = card.getAttribute('data-medidas');
     const colores = card.getAttribute('data-colores');
 
-    // Inyectar datos en el modal
     document.getElementById('productModalImg').src = image;
     document.getElementById('productModalName').textContent = name;
     document.getElementById('productModalUso').textContent = uso ? `Uso: ${uso}` : '';
@@ -152,7 +160,6 @@ function openProductModal(card) {
     document.getElementById('productModalBase').textContent = base ? `Base: ${base}` : '';
     document.getElementById('productModalMedidas').textContent = medidas ? `Medidas: ${medidas}` : '';
 
-    // Inyectar colores
     const colorContainer = document.getElementById('productModalColores');
     colorContainer.innerHTML = '';
     if (colores) {
@@ -168,18 +175,15 @@ function openProductModal(card) {
         } catch(e) { colorContainer.innerHTML = ''; }
     }
 
-    // Configurar botón de agregar al carrito en el modal
     const btn = document.getElementById('productModalBtn');
     btn.onclick = function() { 
         addToCart(name, image, category); 
         closeProductModal(); 
     };
 
-    // Mostrar modal y bloquear scroll de fondo
     document.getElementById('productModal').classList.add('show');
     document.body.style.overflow = 'hidden';
 }
-
 function closeProductModal() {
     document.getElementById('productModal').classList.remove('show');
     document.body.style.overflow = '';
@@ -196,7 +200,6 @@ function checkUrlParams() {
         const targetCard = document.getElementById(targetId);
         if (targetCard) {
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // No activamos el "active" porque ya no se usa, pero podemos abrir el modal directamente
             openProductModal(targetCard);
         }
     }
@@ -209,7 +212,7 @@ function checkUrlParams() {
 
 window.addEventListener('DOMContentLoaded', loadProducts);
 
-// ================= LÓGICA DEL CARRITO DE COMPRAS (Sin cambios) =================
+// ================= LÓGICA DEL CARRITO DE COMPRAS =================
 let cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
 updateCartUI();
 
@@ -376,20 +379,18 @@ function updateSubcategoryMenu(category) {
 }
 
 function applyFilters() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
-
-    // --- Lógica de alineación central para las principales ---
-    // Ahora se activa en 'todos', 'hogar', 'hotel' y 'contract'
+    // --- Lógica de alineación central ---
     if (['todos', 'hogar', 'hotel', 'contract'].includes(currentCategory)) {
         grid.classList.add('view-all');
     } else {
         grid.classList.remove('view-all');
     }
 
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
+
     let targetCategories = [currentCategory];
 
-    // MAPA DE CATEGORÍAS AGRUPADAS
     if (currentCategory === 'hogar') {
         targetCategories = ['hogar', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'];
     } else if (currentCategory === 'hotel') {
@@ -422,21 +423,15 @@ function applyFilters() {
     });
 
     // --- ORDEN PERSONALIZADO PARA HOTEL ---
-    // Si estamos en la categoría Hotel, reordenamos las tarjetas mostradas
-    // para que las Sillas aparezcan PRIMERO.
     if (currentCategory === 'hotel') {
         const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
         visibleCards.sort((a, b) => {
             const catA = a.getAttribute('data-category');
             const catB = b.getAttribute('data-category');
-            // Si A es sillas y B no, A va primero
             if (catA === 'sillas' && catB !== 'sillas') return -1;
-            // Si B es sillas y A no, B va primero
             if (catB === 'sillas' && catA !== 'sillas') return 1;
-            // Si ambos son sillas o ambos no lo son, mantener el orden original
             return 0;
         });
-        // Reinsertar en el DOM en el nuevo orden
         visibleCards.forEach(card => grid.appendChild(card));
     }
 }

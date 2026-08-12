@@ -132,15 +132,17 @@
   </div>
 </div>
 
-<!-- Modal de Detalles de Tableros (X sin círculo) -->
+<!-- Modal de Detalles de Tableros (AHORA CON BOTÓN DE AGREGAR AL CARRITO) -->
 <div class="detail-modal-overlay" id="detailModal" onclick="handleDetailModalClick(event)">
   <div class="detail-modal-container">
     <span class="detail-close-btn" onclick="closeDetailModal()">×</span>
     <img id="detailImage" src="" alt="Detalles del producto">
+    <!-- NUEVO BOTÓN DE AGREGAR AL CARRITO -->
+    <button id="detailModalAddCart" class="btn-add-cart-detail">Agregar al carrito</button>
   </div>
 </div>
 
-<!-- NUEVO Modal de Producto (Vista desprendida con X roja limpia) -->
+<!-- NUEVO Modal de Producto (Vista desprendida) -->
 <div class="product-modal-overlay" id="productModal" onclick="handleProductModalClick(event)">
   <div class="product-modal-container">
     <span class="product-close-btn" onclick="closeProductModal()">×</span>
