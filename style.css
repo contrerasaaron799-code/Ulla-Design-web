@@ -92,6 +92,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
+  min-height: 280px; /* CORRECCIÓN: Altura mínima para que no aparezca el fondo marrón */
 }
 
 .focus-card img { 
