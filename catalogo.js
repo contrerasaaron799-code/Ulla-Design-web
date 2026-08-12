@@ -95,15 +95,20 @@ function renderCatalog(items) {
             colorHtml += `</div>`;
         }
 
+        // Generamos las líneas de información SOLO si existen en el JSON
+        let infoHtml = '';
+        if (item.uso) infoHtml += `<p class="info-line">Uso: ${item.uso}</p>`;
+        if (item.material) infoHtml += `<p class="info-line">Material: ${item.material}</p>`;
+        if (item.base) infoHtml += `<p class="info-line">Base: ${item.base}</p>`;
+        if (item.medidas) infoHtml += `<p class="info-line">Medidas: ${item.medidas}</p>`;
+
+        // HTML LIMPIO: Solo la imagen visible
         card.innerHTML = `
             <img src="${itemImage}" alt="${itemName}">
             <div class="card-overlay">
                 <div class="card-hidden-content">
                     <h3>${itemName}</h3>
-                    <p class="info-line">Uso: ${itemUso}</p>
-                    <p class="info-line">Material: ${itemMaterial}</p>
-                    <p class="info-line">Base: ${itemBase}</p>
-                    <p class="info-line">Medidas: ${itemMedidas}</p>
+                    ${infoHtml} <!-- Aquí insertamos las líneas generadas dinámicamente -->
                     ${colorHtml}
                     <button class="btn-add-cart" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${itemImage}', '${itemCategory}')">Agregar al carrito</button>
                 </div>

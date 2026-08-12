@@ -163,27 +163,51 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: all 0.3s ease;
 }
 
-/* ESTADO ACTIVO (Expandido) */
+/* --- ESTADO ACTIVO (Al hacer clic, se expande) --- */
 .focus-card.active {
   transform: translateY(-8px) translateZ(30px) scale(1.04);
   z-index: 10;
   border-color: var(--accent-light);
   box-shadow: 0 0 30px rgba(198, 40, 40, 0.6), var(--shadow-floating);
 }
-.focus-card.active img { transform: scale(1.06); }
+
+.focus-card.active img {
+  transform: scale(1.06);
+}
+
 .focus-card.active .card-overlay {
   opacity: 1;
   pointer-events: auto;
-  background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.85) 80%, transparent 100%);
+  /* Quitamos el gradiente blanco que arruinaba la imagen */
+  background: transparent; 
+  justify-content: flex-end;
 }
+
+/* La caja blanca del contenido se convierte en un bloque sólido al final */
 .focus-card.active .card-hidden-content {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
   opacity: 1;
   transform: translateY(0);
+  border-top: 1px solid var(--border); /* Un borde sutil para separar la imagen */
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
 }
+
+.focus-card.active .card-hidden-content h3 {
+  color: #000000;
+}
+
+.focus-card.active .card-hidden-content .info-line {
+  color: #000000;
+}
+
 .focus-card.active .btn-add-cart {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+  color: #ffffff; /* Asegura que el texto del botón sea blanco */
 }
 
 /* EFECTO DE DESENFOQUE DE LAS OTRAS TARJETAS (opcional) */
