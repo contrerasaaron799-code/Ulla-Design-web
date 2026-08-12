@@ -102,7 +102,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 
 /* =========================================
-   ALINEACIÓN CENTRAL (SOLO PARA "TODOS")
+   ALINEACIÓN CENTRAL (PARA TODOS, HOTEL, HOGAR Y CONTRACT)
    ========================================= */
 .focus-grid.view-all {
     display: flex !important;

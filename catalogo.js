@@ -376,22 +376,24 @@ function updateSubcategoryMenu(category) {
 }
 
 function applyFilters() {
-    // --- Lógica de alineación central para "Todos" ---
-    if (currentCategory === 'todos') {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
+
+    // --- Lógica de alineación central para las principales ---
+    // Ahora se activa en 'todos', 'hogar', 'hotel' y 'contract'
+    if (['todos', 'hogar', 'hotel', 'contract'].includes(currentCategory)) {
         grid.classList.add('view-all');
     } else {
         grid.classList.remove('view-all');
     }
 
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
-
     let targetCategories = [currentCategory];
 
+    // MAPA DE CATEGORÍAS AGRUPADAS
     if (currentCategory === 'hogar') {
         targetCategories = ['hogar', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'];
     } else if (currentCategory === 'hotel') {
-        targetCategories = ['hotel', 'bancos de hosteleria', 'mesasdecomedor', 'sillas', 'sofas', 'taburetes', 'lamparas y decoracion', 'paneles', 'salones', 'mesasdecentro', 'exteriores', 'basesmetalicas'];
+        targetCategories = ['hotel', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'];
     } else if (currentCategory === 'contract') {
         targetCategories = ['contract', 'bancos de hosteleria', 'sofas', 'sillas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas'];
     } else if (currentCategory === 'bancos de hosteleria') {
@@ -418,6 +420,25 @@ function applyFilters() {
             card.classList.remove('active'); 
         }
     });
+
+    // --- ORDEN PERSONALIZADO PARA HOTEL ---
+    // Si estamos en la categoría Hotel, reordenamos las tarjetas mostradas
+    // para que las Sillas aparezcan PRIMERO.
+    if (currentCategory === 'hotel') {
+        const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
+        visibleCards.sort((a, b) => {
+            const catA = a.getAttribute('data-category');
+            const catB = b.getAttribute('data-category');
+            // Si A es sillas y B no, A va primero
+            if (catA === 'sillas' && catB !== 'sillas') return -1;
+            // Si B es sillas y A no, B va primero
+            if (catB === 'sillas' && catA !== 'sillas') return 1;
+            // Si ambos son sillas o ambos no lo son, mantener el orden original
+            return 0;
+        });
+        // Reinsertar en el DOM en el nuevo orden
+        visibleCards.forEach(card => grid.appendChild(card));
+    }
 }
 
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
