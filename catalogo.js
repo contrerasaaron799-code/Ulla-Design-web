@@ -18,7 +18,6 @@ async function loadProducts() {
         throw new Error('El archivo productos.json no tiene el formato correcto (debe ser un array de rutas).');
     }
 
-    // CORRECCIÓN: Carga secuencial de archivos para no saturar el servidor local
     const results = [];
     for (const path of jsonFiles) {
         try {
@@ -77,7 +76,10 @@ function renderCatalog(items) {
             itemCategory = 'oferta';
         }
         
+        // --- Datos extraídos para mostrar en la expansión ---
+        const itemUso = item.uso || 'Uso no especificado';
         const itemMaterial = item.material || item.elementos || item.description || 'Material no especificado';
+        const itemBase = item.base || 'Base no especificada';
         const itemMedidas = item.medidas || 'Medidas no especificadas';
         const itemDetalleImg = item.imagen_detalle || '';
         const itemColores = item.colores || [];
@@ -94,8 +96,7 @@ function renderCatalog(items) {
             card.setAttribute('data-detalle', itemDetalleImg);
         }
 
-        const btnClass = itemDetalleImg ? 'btn-add-cart btn-always-visible' : 'btn-add-cart';
-
+        // Generamos el HTML de los puntitos de colores
         let colorHtml = '';
         if (itemColores.length > 0) {
             colorHtml = `<div class="color-swatches">`;
@@ -105,13 +106,19 @@ function renderCatalog(items) {
             colorHtml += `</div>`;
         }
 
+        // Solo mostramos la imagen. El resto del HTML está oculto por CSS dentro del .card-hidden-content
         card.innerHTML = `
             <img src="${itemImage}" alt="${itemName}">
             <div class="card-overlay">
-                <h3>${itemName}</h3>
-                <p class="card-desc" data-material="${itemMaterial}" data-medidas="${itemMedidas}">${itemMaterial}</p>
-                ${colorHtml}
-                <button class="${btnClass}" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${itemImage}', '${itemCategory}')">Agregar al carrito</button>
+                <div class="card-hidden-content">
+                    <h3>${itemName}</h3>
+                    <p class="info-line">Uso: ${itemUso}</p>
+                    <p class="info-line">Material: ${itemMaterial}</p>
+                    <p class="info-line">Base: ${itemBase}</p>
+                    <p class="info-line">Medidas: ${itemMedidas}</p>
+                    ${colorHtml}
+                    <button class="btn-add-cart" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${itemImage}', '${itemCategory}')">Agregar al carrito</button>
+                </div>
             </div>
         `;
         grid.appendChild(card);
@@ -151,7 +158,6 @@ function renderCatalog(items) {
             }
 
             const isActive = card.classList.contains('active');
-            const descP = card.querySelector('.card-desc');
             
             card.style.transition = '';
             card.style.transform = '';
@@ -163,9 +169,6 @@ function renderCatalog(items) {
             if (!isActive) {
                 card.classList.add('active');
                 grid.classList.add('has-active');
-                descP.textContent = descP.getAttribute('data-medidas');
-            } else {
-                descP.textContent = descP.getAttribute('data-material');
             }
         });
     });
@@ -180,8 +183,6 @@ function checkUrlParams() {
         if (targetCard) {
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
             targetCard.classList.add('active');
-            const descP = targetCard.querySelector('.card-desc');
-            descP.textContent = descP.getAttribute('data-medidas');
             grid.classList.add('has-active');
         }
     }
