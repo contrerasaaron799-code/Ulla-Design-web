@@ -70,7 +70,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   ESTILO ÚNICO DE TARJETA (Limpio y sin duplicados)
+   ESTILO ÚNICO DE TARJETA
    ========================================= */
 .focus-grid { 
   display: grid; 
@@ -97,7 +97,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .focus-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; }
 
-/* CAPA DE INFORMACIÓN OCULTA (Texto negro) */
+/* CAPA DE INFORMACIÓN OCULTA */
 .focus-card .card-overlay {
   position: absolute;
   inset: 0;
@@ -118,7 +118,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: all 0.4s ease;
 }
 
-/* TEXTO EN NEGRO */
 .focus-card .card-hidden-content h3 {
   color: #000000;
   font-size: 20px;
@@ -149,7 +148,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* BOTÓN EN ROJO CON TEXTO BLANCO (Dentro de la tarjeta expandida) */
 .focus-card .btn-add-cart {
   background: var(--accent);
   color: #ffffff;
@@ -163,22 +161,34 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: all 0.3s ease;
 }
 
-/* ESTADO ACTIVO (Expandido) */
+/* --- ESTADO ACTIVO (Expansión con DEGRADADO blanco) --- */
 .focus-card.active {
   transform: translateY(-8px) translateZ(30px) scale(1.04);
   z-index: 10;
   border-color: var(--accent-light);
   box-shadow: 0 0 30px rgba(198, 40, 40, 0.6), var(--shadow-floating);
 }
-.focus-card.active img { transform: scale(1.06); }
+
+.focus-card.active img {
+  transform: scale(1.06);
+}
+
 .focus-card.active .card-overlay {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 1; 
+  pointer-events: auto; 
   background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.85) 80%, transparent 100%);
 }
+
 .focus-card.active .card-hidden-content {
   opacity: 1;
   transform: translateY(0);
+}
+
+.focus-card.active .card-hidden-content h3 {
+  color: #000000;
+}
+.focus-card.active .card-hidden-content .info-line {
+  color: #000000;
 }
 .focus-card.active .btn-add-cart {
   opacity: 1;
@@ -186,7 +196,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   pointer-events: auto;
 }
 
-/* EFECTO DE DESENFOQUE DE LAS OTRAS TARJETAS (opcional) */
+/* --- EFECTO DE DESENFOQUE DE LAS OTRAS TARJETAS --- */
 .focus-grid.has-active .focus-card:not(.active) {
   filter: blur(4px) brightness(0.6);
   transform: perspective(1000px) scale(0.95);
