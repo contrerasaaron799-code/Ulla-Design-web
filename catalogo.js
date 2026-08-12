@@ -34,6 +34,22 @@ async function loadProducts() {
         grid.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);font-style:italic;">El catálogo está vacío o no se encontraron datos.</div>`;
     }
 
+    // --- NUEVO: Verificar si hay ofertas y ocultar el botón del filtro ---
+    const hayOfertas = productsData.some(item => item.oferta === true);
+    const botonOferta = document.querySelector('#categoryFilters .dropdown-item[data-category="oferta"]');
+    
+    if (botonOferta) {
+        if (!hayOfertas) {
+            botonOferta.style.display = 'none'; // Ocultar el botón
+        } else {
+            botonOferta.style.display = 'block'; // Mostrarlo si hay (por si acaso)
+        }
+    }
+    // ----------------------------------------------------------------
+
+    renderCatalog(productsData);
+    checkUrlParams();
+
   } catch (err) {
     console.error('Error crítico cargando productos:', err);
     grid.innerHTML = `<div style="text-align:center;padding:40px;color:#C62828;font-weight:bold;border:1px solid #C62828;border-radius:12px;background:#fff;">
@@ -43,9 +59,8 @@ async function loadProducts() {
     </div>`;
     productsData = [];
   }
-  renderCatalog(productsData);
-  checkUrlParams();
 }
+
 
 function renderCatalog(items) {
     grid.innerHTML = ''; 
