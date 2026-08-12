@@ -61,7 +61,6 @@ async function loadProducts() {
   }
 }
 
-
 function renderCatalog(items) {
     grid.innerHTML = ''; 
     if (!items || items.length === 0) return;
@@ -111,10 +110,43 @@ function renderCatalog(items) {
         `;
         grid.appendChild(card);
 
+        /* --- EVENTOS 3D PARA TODAS LAS TARJETAS --- */
+        card.addEventListener('mousemove', (e) => {
+            // Si está expandida (activa), no hacemos el efecto 3D para evitar conflictos
+            if (card.classList.contains('active')) return;
+            
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Cálculo de la rotación (limitada a 10 grados para que sea sutil y elegante)
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            // Aplicamos la transformación 3D instantánea (quitamos la transición mientras el mouse se mueve)
+            card.style.transition = 'none'; 
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.boxShadow = `${-rotateY}px ${rotateX}px 20px rgba(0,0,0,0.15)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            if (!card.classList.contains('active')) {
+                // Volvemos a activar la transición suave del CSS para regresar al estado normal
+                card.style.transition = ''; 
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            }
+        });
+
         /* --- EVENTO DE CLIC --- */
         card.addEventListener('click', (e) => {
-            if (e.target.classList.contains('btn-add-cart')) return;
-            
+            // Limpiamos el estilo 3D manual para que la expansión funcione limpia
+            card.style.transition = '';
+            card.style.transform = '';
+            card.style.boxShadow = '';
+
             // Si tiene imagen de detalle (tableros), abrimos el modal de tableros
             const detalleUrl = card.getAttribute('data-detalle');
             if (detalleUrl) {
@@ -131,7 +163,7 @@ function renderCatalog(items) {
 
 // ================= FUNCIONES DE LOS MODALES =================
 
-/* MODAL DE DETALLES DE TABLEROS (AHORA CON BOTÓN DE AGREGAR AL CARRITO) */
+/* MODAL DE DETALLES DE TABLEROS */
 function openDetailModal(card) {
     const imgSrc = card.getAttribute('data-detalle');
     const name = card.getAttribute('data-name');

@@ -89,6 +89,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   background: transparent; 
   border: 1px solid transparent; 
   box-shadow: var(--shadow-card); 
+  perspective: 1000px; /* CLAVE: El 3D se aplica individualmente a cada carta */
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
@@ -132,7 +133,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 
 /* =========================================
-   MODAL DE DETALLES DE TABLEROS (CON BOTÓN DE COMPRA)
+   MODAL DE DETALLES DE TABLEROS
    ========================================= */
 .detail-modal-overlay {
   position: fixed; inset: 0;
@@ -187,7 +188,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   border-radius: 6px;
   margin-bottom: 20px;
 }
-/* Botón de compra para el modal de tableros */
 .btn-add-cart-detail {
   background: var(--accent);
   color: #ffffff;
@@ -206,7 +206,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 
 /* =========================================
-   MODAL DE PRODUCTO (Vista desprendida)
+   MODAL DE PRODUCTO
    ========================================= */
 .product-modal-overlay {
   position: fixed; inset: 0;
