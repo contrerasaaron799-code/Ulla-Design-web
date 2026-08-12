@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ulla Design - Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="container">
+<nav class="nav">
+<a class="brand" href="index.html">
+<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" />
+  <path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" />
+  <path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" />
+  <path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" />
+  <path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" />
+  <path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" />
+</svg>
+<span class="brand-text">
+<span class="ulla">Ulla</span>
+<span class="design">Design</span>
+</span>
+</a>
+
+<div class="menu-wrap">
+<div class="menu">
+<a href="index.html">Inicio</a>
+<a href="categorias.html" style="color:var(--accent);">Catalogo</a>
+<a href="nosotros.html">Acerca de nosotros</a>
+<a href="servicios.html">Servicios</a>
+</div>
+<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+
+<button class="hamburger" onclick="toggleMenu()">
+  <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</button>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a>
+  <a href="categorias.html">Catálogo</a>
+  <a href="nosotros.html">Acerca de nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">Catálogo Exclusivo</h2>
+  </div>
+  <div class="catalog-controls">
+    <div class="controls-left">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos...">
+      
+      <!-- FILTRO PRINCIPAL: CATEGORÍAS -->
+      <div class="custom-dropdown" id="filterDropdownContainer">
+        <button class="dropdown-trigger" id="dropdownTrigger">Categorías <span class="arrow">▼</span></button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <div class="dropdown-section">
+            <h4>Categorías</h4>
+            <div class="dropdown-options" id="categoryFilters">
+              <button class="dropdown-item active" data-category="todos">Todos</button>
+              <button class="dropdown-item" data-category="sillas">Sillas</button>
+              <button class="dropdown-item" data-category="sofas">Sillones y Sofás</button>
+              <button class="dropdown-item" data-category="taburetes">Taburetes</button>
+              <button class="dropdown-item" data-category="paneles">Paneles</button>
+              <button class="dropdown-item" data-category="suelos vinilicos">Suelos Vinilicos</button>
+              <button class="dropdown-item" data-category="lamparas y decoracion">Lamparas y Decoración</button>
+              <button class="dropdown-item" data-category="salones">Salones</button>
+              <button class="dropdown-item" data-category="mesasdecomedor">Mesas de comedor</button>
+              <button class="dropdown-item" data-category="mesasdecentro">Centros de Mesa</button>
+              <button class="dropdown-item" data-category="juvenil">Juvenil</button>
+              <button class="dropdown-item" data-category="exteriores">Exterior</button>
+              <button class="dropdown-item" data-category="basesmetalicas">Bases metálicas y Tableros</button>
+              <button class="dropdown-item" data-category="bancos de hosteleria">Bancos de Hostelería</button>
+              <button class="dropdown-item" data-category="hotel">Hotel</button>
+              <button class="dropdown-item" data-category="hogar">Hogar</button>
+              <button class="dropdown-item" data-category="contract">Contract</button>
+              <button class="dropdown-item" data-category="oferta">Liquidación</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUEVO FILTRO: SUBCATEGORÍAS (Se oculta/muestra según la categoría principal) -->
+      <div class="custom-dropdown" id="subcategoryDropdownContainer">
+        <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
+        <div class="dropdown-menu" id="subcategoryMenu">
+          <div class="dropdown-section">
+            <h4>Subcategoría</h4>
+            <div class="dropdown-options" id="subcategoryFilters">
+              <!-- Los botones se generan dinámicamente con JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="focus-grid" id="productGrid"></div>
+</section>
+</main>
+
+<div class="cart-floating-container">
+  <button class="btn-view-cart" onclick="openCartModal()">🛒 Ver Carrito <span class="cart-badge" id="cartCount">0</span></button>
+</div>
+
+<!-- Modal del Carrito -->
+<div class="cart-modal-overlay" id="cartModalOverlay" onclick="handleModalClick(event)">
+  <div class="cart-modal-container">
+    <div class="cart-left-pane">
+      <div class="cart-header-row">
+        <h2>Shopping Cart</h2>
+        <span class="cart-items-count" id="modalItemsCount">0 Items</span>
+      </div>
+      <div class="cart-table-headers">
+        <span>Product Details</span>
+        <span>Quantity</span>
+      </div>
+      <div class="cart-items-list" id="cartItemsList"></div>
+      <button class="cart-continue-shopping" onclick="closeCartModal()">← Continue Shopping</button>
+      <button class="btn-checkout" onclick="checkout()">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Detalles de Tableros -->
+<div class="detail-modal-overlay" id="detailModal" onclick="handleDetailModalClick(event)">
+  <div class="detail-modal-container">
+    <span class="detail-close-btn" onclick="closeDetailModal()">×</span>
+    <img id="detailImage" src="" alt="Detalles del producto">
+  </div>
+</div>
+
+<footer class="footer container">Ulla Design</footer>
+
+<script src="catalogo.js"></script>
+</body>
+</html>

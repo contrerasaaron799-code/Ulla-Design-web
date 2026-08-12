@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ulla Design - Acerca de Nosotros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{ --accent:#C62828; --accent-light:#D95B5B; --accent-dark:#8E1E1E; --bg:#F6F1F1; --card:#FFFFFF; --subtle:#EFE8E8; --border:#DDCFCF; --headline:#2A1B1B; --body:#5F4A4A; --muted:#8B7474; --inverse:#FFFFFF; --shadow-card:0 8px 20px rgba(42,27,27,.08); --shadow-floating:0 12px 40px rgba(42,27,27,.12); --radius-card:12px; --radius-button:8px; --container:1200px; }
+*{box-sizing:border-box} body{ margin:0; font-family:Inter,Helvetica Neue,sans-serif; background:var(--bg); color:var(--body); } a{text-decoration:none;color:inherit}
+.container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; position:relative; }
+.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
+.brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
+.brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
+.brand-text .ulla{ color:var(--accent); font-family:"Playfair Display", Georgia, serif; font-size:22px; font-weight:600; }
+.brand-text .design{ color:var(--headline); font-family:Inter,Helvetica Neue,sans-serif; font-size:16px; font-weight:600; }
+.menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
+.menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
+.menu a{ position:relative; padding:6px 0; }
+.menu a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.25s ease; }
+.menu a:hover::after{width:100%}
+.menu a.active::after { width: 100%; } .menu a.active { color: var(--accent); font-weight: 500; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; cursor:pointer; border-radius:var(--radius-button); transition:.2s ease; font-weight:500; white-space:nowrap; flex:0 0 auto; }
+.btn:hover{transform:translateY(-2px);opacity:.92} .btn-primary{background:var(--accent);color:var(--inverse);padding:10px 22px}
+
+/* MENÚ HAMBURGUESA MÓVIL */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
+.hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
+.mobile-menu { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--card); flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; box-shadow: var(--shadow-floating); border-radius: 0 0 var(--radius-card) var(--radius-card); z-index: 100; }
+.mobile-menu.show { display: flex; }
+
+.section { padding: 48px 0; } .section-title { font-family: "Playfair Display", Georgia, serif; font-size: 38px; line-height: 1.2; color: var(--headline); margin: 0; font-weight: 500; } .text-center { text-align: center; } .about-header { margin-bottom: 48px; padding-top: 20px; } .about-subtitle { text-align: center; max-width: 650px; margin: 16px auto 0; color: var(--body); font-size: 17px; line-height: 1.6; } .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 60px; } .story-content h2 { font-family: "Playfair Display", Georgia, serif; font-size: 28px; color: var(--headline); margin-top: 0; margin-bottom: 16px; } .story-content p { font-size: 15px; line-height: 1.7; color: var(--body); margin-bottom: 14px; } .story-image-wrap { position: relative; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-floating); border: 1px solid var(--border); height: 480px; } .story-image-wrap img { width: 100%; height: 100%; object-fit: cover; } .values-section { margin: 60px 0; } .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; } .glowing-wrapper { position: relative; border-radius: var(--radius-card); background: var(--border); box-shadow: var(--shadow-card); transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; } .glowing-wrapper:hover { transform: translateY(-4px); box-shadow: var(--shadow-floating); } .glowing-effect { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s ease; background: radial-gradient(500px circle at var(--mouse-x, 0) var(--mouse-y, 0), var(--accent), transparent 40%); z-index: 1; } .glowing-wrapper:hover .glowing-effect { opacity: 1; } .value-inner { position: relative; z-index: 2; background: var(--card); margin: 2.5px; padding: 30px 24px; border-radius: calc(var(--radius-card) - 2.5px); height: calc(100% - 5px); text-align: center; } .value-icon { font-size: 32px; margin-bottom: 16px; display: inline-block; color: var(--accent); } .value-title { font-family: Inter, sans-serif; font-size: 18px; font-weight: 600; color: var(--headline); margin: 0 0 10px 0; } .value-desc { font-size: 14px; line-height: 1.6; color: var(--body); margin: 0; } .footer{ padding: 40px 0; color:var(--muted); font-size:14px; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
+@media (max-width: 900px) { .hamburger { display: block; } .menu-wrap { display: none; } .story-grid { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; } .story-image-wrap { height: 280px; } .nav { gap: 12px; } }
+</style>
+</head>
+<body>
+<header class="container">
+<nav class="nav">
+<a class="brand" href="index.html">
+<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" /><path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" /><path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" /><path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" /><path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" /><path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" /></svg>
+<span class="brand-text"><span class="ulla">Ulla</span><span class="design">Design</span></span>
+</a>
+
+<div class="menu-wrap">
+<div class="menu"><a href="index.html">Inicio</a><a href="categorias.html">Catálogo</a><a href="nosotros.html" class="active">Acerca de nosotros</a><a href="servicios.html">Servicios</a></div>
+<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+
+<button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a><a href="categorias.html">Catálogo</a><a href="nosotros.html">Acerca de nosotros</a><a href="servicios.html">Servicios</a><a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="about-header"><h1 class="section-title text-center">Acerca de Nosotros</h1><p class="about-subtitle">Creamos ambientes donde el diseño, la elegancia y la funcionalidad se unen para transformar cada rincón de tu vida.</p></div>
+    <div class="story-grid">
+      <div class="story-content">
+        <h2>Nuestra Esencia</h2>
+        <p>En Ulla Design, entendemos que cada espacio tiene una historia única que merece ser contada de manera especial. Nos apasiona acompañar a nuestros clientes en el proceso de transformar sus espacios, ayudándoles a crear ambientes que reflejen su personalidad, sus gustos y su estilo de vida. Creemos que el diseño es mucho más que estética; es una experiencia que puede enriquecer cada momento que se vive en un espacio.</p>
+        <p>Desde nuestros elegantes muebles de salón, diseñados para fomentar la conversación y la convivencia, hasta nuestras soluciones de cocina, donde la funcionalidad se fusiona armoniosamente con el estilo, cada detalle es pensado para crear un entorno que inspire. Nos especializamos en combinar diseño y confort para que cada rincón de su hogar o negocio no solo sea visualmente atractivo, sino también funcional y acogedor.</p>
+        <p>Además, ofrecemos un servicio de asesoramiento personalizado, donde trabajamos estrechamente con nuestros clientes para entender sus necesidades y deseos. A través de un enfoque único y detallado, nos aseguramos de que cada proyecto sea una obra que cuente la historia de quienes lo habitan, siempre con el compromiso de ofrecer calidad, innovación y excelencia en cada uno de nuestros diseños.</p>
+      </div>
+      <div class="story-image-wrap"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop" alt="Ulla Design Showroom" /></div>
+    </div>
+    <div class="values-section">
+      <h2 class="section-title text-center" style="font-size: 28px;">Nuestros Pilares</h2>
+      <div class="values-grid">
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="value-inner"><div class="value-icon">✦</div><h3 class="value-title">Diseño Exclusivo</h3><p class="value-desc">Cada proyecto es único y adaptado estrictamente a las necesidades estéticas y operativas de nuestros clientes.</p></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="value-inner"><div class="value-icon">❖</div><h3 class="value-title">Calidad Artesanal</h3><p class="value-desc">Seleccionamos materiales rigurosamente y aplicamos técnicas de fabricación precisas para asegurar acabados duraderos.</p></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="value-inner"><div class="value-icon">▲</div><h3 class="value-title">Compromiso Total</h3><p class="value-desc">Acompañamiento continuo en todo el proceso: desde la toma de medidas hasta la entrega e instalación final.</p></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer container">Ulla Design &copy; 2026</footer>
+<script>
+const glowingCards = document.querySelectorAll('.glowing-wrapper');
+glowingCards.forEach(card => { card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; card.style.setProperty('--mouse-x', `${x}px`); card.style.setProperty('--mouse-y', `${y}px`); }); });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+</script>
+</body>
+</html>
