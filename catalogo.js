@@ -91,7 +91,7 @@ function renderCatalog(items) {
             colorHtml += `</div>`;
         }
 
-        // Lógica inteligente: Solo pintamos la línea si existe en el JSON
+        // Generamos las líneas de información SOLO si existen en el JSON
         let infoHtml = '';
         if (item.uso) infoHtml += `<p class="info-line">Uso: ${item.uso}</p>`;
         if (item.material) infoHtml += `<p class="info-line">Material: ${item.material}</p>`;
@@ -133,13 +133,28 @@ function renderCatalog(items) {
             }
         });
 
+        /* --- EVENTO DE CLIC CORREGIDO PARA TABLEROS --- */
         card.addEventListener('click', (e) => {
             if (e.target.classList.contains('btn-add-cart')) return;
             const detalleUrl = card.getAttribute('data-detalle');
+            
             if (detalleUrl) {
+                // FORZAMOS que la tarjeta se active visualmente (para que el botón aparezca)
+                const isActive = card.classList.contains('active');
+                card.style.transition = '';
+                card.style.transform = '';
+                card.style.boxShadow = '';
+                document.querySelectorAll('.focus-card').forEach(c => c.classList.remove('active'));
+                grid.classList.remove('has-active');
+                card.classList.add('active');
+                grid.classList.add('has-active');
+                
+                // Y ahora abrimos el modal con la tabla de medidas
                 openDetailModal(detalleUrl);
                 return;
             }
+
+            // Lógica normal para los demás productos
             const isActive = card.classList.contains('active');
             card.style.transition = '';
             card.style.transform = '';
