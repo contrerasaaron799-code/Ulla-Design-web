@@ -70,34 +70,33 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   TARJETAS ADAPTABLES A LA IMAGEN (GRID AUTOMÁTICO)
+   SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
    ========================================= */
 .focus-grid { 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 Columnas fijas y alineadas */
-  gap: 24px;
-  scroll-padding-top: 100px; 
+  column-count: 4; 
+  column-gap: 24px; 
   min-height: 300px; 
   padding: 0 1px; 
 }
 
 .focus-card { 
+  break-inside: avoid; /* Evita que una tarjeta se corte entre columnas */
   position: relative; 
+  margin-bottom: 24px; 
   border-radius: var(--radius-card); 
   overflow: hidden; 
   cursor: pointer; 
-  background: var(--headline); 
+  background: transparent; /* Sin fondo marrón, la imagen dicta todo */
   border: 1px solid rgba(198, 40, 40, 0.35); 
   box-shadow: 0 0 15px rgba(198, 40, 40, 0.2), var(--shadow-card); 
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
-  min-height: 280px; /* CORRECCIÓN: Altura mínima para que no aparezca el fondo marrón */
 }
 
 .focus-card img { 
   width: 100%; 
-  height: auto; /* La altura la dicta la imagen (Adaptable) */
+  height: auto; /* La imagen estira la tarjeta libremente */
   display: block; 
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
@@ -295,15 +294,15 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 #subcategoryDropdownContainer.visible { display: inline-block; margin-left: 12px; }
 
 /* =========================================
-   RESPONSIVE ADAPTABLE
+   RESPONSIVE (Móvil y Tablet)
    ========================================= */
 @media (max-width: 1024px) { 
-  .focus-grid { grid-template-columns: repeat(3, 1fr); } /* 3 Columnas en tablet */
+  .focus-grid { column-count: 3; } /* 3 Columnas en tablet */
 }
 @media (max-width: 768px) {
   .hamburger { display: block; }
   .menu-wrap { display: none; }
-  .focus-grid { grid-template-columns: repeat(2, 1fr); } /* 2 Columnas en móvil */
+  .focus-grid { column-count: 2; } /* 2 Columnas en móvil (tal cual le encanta al cliente) */
   .catalog-controls { flex-direction: column; align-items: stretch; }
   .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
   .search-input { width: 100%; }
