@@ -196,14 +196,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   pointer-events: auto;
 }
 
-/* --- EFECTO DE DESENFOQUE DE LAS OTRAS TARJETAS --- */
-/* --- EFECTO DE DESENFOQUE DE LAS OTRAS TARJETAS --- */
-/* Eliminado por petición del cliente */
-/* .focus-grid.has-active .focus-card:not(.active) {
-  filter: blur(4px) brightness(0.6);
-  transform: perspective(1000px) scale(0.95);
-} */
-
 /* =========================================
    CARRITO Y MODALES
    ========================================= */
