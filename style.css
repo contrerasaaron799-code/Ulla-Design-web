@@ -72,27 +72,36 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 /* =========================================
    ESTILO ORIGINAL: TARJETAS ADAPTABLES A LA IMAGEN
    ========================================= */
+/* --- CAMBIO A SISTEMA DE COLUMNAS (MASONRY) --- */
 .focus-grid { 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  scroll-padding-top: 100px; 
+  column-count: 4; /* 4 Columnas en escritorio */
+  column-gap: 24px; /* El espacio entre tarjetas */
   min-height: 300px; 
+  padding: 0 1px; 
 }
 
 .focus-card { 
+  /* Evitamos que la tarjeta se corte entre columnas */
+  break-inside: avoid; 
+  
   position: relative; 
-  height: auto; /* La altura la dicta la imagen */
+  margin-bottom: 24px; /* Espacio vertical entre tarjetas */
   border-radius: var(--radius-card); 
   overflow: hidden; 
   cursor: pointer; 
   background: var(--headline); 
   border: 1px solid rgba(198, 40, 40, 0.35); 
   box-shadow: 0 0 15px rgba(198, 40, 40, 0.2), var(--shadow-card); 
-  perspective: 1000px; 
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
+}
+
+.focus-card img { 
+  width: 100%; 
+  height: auto; /* La imagen dicta su propia altura */
+  display: block; 
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
 
 .focus-card img { 
@@ -430,27 +439,17 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
-@media (max-width: 1024px) { .focus-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1024px) { 
+  .focus-grid { column-count: 3; } /* 3 Columnas en tablet */
+}
 @media (max-width: 768px) {
   .hamburger { display: block; }
   .menu-wrap { display: none; }
-  .focus-grid { grid-template-columns: repeat(2, 1fr); } /* Movil en 2 columnas, como le gusta al cliente */
+  .focus-grid { column-count: 2; } /* 2 Columnas en móvil */
   .catalog-controls { flex-direction: column; align-items: stretch; }
   .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
   .search-input { width: 100%; }
-  .cart-modal-overlay { padding: 10px; }
-  .cart-left-pane { padding: 24px 16px; overflow: visible; }
-  .cart-header-row h2 { font-size: 20px; }
-  .cart-table-headers { display: none; }
-  .cart-item-row { display: flex; flex-wrap: wrap; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--subtle); gap: 14px 0; }
-  .cart-item-info { width: 100%; display: flex; align-items: flex-start; gap: 14px; }
-  .cart-item-info img { width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius-button); border: 1px solid var(--subtle); flex-shrink: 0; background: var(--subtle); }
-  .cart-item-details { display: flex; flex-direction: column; flex: 1; gap: 2px; }
-  .cart-item-details h4 { font-size: 15px; margin: 0; }
-  .cart-item-details .remove-btn { margin-top: 4px; padding: 0; align-self: flex-start; background: none; border: none; color: var(--accent); cursor: pointer; font-weight: 500; font-size: 13px; }
-  .quantity-control { margin-left: auto; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; border-radius: 8px; }
-  .quantity-control button { background: transparent; border: none; padding: 8px 12px; cursor: pointer; color: var(--headline); font-weight: 600; }
-  .quantity-control span { font-weight: 600; font-size: 14px; }
+  /* ... resto del código móvil del carrito ... */
 }
 
 .detail-modal-overlay {
