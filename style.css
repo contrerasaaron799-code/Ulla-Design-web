@@ -2,15 +2,15 @@
   --accent: #C62828;
   --accent-light: #D95B5B;
   --accent-dark: #8E1E1E;
-  --bg: #F6F1F1;
-  --card: #FFFFFF;
+  --bg: #FAFAFA; /* Cambiado a blanco/crema para fusionarse con las tarjetas */
+  --card: #FAFAFA; /* Mismo color que el fondo de la página */
   --subtle: #EFE8E8;
   --border: #DDCFCF;
   --headline: #2A1B1B;
   --body: #5F4A4A;
   --muted: #8B7474;
   --inverse: #FFFFFF;
-  --shadow-card: 0 15px 35px rgba(42,27,27,.12), 0 5px 15px rgba(0,0,0,.06);
+  --shadow-card: 0 4px 12px rgba(42,27,27,0.03); /* Sombra muy sutil en estado normal */
   --shadow-floating: 0 25px 50px rgba(42,27,27,.2), 0 10px 20px rgba(0,0,0,.1);
   --radius-card: 12px;
   --radius-button: 8px;
@@ -88,7 +88,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   cursor: pointer; 
   background: transparent; 
   border: 1px solid transparent; 
-  box-shadow: 0 0 15px rgba(198, 40, 40, 0.2), var(--shadow-card); 
+  box-shadow: var(--shadow-card); 
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
@@ -171,7 +171,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
    ESTADO ACTIVO (EFECTO LAMP DESDE ABAJO + ELEVACIÓN)
    ========================================= */
 .focus-card.active {
-  transform: translateY(-18px) translateZ(30px) scale(1.04); /* ELEVADO DE -8px A -18px */
+  transform: translateY(-18px) translateZ(30px) scale(1.04);
   z-index: 10;
   border-color: var(--accent-light);
   box-shadow: 0 0 40px rgba(198, 40, 40, 0.4), var(--shadow-floating);
@@ -181,18 +181,17 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transform: scale(1.06);
 }
 
-/* EL EFECTO LAMP DESDE EL BORDE INFERIOR */
 .focus-card.active::before {
   content: '';
   position: absolute;
-  bottom: 0; /* CAMBIADO A BOTTOM */
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 1;
-  border-bottom: 2px solid rgba(198, 40, 40, 0.9); /* BORDE ABAJO */
-  background: radial-gradient(ellipse at 50% 100%, /* GRADIENTE CENTRADO ABAJO */
+  border-bottom: 2px solid rgba(198, 40, 40, 0.9);
+  background: radial-gradient(ellipse at 50% 100%,
     rgba(198, 40, 40, 0.6) 0%, 
     rgba(198, 40, 40, 0.3) 15%, 
     transparent 50%
@@ -209,7 +208,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .focus-card.active .card-overlay {
   opacity: 1; 
   pointer-events: auto; 
-  /* Ajustamos el degradado blanco para que no tape el efecto brillante rojo */
   background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.80) 60%, transparent 100%);
   z-index: 2; 
 }
@@ -327,15 +325,48 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 #subcategoryDropdownContainer.visible { display: inline-block; margin-left: 12px; }
 
 /* =========================================
+   ORDEN CENTRAL (SOLO PARA LA VISTA "TODOS")
+   ========================================= */
+.focus-grid.view-all {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    column-count: 1 !important;
+}
+
+.focus-grid.view-all .focus-card {
+    width: calc(25% - 18px);
+    margin-bottom: 0;
+    height: auto !important;
+    display: block;
+}
+
+/* 3 Columnas (Tablet) */
+@media (max-width: 1024px) { 
+    .focus-grid.view-all .focus-card {
+        width: calc(33.33% - 16px);
+    }
+}
+
+/* 2 Columnas (Móvil) */
+@media (max-width: 768px) {
+    .focus-grid.view-all .focus-card {
+        width: calc(50% - 12px);
+    }
+}
+
+/* =========================================
    RESPONSIVE (Móvil y Tablet)
    ========================================= */
 @media (max-width: 1024px) { 
-  .focus-grid { column-count: 3; } /* 3 Columnas en tablet */
+  .focus-grid { column-count: 3; }
 }
 @media (max-width: 768px) {
   .hamburger { display: block; }
   .menu-wrap { display: none; }
-  .focus-grid { column-count: 2; } /* 2 Columnas en móvil */
+  .focus-grid { column-count: 2; }
   .catalog-controls { flex-direction: column; align-items: stretch; }
   .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
   .search-input { width: 100%; }
@@ -352,37 +383,4 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   .quantity-control { margin-left: auto; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; border-radius: 8px; }
   .quantity-control button { background: transparent; border: none; padding: 8px 12px; cursor: pointer; color: var(--headline); font-weight: 600; }
   .quantity-control span { font-weight: 600; font-size: 14px; }
-}
-/* =========================================
-   ORDEN CENTRAL (SOLO PARA LA VISTA "TODOS")
-   ========================================= */
-.focus-grid.view-all {
-    display: flex !important; /* Quitamos el sistema de columnas */
-    flex-wrap: wrap; /* Permitimos que bajen de línea */
-    align-items: center; /* EJE CENTRAL: La línea verde imaginaria pasa por aquí */
-    justify-content: center; /* Centra el contenido en el grid */
-    gap: 24px; /* Mismo espacio entre tarjetas */
-    column-count: 1 !important; /* Asegura que no se rompa */
-}
-
-/* Ancho de las tarjetas en 4 columnas (Escritorio) */
-.focus-grid.view-all .focus-card {
-    width: calc(25% - 18px);
-    margin-bottom: 0;
-    height: auto !important;
-    display: block;
-}
-
-/* 3 Columnas (Tablet) */
-@media (max-width: 1024px) { 
-    .focus-grid.view-all .focus-card {
-        width: calc(33.33% - 16px);
-    }
-}
-
-/* 2 Columnas (Móvil - como le gusta al cliente) */
-@media (max-width: 768px) {
-    .focus-grid.view-all .focus-card {
-        width: calc(50% - 12px);
-    }
 }
