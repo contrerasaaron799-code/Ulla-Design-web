@@ -162,7 +162,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 .product-modal-overlay.show .product-modal-container { transform: translateY(0); }
 
-/* X sin círculo para el modal de producto */
 .product-close-btn {
   position: absolute;
   top: 10px;
@@ -272,8 +271,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   justify-content: center;
 }
 .detail-modal-overlay.show .detail-modal-container { transform: translateY(0); }
-
-/* X sin círculo para el modal de tableros */
 .detail-close-btn {
   position: absolute;
   top: 10px;
@@ -286,9 +283,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   cursor: pointer;
   transition: transform 0.2s ease;
   line-height: 1;
-  width: auto;
-  height: auto;
-  box-shadow: none;
 }
 .detail-close-btn:hover { transform: scale(1.2); }
 .detail-modal-container img {
@@ -300,7 +294,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 
 /* =========================================
-   CARRITO Y MODALES (Sin cambios mayores)
+   CARRITO Y MODALES
    ========================================= */
 .cart-floating-container { position: fixed; bottom: 30px; right: 30px; z-index: 999; }
 .btn-view-cart { background: var(--headline); color: var(--inverse); padding: 14px 24px; border-radius: 40px; box-shadow: var(--shadow-floating); font-weight: 600; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 2px solid var(--accent); transition: transform 0.2s ease; }
@@ -347,11 +341,38 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
   .search-input { width: 100%; }
   
-  /* Responsive del modal */
-  .product-modal-layout { flex-direction: column; align-items: flex-start; }
-  .product-modal-image { max-width: 100%; }
-  .product-modal-container { padding: 20px; }
-  .product-modal-info h2 { font-size: 22px; }
+  /* Responsive del modal de Producto (CORREGIDO) */
+  .product-modal-overlay { padding: 10px; }
+  .product-modal-container { padding: 20px; max-height: 95vh; }
+  .product-modal-layout { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 15px; 
+    width: 100%;
+    max-height: 80vh; /* Espacio para la X y el padding */
+    overflow-y: auto; /* Permite hacer scroll si el contenido es muy largo */
+    padding-right: 5px;
+  }
+  .product-modal-image { 
+    max-width: 100%; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    flex-shrink: 0; /* Evita que la imagen aplaste el texto */
+  }
+  .product-modal-image img { 
+    max-height: 35vh; /* La imagen no ocupa más del 35% de la pantalla */
+    width: auto; 
+    max-width: 100%; 
+    object-fit: contain; 
+  }
+  .product-modal-info { width: 100%; flex-shrink: 0; }
+  .product-modal-info h2 { font-size: 22px; margin-bottom: 8px; }
+  .btn-add-cart-modal { width: 100%; text-align: center; justify-content: center; }
+
+  /* Ajuste para el modal de Tableros en móvil */
+  .detail-modal-container { padding: 10px; }
+  .detail-modal-container img { max-height: 80vh; }
 
   .cart-modal-overlay { padding: 10px; }
   .cart-left-pane { padding: 24px 16px; overflow: visible; }
