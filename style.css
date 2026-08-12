@@ -87,7 +87,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   overflow: hidden; 
   cursor: pointer; 
   background: transparent; /* Sin fondo marrón, la imagen dicta todo */
-  border: 1px solid rgba(198, 40, 40, 0.35); 
+  border: 1px solid transparent; /* Borde transparente para integración */
   box-shadow: 0 0 15px rgba(198, 40, 40, 0.2), var(--shadow-card); 
   transform-style: preserve-3d; 
   will-change: transform;
