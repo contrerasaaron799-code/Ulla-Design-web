@@ -355,6 +355,14 @@ function updateSubcategoryMenu(category) {
 }
 
 function applyFilters() {
+    // --- NUEVO: Agregamos o quitamos la clase 'view-all' según la categoría ---
+    if (currentCategory === 'todos') {
+        grid.classList.add('view-all');
+    } else {
+        grid.classList.remove('view-all');
+    }
+    // ----------------------------------------------------------------------
+
     const searchTerm = searchInput.value.toLowerCase().trim();
     const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
 

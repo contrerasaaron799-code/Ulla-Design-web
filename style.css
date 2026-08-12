@@ -353,3 +353,36 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   .quantity-control button { background: transparent; border: none; padding: 8px 12px; cursor: pointer; color: var(--headline); font-weight: 600; }
   .quantity-control span { font-weight: 600; font-size: 14px; }
 }
+/* =========================================
+   ORDEN CENTRAL (SOLO PARA LA VISTA "TODOS")
+   ========================================= */
+.focus-grid.view-all {
+    display: flex !important; /* Quitamos el sistema de columnas */
+    flex-wrap: wrap; /* Permitimos que bajen de línea */
+    align-items: center; /* EJE CENTRAL: La línea verde imaginaria pasa por aquí */
+    justify-content: center; /* Centra el contenido en el grid */
+    gap: 24px; /* Mismo espacio entre tarjetas */
+    column-count: 1 !important; /* Asegura que no se rompa */
+}
+
+/* Ancho de las tarjetas en 4 columnas (Escritorio) */
+.focus-grid.view-all .focus-card {
+    width: calc(25% - 18px);
+    margin-bottom: 0;
+    height: auto !important;
+    display: block;
+}
+
+/* 3 Columnas (Tablet) */
+@media (max-width: 1024px) { 
+    .focus-grid.view-all .focus-card {
+        width: calc(33.33% - 16px);
+    }
+}
+
+/* 2 Columnas (Móvil - como le gusta al cliente) */
+@media (max-width: 768px) {
+    .focus-grid.view-all .focus-card {
+        width: calc(50% - 12px);
+    }
+}
