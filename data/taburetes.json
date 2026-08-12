@@ -1,0 +1,166 @@
+[
+  {
+    "id": "simp-taburete",
+    "nombre": "Simp",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 47 cm",
+    "puntos": 55,
+    "imagen": "img/taburetes/simp.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Verde", "hex": "#00695C"}
+    ]
+  },
+  {
+    "id": "simp-floral-taburete",
+    "nombre": "Simp Floral",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 47 cm",
+    "puntos": 55,
+    "imagen": "img/taburetes/simp-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Verde", "hex": "#00695C"}
+    ]
+  },
+  {
+    "id": "simp-polipiel-taburete",
+    "nombre": "Simp Polipiel",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Polipiel",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 47 cm",
+    "puntos": 45,
+    "imagen": "img/taburetes/simp-polipiel.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#5D4037"}
+    ]
+  },
+  {
+    "id": "frodita-taburete",
+    "nombre": "Frodita",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "43 cm x 102 cm x 47 cm",
+    "puntos": 70,
+    "imagen": "img/taburetes/frodita.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Verde", "hex": "#00695C"}
+    ]
+  },
+  {
+    "id": "yumi-taburete",
+    "nombre": "Yumi",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 48 cm",
+    "puntos": 65,
+    "imagen": "img/taburetes/yumi.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Verde", "hex": "#00695C"}
+    ]
+  },
+  {
+    "id": "yumi-polipiel-taburete",
+    "nombre": "Yumi Polipiel",
+    "categoria": "taburetes",
+    "uso": "Uso interior",
+    "material": "Polipiel",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 48 cm",
+    "puntos": 65,
+    "imagen": "img/taburetes/yumi-polipiel.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#5D4037"}
+    ]
+  },
+  {
+    "id": "toix-respaldo-taburete",
+    "nombre": "Toix Respaldo",
+    "categoria": "taburetes",
+    "uso": "Uso int./ext.",
+    "material": "Metal",
+    "base": "Base negro",
+    "medidas": "43 cm x 97 cm x 43 cm",
+    "puntos": 50,
+    "imagen": "img/taburetes/toix-respaldo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "toix-madera-taburete",
+    "nombre": "Toix Madera",
+    "categoria": "taburetes",
+    "uso": "Uso int./ext.",
+    "material": "Metal",
+    "base": "Base negro",
+    "medidas": "43 cm x 97 cm x 43 cm",
+    "puntos": 55,
+    "imagen": "img/taburetes/toix-madera.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8D6E63"}
+    ]
+  },
+  {
+    "id": "toix-taburete",
+    "nombre": "Toix",
+    "categoria": "taburetes",
+    "uso": "Uso int./ext.",
+    "material": "Metal",
+    "base": "Base negro",
+    "medidas": "43 cm x 76 cm x 43 cm",
+    "puntos": 40,
+    "imagen": "img/taburetes/toix.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "lectus-countender-taburete",
+    "nombre": "Lectus Countender",
+    "categoria": "taburetes",
+    "uso": "Uso int./ext.",
+    "material": "Ratán natural",
+    "base": "Metal negro",
+    "medidas": "43 cm x 97 cm x 43 cm",
+    "puntos": 80,
+    "imagen": "img/taburetes/lectus-countender.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#D7CCC8"}
+    ]
+  }
+]

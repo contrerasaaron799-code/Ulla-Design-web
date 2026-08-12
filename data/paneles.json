@@ -1,0 +1,218 @@
+[
+  {
+    "nombre": "QYSP01",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/qysp01.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "QYSP02",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/qysp02.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "PET26",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/pet26.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  }, 
+  {
+    "nombre": "HC8886-2",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/hc8886-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "GHC93-03",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/ghc93-03.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "GHC88131D",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/ghc88131d.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "GHC881 30D",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/ghc881-30d.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "GJ27D",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/gj27d.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "QH - 08",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/qh-08.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "QS - 08",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/qs-08.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "QH - 13",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/qh-13.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "MX - 026",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/mx-026.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "PET24",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/pet24.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "HC88119",
+    "categoria": "paneles",
+    "medidas": "2600*1220*8MM/3,17m2",
+    "puntos": 75,
+    "imagen": "img/paneles/hc88119.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "SC003",
+    "categoria": "paneles",
+    "medidas": "2600*600*80MM/1,56m2",
+    "puntos": 30,
+    "imagen": "img/paneles/sc003.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "SC004",
+    "categoria": "paneles",
+    "medidas": "2600*600*80MM/1,56m2",
+    "puntos": 30,
+    "imagen": "img/paneles/sc004.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360
+  },
+  {
+    "nombre": "Palilleria Roble",
+    "categoria": "paneles",
+    "medidas": "2600*158*16mm",
+    "puntos": 14,
+    "imagen": "img/paneles/palilleria-roble.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "Palilleria Piedra",
+    "categoria": "paneles",
+    "medidas": "2600*158*16mm",
+    "puntos": 14,
+    "imagen": "img/paneles/palilleria-piedra.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Piedra", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "Palilleria Nogal",
+    "categoria": "paneles",
+    "medidas": "2600*158*16mm",
+    "puntos": 14,
+    "imagen": "img/paneles/palilleria-nogal.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Nogal", "hex": "#6A4E3A"}
+    ]
+  },
+  {
+    "nombre": "Palilleria Roble claro",
+    "categoria": "paneles",
+    "medidas": "2600*158*16mm",
+    "puntos": 14,
+    "imagen": "img/paneles/palilleria-roble-claro.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble claro", "hex": "#DEB887"}
+    ]
+  },
+  {
+    "nombre": "Palilleria Nogal curva",
+    "categoria": "paneles",
+    "medidas": "2600*158*19mm",
+    "puntos": 20,
+    "imagen": "img/paneles/palilleria-nogal-curva.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Nogal", "hex": "#6A4E3A"}
+    ]
+  },
+  {
+    "nombre": "Palilleria Plata",
+    "categoria": "paneles",
+    "medidas": "2600*158*16mm",
+    "puntos": 14,
+    "imagen": "img/paneles/palilleria-plata.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Plata", "hex": "#C0C0C0"}
+    ]
+  }
+]

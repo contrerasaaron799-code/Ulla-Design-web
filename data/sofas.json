@@ -1,0 +1,171 @@
+[
+  {
+    "id": "pausa-3-plazas",
+    "nombre": "Pausa 3 Plazas",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "240 cm x 84 cm x 85 cm",
+    "puntos": 780,
+    "imagen": "img/sofas/pausa-3-plazas.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul", "hex": "#2E4053"},
+      {"nombre": "Granate", "hex": "#943126"},
+      {"nombre": "Gris Oscuro", "hex": "#5D6D7E"},
+      {"nombre": "Gris Claro", "hex": "#D5D8DC"}
+    ]
+  },
+  {
+    "id": "pausa-2-plazas",
+    "nombre": "Pausa 2 Plazas",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "160 cm x 84 cm x 85 cm",
+    "puntos": 680,
+    "imagen": "img/sofas/pausa-2-plazas.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul", "hex": "#2E4053"},
+      {"nombre": "Granate", "hex": "#943126"},
+      {"nombre": "Gris Oscuro", "hex": "#5D6D7E"},
+      {"nombre": "Gris Claro", "hex": "#D5D8DC"}
+    ]
+  },
+  {
+    "id": "pausa",
+    "nombre": "Pausa",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "80 cm x 84 cm x 85 cm",
+    "puntos": 500,
+    "imagen": "img/sofas/pausa.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul", "hex": "#2E4053"},
+      {"nombre": "Granate", "hex": "#943126"},
+      {"nombre": "Gris Oscuro", "hex": "#5D6D7E"},
+      {"nombre": "Gris Claro", "hex": "#D5D8DC"}
+    ]
+  },
+  {
+    "id": "amivera",
+    "nombre": "Amivera",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "76 cm x 71 cm x 81 cm",
+    "puntos": 360,
+    "imagen": "img/sofas/amivera.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul Marino", "hex": "#1B4F72"},
+      {"nombre": "Marrón Oscuro", "hex": "#5D4037"},
+      {"nombre": "Rosa", "hex": "#D98880"},
+      {"nombre": "Beige", "hex": "#E5E7E9"}
+    ]
+  },
+  {
+    "id": "amivera-3-plazas",
+    "nombre": "Amivera 3 Plazas",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "216 cm x 71 cm x 81 cm",
+    "puntos": 620,
+    "imagen": "img/sofas/amivera-3-plazas.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul Marino", "hex": "#1B4F72"},
+      {"nombre": "Marrón Oscuro", "hex": "#5D4037"},
+      {"nombre": "Rosa", "hex": "#D98880"},
+      {"nombre": "Beige", "hex": "#E5E7E9"}
+    ]
+  },
+  {
+    "id": "amivera-2-plazas",
+    "nombre": "Amivera 2 Plazas",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "153 cm x 71 cm x 81 cm",
+    "puntos": 580,
+    "imagen": "img/sofas/amivera-2-plazas.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul Marino", "hex": "#1B4F72"},
+      {"nombre": "Marrón Oscuro", "hex": "#5D4037"},
+      {"nombre": "Rosa", "hex": "#D98880"},
+      {"nombre": "Beige", "hex": "#E5E7E9"}
+    ]
+  },
+  {
+    "id": "adva",
+    "nombre": "Adva",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tapizado de tela",
+    "base": "Estructura de madera",
+    "medidas": "349.5 cm x 107 cm x 76.5 cm",
+    "puntos": 640,
+    "imagen": "img/sofas/adva.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#DFD5CA"}
+    ]
+  },
+  {
+    "id": "brisa",
+    "nombre": "Brisa",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tapizado en tela",
+    "base": "Base negro",
+    "medidas": "79 cm x 109 cm x 83 cm",
+    "puntos": 180,
+    "imagen":"img/sofas/brisa.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "id": "alejandra",
+    "nombre": "Alejandra",
+    "categoria": "sofas",
+    "uso": "Uso interior",
+    "material": "Tapizado en tela",
+    "base": "Base de negro",
+    "medidas": "79 cm x 109 cm x 83 cm",
+    "puntos": 180,
+    "imagen": "img/sofas/alejandra.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Oliva", "hex": "#6B7B4D"},
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  }
+]

@@ -1,0 +1,207 @@
+[
+  {
+    "nombre": "Composición 1",
+    "categoria": "juvenil",
+    "elementos": "Cama nido / Armario / Mesa estudio / Estantería",
+    "medidas": "Forma L - 329 x 240 cm",
+    "puntos": 380,
+    "imagen": "img/hogyjuv/composicion-1.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Roble natural", "hex": "#D2B48C"},
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 2",
+    "categoria": "juvenil",
+    "elementos": "Cama nido + cajón / Repisa / Panel LED / Mesa estudio con pata",
+    "medidas": "347 cm",
+    "puntos": 310,
+    "imagen": "img/hogyjuv/composicion-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Roble natural", "hex": "#D2B48C"},
+      {"nombre": "Pizarra", "hex": "#708090"}
+    ]
+  },
+  {
+    "nombre": "Composición 3",
+    "categoria": "juvenil",
+    "elementos": "Cama nido + 2 cajones / Armario / Mesa estudio / Book soporte / Armario alto / Estantería / Estante pared / Base arcón",
+    "medidas": "Forma L - 249-254",
+    "puntos": 350,
+    "imagen": "img/hogyjuv/composicion-3.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 4",
+    "categoria": "juvenil",
+    "elementos": "Cama abatible / Estantería / Mesa abatible / Book soporte / Respaldos sobre cama / Repisas con quitamiedos",
+    "medidas": "Forma L - 304-250",
+    "puntos": 370,
+    "imagen": "img/hogyjuv/composicion-4.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "nombre": "Composición 5",
+    "categoria": "juvenil",
+    "elementos": "Estructura 2 muebles / Estantería / Armario extraíble / Cama / Mesa",
+    "medidas": "Forma L - 414-250",
+    "puntos": 480,
+    "imagen": "img/hogyjuv/composicion-5.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Rosa", "hex": "#FFC0CB"}
+    ]
+  },
+  {
+    "nombre": "Composición 6",
+    "categoria": "juvenil",
+    "elementos": "Escritorio con pared  / Cama / Repisa  / Book / Mesa con ruedas",
+    "medidas": "Forma L - 254-250",
+    "puntos": 330,
+    "imagen": "img/hogyjuv/composicion-6.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 7",
+    "categoria": "juvenil",
+    "elementos": "Escritorio / Cama / Book soporte / Repisa / Mesa estudio",
+    "medidas": "Forma L - 279-254",
+    "puntos": 320,
+    "imagen": "img/hogyjuv/composicion-7.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Mozart", "hex": "#F5F5F5"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Composición 8",
+    "categoria": "juvenil",
+    "elementos": "Cama / Mesa estudio + módulo / Armario / Estantería / Módulo redondo pared",
+    "medidas": "388",
+    "puntos": 360,
+    "imagen": "img/hogyjuv/composicion-8.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Teja", "hex": "#C04000"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 9",
+    "categoria": "juvenil",
+    "elementos": "Revestimiento pared / Cama compacta (camas) / Mesa de estudio / Cama extra / Book cajones",
+    "medidas": "Forma L - 444-170",
+    "puntos": 430,
+    "imagen": "img/hogyjuv/composicion-9.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Teja", "hex": "#C04000"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "Composición 10",
+    "categoria": "juvenil",
+    "elementos": "Revestimiento pared / Escritorio / Mesa + 2 cajones / Cama / Mueble estantería / Cama auxiliar inferior",
+    "medidas": "350",
+    "puntos": 360,
+    "imagen": "img/hogyjuv/composicion-10.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "nombre": "Composición 11",
+    "categoria": "juvenil",
+    "elementos": "Cabecero / Pie de cama tapizado / Armario / Cómoda / Espejo",
+    "medidas": "300",
+    "puntos": 310,
+    "imagen": "img/hogyjuv/composicion-11.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Rosado", "hex": "#FFB6C1"}
+    ]
+  },
+  {
+    "nombre": "Composición 12",
+    "categoria": "juvenil",
+    "elementos": "Cama abatible + armario / Mesa de estudio / Estante y portón",
+    "medidas": "344",
+    "puntos": 380,
+    "imagen": "img/hogyjuv/composicion-12.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Pizarra", "hex": "#708090"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "Composición 13",
+    "categoria": "juvenil",
+    "elementos": "Cama doble / Cama / Mesa / Arcón / Colgar de letra",
+    "medidas": "Forma L - 279-254",
+    "puntos": 340,
+    "imagen": "img/hogyjuv/composicion-13.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Pizarra", "hex": "#708090"},
+      {"nombre": "Amarillo", "hex": "#FFFF00"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "nombre": "Composición 14",
+    "categoria": "juvenil",
+    "elementos": "Revestimiento pared / Cama (pasaje forma) / Mueble bajo / Cama / Mesa estudio + cajón / Book apoyo",
+    "medidas": "Forma L - 392-230",
+    "puntos": 420,
+    "imagen": "img/hogyjuv/composicion-14.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  }
+]

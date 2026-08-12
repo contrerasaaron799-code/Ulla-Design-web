@@ -1,0 +1,411 @@
+[
+  {
+    "id": "clasica-redonda-base",
+    "nombre": "Clásica Redonda",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base negro",
+    "medidas": "B45ø · H72 · S24-24",
+    "puntos": 46,
+    "imagen": "img/basesmetalicas/clasica-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "clasica-cuadrada-base",
+    "nombre": "Clásica Cuadrada",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base negro",
+    "medidas": "B45-45 · H72 · S24-24",
+    "puntos": 46,
+    "imagen": "img/basesmetalicas/clasica-cuadrada.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "clasica-rectangular-base",
+    "nombre": "Clásica Rectangular",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base negro",
+    "medidas": "B40-70 · H72 · S24-24",
+    "puntos": 77,
+    "imagen": "img/basesmetalicas/clasica-rectangular.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "clasicas-altas-base",
+    "nombre": "Clásicas Altas",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base negro",
+    "medidas": "B40-70 · H107 · S24-24",
+    "puntos": "47 / 90",
+    "imagen": "img/basesmetalicas/clasicas-altas.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "inox-redonda-base",
+    "nombre": "Inox Redonda",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base plateado",
+    "medidas": "B45ø · H72 · S24-24",
+    "puntos": 53,
+    "imagen": "img/basesmetalicas/inox-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Plateado", "hex": "#C0C0C0"}
+    ]
+  },
+  {
+    "id": "inox-cuadrada-base",
+    "nombre": "Inox Cuadrada",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base plateado",
+    "medidas": "B45-45 · H72 · S24-24",
+    "puntos": 53,
+    "imagen": "img/basesmetalicas/inox-cuadrada.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Plateado", "hex": "#C0C0C0"}
+    ]
+  },
+  {
+    "id": "inox-rectangular-base",
+    "nombre": "Inox Rectangular",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base plateado",
+    "medidas": "B40-70 · H72 · S24-24",
+    "puntos": 75,
+    "imagen": "img/basesmetalicas/inox-rectangular.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Plateado", "hex": "#C0C0C0"}
+    ]
+  },
+  {
+    "id": "inox-altas-base",
+    "nombre": "Inox Altas",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base plateado",
+    "medidas": "B40-70 · H107 · S24-24",
+    "puntos": "52 / 98",
+    "imagen": "img/basesmetalicas/inox-altas.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Plateado", "hex": "#C0C0C0"}
+    ]
+  },
+  {
+    "id": "oro-inox-redonda-base",
+    "nombre": "Oro Inox Redonda",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base oro mate",
+    "medidas": "B45ø · H72 · S24-24",
+    "puntos": 50,
+    "imagen": "img/basesmetalicas/oro-inox-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "oro-inox-cuadrada-base",
+    "nombre": "Oro Inox Cuadrada",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base oro mate",
+    "medidas": "B45-45 · H72 · S24-24",
+    "puntos": 50,
+    "imagen": "img/basesmetalicas/oro-inox-cuadrada.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "oro-inox-rectangular-base",
+    "nombre": "Oro Inox Rectangular",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base oro mate",
+    "medidas": "B40-70 · H72 · S24-24",
+    "puntos": 85,
+    "imagen": "img/basesmetalicas/oro-inox-rectangular.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "oro-inox-altas-base",
+    "nombre": "Oro Inox Altas",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base oro mate",
+    "medidas": "B40-70 · H107 · S24-24",
+    "puntos": "60 / 110",
+    "imagen": "img/basesmetalicas/oro-inox-altas.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "inox-negro-redonda-base",
+    "nombre": "Inox Negro Redonda",
+    "categoria": "basesmetalicas",
+    "uso": "Interior",
+    "material": "Acero",
+    "base": "Base negro mate",
+    "medidas": "B45ø · H72 · S24-24",
+    "puntos": 58,
+    "imagen": "img/basesmetalicas/inox-negro-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "inox-negro-cuadrada-base",
+    "nombre": "Inox Negro Cuadrada",
+    "categoria": "basesmetalicas",
+    "uso": "Interior",
+    "material": "Acero",
+    "base": "Base negro mate",
+    "medidas": "B45-45 · H72 · S24-24",
+    "puntos": 58,
+    "imagen": "img/basesmetalicas/inox-negro-cuadrada.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "inox-negro-cuadrada-alta-base",
+    "nombre": "Inox Negro Cuadrada Alta",
+    "categoria": "basesmetalicas",
+    "uso": "Interior",
+    "material": "Acero",
+    "base": "Base negro mate",
+    "medidas": "B45-45 · H107 · S24-24",
+    "puntos": 66,
+    "imagen": "img/basesmetalicas/inox-negro-cuadrada-alta.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "cobre-inox-redonda-base",
+    "nombre": "Cobre Inox Redonda",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base cobre mate",
+    "medidas": "B45ø · H72 · S24-24",
+    "puntos": 55,
+    "imagen": "img/basesmetalicas/cobre-inox-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Cobre", "hex": "#B87333"}
+    ]
+  },
+  {
+    "id": "cobre-inox-cuadrada-base",
+    "nombre": "Cobre Inox Cuadrada",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base cobre mate",
+    "medidas": "B45-45 · H72 · S24-24",
+    "puntos": 55,
+    "imagen": "img/basesmetalicas/cobre-inox-cuadrada.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Cobre", "hex": "#B87333"}
+    ]
+  },
+  {
+    "id": "cobre-inox-rectangular-base",
+    "nombre": "Cobre Inox Rectangular",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base cobre mate",
+    "medidas": "B40-70 · H72 · S24-24",
+    "puntos": 93,
+    "imagen": "img/basesmetalicas/cobre-inox-rectangular.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Cobre", "hex": "#B87333"}
+    ]
+  },
+  {
+    "id": "base-v-negro",
+    "nombre": "Base V Negro",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Hierro fundido",
+    "base": "Base negro mate",
+    "medidas": "H72",
+    "puntos": 44,
+    "imagen": "img/basesmetalicas/base-v-negro.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "base-v-madera",
+    "nombre": "Base V Madera",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Hierro fundido",
+    "base": "Base impresión",
+    "medidas": "H72",
+    "puntos": 50,
+    "imagen": "img/basesmetalicas/base-v-madera.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "base-v-oro",
+    "nombre": "Base V Oro",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Hierro fundido",
+    "base": "Base oro mate",
+    "medidas": "H72",
+    "puntos": 50,
+    "imagen": "img/basesmetalicas/base-v-oro.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "clasico-base",
+    "nombre": "Clásico",
+    "categoria": "basesmetalicas",
+    "uso": "Uso interior",
+    "material": "Acero",
+    "base": "Base oro mate",
+    "medidas": "B45ø",
+    "puntos": 66,
+    "imagen": "img/basesmetalicas/clasico.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "tablero-melamina",
+    "nombre": "Tablero melamina",
+    "categoria": "basesmetalicas",
+    "material": "Melamina",
+    "grosor": "3 cm",
+    "precios": [
+      { "medida": "70x70 CM", "puntos": 60 },
+      { "medida": "80x80 CM", "puntos": 60 },
+      { "medida": "120x70 CM", "puntos": 65 },
+      { "medida": "120x80 CM", "puntos": 65 },
+      { "medida": "70ø", "puntos": 70 },
+      { "medida": "120ø", "puntos": 150 }
+    ],
+    "imagen": "img/basesmetalicas/tablero-melamina.jpg",
+    "imagen_detalle": "img/basesmetalicas/detalle-melamina.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600
+  },
+  {
+    "id": "tablero-porcelanico",
+    "nombre": "Tablero Porcelanico",
+    "categoria": "basesmetalicas",
+    "material": "Porcelánico",
+    "grosor": "3 cm",
+    "precios": [
+      { "medida": "70x70 CM", "puntos": 90 },
+      { "medida": "80x80 CM", "puntos": 90 },
+      { "medida": "120x70 CM", "puntos": 120 },
+      { "medida": "120x80 CM", "puntos": 120 },
+      { "medida": "70ø", "puntos": 100 },
+      { "medida": "120ø", "puntos": 120 }
+    ],
+    "imagen": "img/basesmetalicas/tablero-porcelanico.jpg",
+    "imagen_detalle": "img/basesmetalicas/detalle-porcelanico.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600
+  },
+  {
+    "id": "tablero-madera-macisa",
+    "nombre": "Tablero madera macisa",
+    "categoria": "basesmetalicas",
+    "material": "Madera maciza",
+    "grosor": "3 cm",
+    "precios": [
+      { "medida": "70x70 CM", "puntos": 82 },
+      { "medida": "80x80 CM", "puntos": 89 },
+      { "medida": "120x70 CM", "puntos": 126 },
+      { "medida": "120x80 CM", "puntos": 133 },
+      { "medida": "70ø", "puntos": 85 },
+      { "medida": "120ø", "puntos": 270 }
+    ],
+    "imagen": "img/basesmetalicas/tablero-madera-macisa.jpg",
+    "imagen_detalle": "img/basesmetalicas/detalle-macisa.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600
+  }
+]

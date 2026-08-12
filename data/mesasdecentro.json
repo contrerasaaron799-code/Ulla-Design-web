@@ -1,0 +1,141 @@
+[
+  {
+    "id": "nota-redonda",
+    "nombre": "Nota - Redonda",
+    "categoria": "mesasdecentro",
+    "uso": "Uso interior",
+    "material": "Hierro fundido",
+    "base": "Base oro mate",
+    "medidas": "45*65*33cm",
+    "puntos": 300,
+    "imagen": "img/centromesas/nota-redonda.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "nota-rectangular",
+    "nombre": "Nota - Rectangular",
+    "categoria": "mesasdecentro",
+    "uso": "Uso interior",
+    "material": "Hierro fundido",
+    "base": "Base oro mate",
+    "medidas": "65*50cm",
+    "puntos": 300,
+    "imagen": "img/centromesas/nota-rectangular.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "id": "mesa-roble",
+    "nombre": "Mesa Roble",
+    "categoria": "mesasdecentro",
+    "material": "Madera",
+    "base": "Base de madera",
+    "medidas": "90 cm x 90 cm · 110 cm x 90 cm",
+    "puntos": 300,
+    "imagen": "img/centromesas/mesa-roble.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "mesa-cristal",
+    "nombre": "Mesa Cristal",
+    "categoria": "mesasdecentro",
+    "material": "Cristal - Madera",
+    "base": "Base de madera",
+    "medidas": "90 cm x 90 cm · 110 cm x 90 cm",
+    "puntos": 500,
+    "imagen": "img/centromesas/mesa-cristal.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Cristal", "hex": "#F0F8FF"},
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "andi",
+    "nombre": "Andi",
+    "categoria": "mesasdecentro",
+    "material": "Sintered stone",
+    "base": "Patas en madera",
+    "medidas": "1100*800*350",
+    "puntos": 170,
+    "imagen": "img/centromesas/andi.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "id": "conjunto-antar",
+    "nombre": "Conjunto Antar",
+    "categoria": "mesasdecentro",
+    "uso": "Uso interior",
+    "base": "Base lacado",
+    "medidas": "70ø-40 · 100ø-28",
+    "puntos": 500,
+    "imagen": "img/centromesas/conjunto-antar.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"},
+      {"nombre": "Oliva", "hex": "#6B7B4D"}
+    ]
+  },
+  {
+    "id": "aqua",
+    "nombre": "Aqua",
+    "categoria": "mesasdecentro",
+    "material": "Porcelánica",
+    "base": "Base lacado",
+    "medidas": "80ø-43",
+    "puntos": 360,
+    "imagen": "img/centromesas/aqua.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "merida",
+    "nombre": "Merida",
+    "categoria": "mesasdecentro",
+    "base": "Base de madera",
+    "medidas": "80ø-43",
+    "puntos": 420,
+    "imagen": "img/centromesas/merida.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "id": "mesa-de-centro-oporto",
+    "nombre": "Mesa de Centro Oporto",
+    "categoria": "mesasdecentro",
+    "material": "Madera/porcelanato",
+    "base": "Patas de madera",
+    "medidas": "110*43*60cm",
+    "puntos": "400 / 500",
+    "imagen": "img/centromesas/mesa-de-centro-oporto.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Madera", "hex": "#CD853F"},
+      {"nombre": "Porcelánico", "hex": "#F5F5F5"}
+    ]
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "nombre": "Banco liso",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco liso-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-liso.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"},
+      {"nombre": "Verde", "hex": "#2E8B57"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Verde", "hex": "#2E8B57"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas2.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas3.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas4.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#F5F5DC"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas5.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas6.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rojo", "hex": "#800000"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas7.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#A9A9A9"}
+    ]
+  },
+  {
+    "nombre": "Banco de Rayas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "banco rayas-tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-rayas8.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rojo", "hex": "#8B0000"}
+    ]
+  },
+  {
+    "nombre": "Banco Multicapas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "bancorayas-tela polipiel-terciopelo-multicapas blanco y negro",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-multicapas-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Banco Multicapas",
+    "categoria": "bancos de hosteleria",
+    "elementos": "bancorayas-tela polipiel-terciopelo-multicapas blanco y negro",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-multicapas.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Banco capitoné",
+    "categoria": "bancos de hosteleria",
+    "elementos": "tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-capitone.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Banco doble",
+    "categoria": "bancos de hosteleria",
+    "elementos": "tela polipiel-terciopelo",
+    "medidas": "120*60*105cm",
+    "puntos": 120,
+    "imagen": "img/bancohosteleria/banco-doble.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  }
+]

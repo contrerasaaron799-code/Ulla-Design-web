@@ -1,0 +1,159 @@
+[
+  {
+    "id": "tablero-roble-corte-recto",
+    "nombre": "Tablero roble corte recto",
+    "categoria": "mesasdecomedor",
+    "material": "Tablero de madera macizo",
+    "base": "Patas metalicas",
+    "medidas": "140 cm x 90 cm / 160 cm x 90 cm / 180 cm x 90 cm / 200 cm x 90 cm",
+    "puntos": "500 - 1000",
+    "imagen": "img/mesascomedor/tablero-roble-corte-recto.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"},
+      {"nombre": "Negro (Patas)", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "tablero-roble-corte-arbol",
+    "nombre": "Tablero roble corte árbol",
+    "categoria": "mesasdecomedor",
+    "material": "Tablero de madera macizo",
+    "base": "Patas metalicas",
+    "medidas": "140 cm x 90 cm / 160 cm x 90 cm / 180 cm x 90 cm / 200 cm x 90 cm",
+    "puntos": "500 - 1000",
+    "imagen": "img/mesascomedor/tablero-roble-corte-arbol.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"},
+      {"nombre": "Negro (Patas)", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "madrid-mesa",
+    "nombre": "Madrid",
+    "categoria": "mesasdecomedor",
+    "material": "Madera nogal",
+    "tipo": "Extensible + 60 cm",
+    "medidas": "140 cm x 90 cm / 160 cm x 90 cm / 180 cm x 90 cm",
+    "puntos": "635 - 700",
+    "imagen": "img/mesascomedor/madrid.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Nogal", "hex": "#6A4E3A"}
+    ]
+  },
+  {
+    "id": "berlin-mesa",
+    "nombre": "Berlin",
+    "categoria": "mesasdecomedor",
+    "material": "Madera roble",
+    "tipo": "Extensible + 60 cm",
+    "medidas": "140 cm x 90 cm / 160 cm x 90 cm",
+    "puntos": "635 - 670",
+    "imagen": "img/mesascomedor/berlin.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "oporto-mesa",
+    "nombre": "Oporto",
+    "categoria": "mesasdecomedor",
+    "material": "Tapa madera / porcelanico",
+    "base": "Patas de madera",
+    "tipo": "Extensible + 60 cm",
+    "medidas": "160 cm x 90 cm",
+    "puntos": "670 - 890",
+    "imagen": "img/mesascomedor/oporto.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Madera Natural", "hex": "#CD853F"},
+      {"nombre": "Porcelánico", "hex": "#F5F5F5"}
+    ]
+  },
+  {
+    "id": "oval-mesa",
+    "nombre": "Oval",
+    "categoria": "mesasdecomedor",
+    "material": "Tapa madera / porcelanico",
+    "base": "Base madera",
+    "medidas": "180 cm x 100 cm / 200 cm x 100 cm",
+    "puntos": "700 - 960",
+    "imagen": "img/mesascomedor/oval.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Madera Natural", "hex": "#CD853F"},
+      {"nombre": "Porcelánico", "hex": "#F5F5F5"}
+    ]
+  },
+  {
+    "id": "lazo-mesa",
+    "nombre": "Lazo",
+    "categoria": "mesasdecomedor",
+    "material": "Tablero de madera roble",
+    "tipo": "Extensible + 60 cm",
+    "medidas": "120ø",
+    "puntos": 780,
+    "imagen": "img/mesascomedor/lazo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "valencia-mesa",
+    "nombre": "Valencia",
+    "categoria": "mesasdecomedor",
+    "material": "Tapa madera teka / porcelanico",
+    "base": "Base madera teka",
+    "medidas": "100 cm x 100 cm",
+    "puntos": "300 - 460",
+    "imagen": "img/mesascomedor/valencia.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Madera Teka", "hex": "#C19A6B"},
+      {"nombre": "Porcelánico", "hex": "#F5F5F5"}
+    ]
+  },
+  {
+    "id": "paris-mesa",
+    "nombre": "París",
+    "categoria": "mesasdecomedor",
+    "material": "Madera nogal",
+    "medidas": "120ø + 60 cm",
+    "puntos": 600,
+    "imagen": "img/mesascomedor/paris.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Nogal", "hex": "#6A4E3A"}
+    ]
+  },
+  {
+    "id": "braga-mesa",
+    "nombre": "Braga",
+    "categoria": "mesasdecomedor",
+    "material": "Tapa en sintered stone",
+    "base": "Base en metal pintado",
+    "tipo": "Mesa extensible",
+    "medidas": "1600-2400 x 900 x 750 mm",
+    "puntos": 680,
+    "imagen": "img/mesascomedor/braga.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Piedra Sinterizada", "hex": "#E8E8E8"},
+      {"nombre": "Metal Pintado", "hex": "#4A4A4A"}
+    ]
+  }
+]

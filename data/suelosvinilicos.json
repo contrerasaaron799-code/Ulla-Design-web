@@ -1,0 +1,74 @@
+[
+  {
+    "nombre": "SD-08",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*5.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-08.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "SD-06",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*5.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-06.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "SD-12",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*5.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-12.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#A9A9A9"}
+    ]
+  },
+  {
+    "nombre": "SD-04",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*4.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-04.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "SD-11",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*4.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-11-1.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "SD-11",
+    "categoria": "suelos vinilicos",
+    "medidas": "1220*180*4.0/0.2196m2",
+    "puntos": "20 puntos m2",
+    "imagen": "img/suelovinilico/sd-11-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#A0522D"}
+    ]
+  }
+]

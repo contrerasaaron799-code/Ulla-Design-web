@@ -1,0 +1,475 @@
+[
+  {
+    "id": "isa",
+    "nombre": "Isa",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base metálica: negro/oro",
+    "medidas": "55 cm x 83 cm x 50 cm",
+    "puntos": 70,
+    "imagen": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Rosa", "hex": "#EADEE0"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Beige", "hex": "#EEDCBA"}
+    ]
+  },
+  {
+    "id": "tani",
+    "nombre": "Tani",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base: negro",
+    "medidas": "55 cm x 85 cm x 55 cm",
+    "puntos": 70,
+    "imagen": "img/sillas/tani.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "senna",
+    "nombre": "Senna",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro/oro",
+    "medidas": "60 cm x 81 cm x 60 cm",
+    "puntos": 75,
+    "imagen": "img/sillas/senna.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#EADEE0"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Verde", "hex": "#3E8E7E"}
+    ]
+  },
+  {
+    "id": "lora",
+    "nombre": "Lora",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "45 cm x 79 cm x 45 cm",
+    "puntos": 75,
+    "imagen": "img/sillas/lora.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Beige", "hex": "#EEDCBA"},
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"}
+    ]
+  },
+  {
+    "id": "quitto",
+    "nombre": "Quitto",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo/polipiel",
+    "base": "Base negro/oro",
+    "medidas": "44 cm x 85 cm x 45 cm",
+    "puntos": 65,
+    "imagen": "img/sillas/quitto.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "key",
+    "nombre": "Key",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "43 cm x 82 cm x 45 cm",
+    "puntos": 65,
+    "imagen": "img/sillas/key.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Rosa pálido", "hex": "#F4DCD8"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Azul", "hex": "#2E4A8E"}
+    ]
+  },
+  {
+    "id": "yumi",
+    "nombre": "Yumi",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro/oro/madera",
+    "medidas": "39 cm x 79 cm x 44 cm",
+    "puntos": 48,
+    "imagen": "img/sillas/yumi.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Azul", "hex": "#2E4A8E"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Verde", "hex": "#3E8E7E"}
+    ]
+  },
+  {
+    "id": "yumi-floral",
+    "nombre": "Yumi Floral",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negra/oro",
+    "medidas": "39 cm x 79 cm x 44 cm",
+    "puntos": 48,
+    "imagen": "img/sillas/yumi-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Verde", "hex": "#3E8E7E"}
+    ]
+  },
+  {
+    "id": "simp",
+    "nombre": "Simp",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "41 cm x 89 cm x 44 cm",
+    "puntos": 47,
+    "imagen": "img/sillas/simp.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris", "hex": "#666666"}
+    ]
+  },
+  {
+    "id": "simp-piel",
+    "nombre": "Simp Piel",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Polipiel",
+    "base": "Base negro",
+    "medidas": "41 cm x 89 cm x 44 cm",
+    "puntos": 40,
+    "imagen": "img/sillas/simp-piel.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "simp-floral",
+    "nombre": "Simp Floral",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "41 cm x 89 cm x 44 cm",
+    "puntos": 47,
+    "imagen": "img/sillas/simp-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Verde", "hex": "#3E8E7E"}
+    ]
+  },
+  {
+    "id": "maggi",
+    "nombre": "Maggi",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo/polipiel",
+    "base": "Base negro",
+    "medidas": "54 cm x 84 cm x 58 cm",
+    "puntos": 75,
+    "imagen": "img/sillas/maggi.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "frodita",
+    "nombre": "Frodita",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "52 cm x 80 cm x 52 cm",
+    "puntos": 65,
+    "imagen": "img/sillas/frodita.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"},
+      {"nombre": "Beige", "hex": "#EEDCBA"}
+    ]
+  },
+  {
+    "id": "frodita-floral",
+    "nombre": "Frodita Floral",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "52 cm x 80 cm x 52 cm",
+    "puntos": 65,
+    "imagen": "img/sillas/frodita-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "angela",
+    "nombre": "Angela",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Tela antimancha",
+    "base": "Base negro",
+    "medidas": "55 cm x 86 cm x 55 cm",
+    "puntos": 95,
+    "imagen": "img/sillas/angela.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "denia",
+    "nombre": "Denia",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Terciopelo/polipiel",
+    "base": "Base negro",
+    "medidas": "48 cm x 89 cm x 60 cm",
+    "puntos": 45,
+    "imagen": "img/sillas/denia.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#EEDCBA"},
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"}
+    ]
+  },
+  {
+    "id": "toix",
+    "nombre": "Toix",
+    "categoria": "sillas",
+    "uso": "Uso int./ext.",
+    "material": "Metal",
+    "base": "Base negro",
+    "medidas": "44 cm x 85 cm x 47 cm",
+    "puntos": 30,
+    "imagen": "img/sillas/toix.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Rojo", "hex": "#800000"},
+      {"nombre": "Negro", "hex": "#000000"},
+      {"nombre": "Gris", "hex": "#666666"}
+    ]
+  },
+  {
+    "id": "toix-madera",
+    "nombre": "Toix Madera",
+    "categoria": "sillas",
+    "uso": "Uso int./ext.",
+    "material": "Metal",
+    "base": "Base negro",
+    "medidas": "44 cm x 85 cm x 47 cm",
+    "puntos": 35,
+    "imagen": "img/sillas/toix-madera.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "nordica",
+    "nombre": "Nordica",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Polipropileno",
+    "base": "Base madera",
+    "medidas": "48 cm x 82 cm x 60 cm",
+    "puntos": 40,
+    "imagen": "img/sillas/nordica.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Verde", "hex": "#3E8E7E"},
+      {"nombre": "Gris oscuro", "hex": "#1A1A1A"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "id": "murcia",
+    "nombre": "Murcia",
+    "categoria": "sillas",
+    "uso": "Uso int./ext.",
+    "material": "Cuerda",
+    "base": "Base madera teka",
+    "medidas": "46 cm x 82 cm x 46 cm",
+    "puntos": 180,
+    "imagen": "img/sillas/murcia.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#EEDCBA"}
+    ]
+  },
+  {
+    "id": "lectis",
+    "nombre": "Lectis",
+    "categoria": "sillas",
+    "uso": "Uso int./ext.",
+    "material": "Ratán natural",
+    "base": "Metal negro",
+    "medidas": "45 cm x 85 cm x 50 cm",
+    "puntos": 60,
+    "imagen": "img/sillas/lectis.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#EEDCBA"}
+    ]
+  },
+  {
+    "id": "lectus-asun",
+    "nombre": "Lectus Asun",
+    "categoria": "sillas",
+    "uso": "Uso int./ext.",
+    "material": "Ratán natural",
+    "base": "Metal negro (Cojín no incluido)",
+    "medidas": "52 cm x 85 cm x 49 cm",
+    "puntos": 80,
+    "imagen": "img/sillas/lectus-asun.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#EEDCBA"}
+    ]
+  },
+  {
+    "id": "oslo",
+    "nombre": "Oslo",
+    "categoria": "sillas",
+    "uso": "Interior",
+    "material": "Madera",
+    "base": "Base negro/natural",
+    "medidas": "48 cm x 76 cm x 47 cm",
+    "puntos": 80,
+    "imagen": "img/sillas/oslo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Beige", "hex": "#EEDCBA"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "tallin",
+    "nombre": "Tallin",
+    "categoria": "sillas",
+    "uso": "Uso interior",
+    "material": "Madera",
+    "base": "Base natural",
+    "medidas": "46 cm x 79 cm x 43 cm",
+    "puntos": 120,
+    "imagen": "img/sillas/tallin.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#A0522D"}
+    ]
+  },
+  {
+    "id": "american",
+    "nombre": "American",
+    "categoria": "sillas",
+    "uso": "Interior",
+    "material": "Estructura metálica - Apilable",
+    "base": "Patas inoxidables",
+    "medidas": "45 cm x 90 cm x 45 cm",
+    "puntos": 60,
+    "imagen": "img/sillas/american.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris claro", "hex": "#E6E6E6"}
+    ]
+  },
+  {
+    "id": "elia",
+    "nombre": "Elia",
+    "categoria": "sillas",
+    "uso": "Interior (Dining chair)",
+    "material": "Textil",
+    "base": "Base metálica / 4 patas",
+    "medidas": "68.5 cm x 57 cm x 90 cm x 52 cm",
+    "puntos": 70,
+    "imagen": "img/sillas/elia.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris claro", "hex": "#E6E6E6"}
+    ]
+  },
+  {
+    "id": "algis",
+    "nombre": "Algis",
+    "categoria": "sillas",
+    "uso": "Interior (Dining chair)",
+    "material": "Textil",
+    "base": "Base metálica",
+    "medidas": "63 cm x 57.5 cm x 81.5 cm x 49.5 cm",
+    "puntos": 60,
+    "imagen": "img/sillas/algis.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris claro", "hex": "#E6E6E6"}
+    ]
+  }
+]

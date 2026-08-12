@@ -1,0 +1,237 @@
+[
+  {
+    "nombre": "Aero",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "28 cm x 38 cm",
+    "puntos": 67,
+    "imagen": "img/lampydeco/aero.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Dimen Black",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "38 cm x 38 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/dimen-black.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Bubbles",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "60-H120",
+    "puntos": 50,
+    "imagen": "img/lampydeco/bubbles.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "Carol",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "55 cm x 80 cm x 45cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/carol.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Fleow",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "90-70",
+    "puntos": 67,
+    "imagen": "img/lampydeco/fleow.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Knot",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "100-15",
+    "puntos": 50,
+    "imagen": "img/lampydeco/knot.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Kube",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "90cm x 60 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/kube.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Rings",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "40 cm x 60 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/rings.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Oro", "hex": "#D4AF37"}
+    ]
+  },
+  {
+    "nombre": "Square",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "55 cm 55 cm",
+    "puntos": 67,
+    "imagen": "img/lampydeco/square.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Portte",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "55 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/portte.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Paluni",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "120-H43",
+    "puntos": 50,
+    "imagen": "img/lampydeco/paluni.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Sixng",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "120",
+    "puntos": 50,
+    "imagen": "img/lampydeco/sixng.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Viena II",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "107 cm",
+    "puntos": 67,
+    "imagen": "img/lampydeco/viena-ii.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Broche",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "107 cm",
+    "puntos": 67,
+    "imagen": "img/lampydeco/broche.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Fisher",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso exterior · Madera acacia · Aluminio blanco",
+    "medidas": "107 cm",
+    "puntos": 67,
+    "imagen": "img/lampydeco/fisher.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Fanton",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "127 cm x 50 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/fanton.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Fanton Madera",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "127 cm x 50 cm",
+    "puntos": 50,
+    "imagen": "img/lampydeco/fanton-madera.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "separador",
+    "categoria": "lamparas y decoracion",
+    "elementos": "Base de aluminio-madera para exterior",
+    "medidas": "180cm-150cm*40cm",
+    "puntos": 120,
+    "imagen": "img/lampydeco/separador.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  }
+]

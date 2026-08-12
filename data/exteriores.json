@@ -1,0 +1,548 @@
+[
+  {
+    "nombre": "Kuka",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio negro/Beige Apilable",
+    "medidas": "55 cm x 88 cm x 52 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/kuka.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"},
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Rocho",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio marrón Apilable",
+    "medidas": "58 cm x 77 cm x 60 cm",
+    "puntos": 80,
+    "imagen": "img/exterior/rocho.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Paya",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio gris Apilable",
+    "medidas": "58 cm x 77 cm x 60 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/paya.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "Kampo",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio negro Apilable",
+    "medidas": "58 cm x 77 cm x 60 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/kampo.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Kira",
+    "categoria": "exteriores",
+    "elementos": "Mimbre sintético · Aluminio marrón Apilable",
+    "medidas": "46 cm x 84 cm x 55 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/kira.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Kenia",
+    "categoria": "exteriores",
+    "elementos": "Mimbre sintético · Aluminio marrón Apilable",
+    "medidas": "57 cm x 85 cm x 58 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/kenia.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Konna",
+    "categoria": "exteriores",
+    "elementos": "Mimbre sintético · Aluminio beige Apilable",
+    "medidas": "48 cm x 87 cm x 57 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/konna.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"},
+      {"nombre": "Verde", "hex": "#008000"}
+    ]
+  },
+  {
+    "nombre": "Semporna",
+    "categoria": "exteriores",
+    "elementos": "Mimbre sintético · Aluminio beige Apilable",
+    "medidas": "55 cm x 84 cm x 56 cm",
+    "puntos": 75,
+    "imagen": "img/exterior/semporna.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"},
+      {"nombre": "Verde", "hex": "#008000"}
+    ]
+  },
+  {
+    "nombre": "Malaca",
+    "categoria": "exteriores",
+    "elementos": "Acacia sintética · Aluminio blanco",
+    "medidas": "55 cm x 85 cm x 53 cm",
+    "puntos": 67,
+    "imagen": "img/exterior/malaca.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Kuchi",
+    "categoria": "exteriores",
+    "elementos": "Acacia sintética · Aluminio negro",
+    "medidas": "56 cm x 86 cm x 53 cm",
+    "puntos": 67,
+    "imagen": "img/exterior/kuchi.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Clavel",
+    "categoria": "exteriores",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "42 cm x 80 cm x 48 cm",
+    "puntos": 50,
+    "imagen": "img/exterior/clavel.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Canna",
+    "categoria": "exteriores",
+    "elementos": "Uso int./ext. · Polipropileno · Base negro/gris",
+    "medidas": "42 cm x 80 cm x 48 cm",
+    "puntos": 50,
+    "imagen": "img/exterior/canna.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Loyang",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio natural",
+    "medidas": "54 cm x 107 cm x 53 cm",
+    "puntos": 90,
+    "imagen": "img/exterior/loyang.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Taburete Sophi",
+    "categoria": "exteriores",
+    "elementos": "Cuerda · Aluminio negro 50 cm x 180 cm x 54 cm",
+    "medidas": "50 cm x 180 cm x 54 cm",
+    "puntos": 90,
+    "imagen": "img/exterior/taburete-sophi.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Sophi",
+    "categoria": "exteriores",
+    "elementos": "Uso int./ext. · Mimbre sínt. 10 cm · negro/blanco 54 cm x 107 cm x 53 cm",
+    "medidas": "54 cm x 107 cm x 53 cm",
+    "puntos": 90,
+    "imagen": "img/exterior/sophi.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Alice",
+    "categoria": "exteriores",
+    "elementos": "Estructura de madera de teka-cuerda",
+    "medidas": "52cm*45cm*42cm",
+    "puntos": 150,
+    "imagen": "img/exterior/alice.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Yacarta",
+    "categoria": "exteriores",
+    "elementos": "Estructura de madera de teka-cuerda",
+    "medidas": "52cm*45cm*42cm",
+    "puntos": 150,
+    "imagen": "img/exterior/yakarta.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Denia",
+    "categoria": "exteriores",
+    "elementos": "Silla estructura de aluminio-patas madera de teka-cuerda sintética",
+    "medidas": "52cm*45cm*42cm",
+    "puntos": 140,
+    "imagen": "img/exterior/denia.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "África",
+    "categoria": "exteriores",
+    "elementos": "Silla de madera de teka-cuerda sintética",
+    "medidas": "52cm*45cm*42cm",
+    "puntos": 140,
+    "imagen": "img/exterior/africa.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Burdeos",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-ratán sintético",
+    "medidas": "120",
+    "puntos": 400,
+    "imagen": "img/exterior/burdeos.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Tenerife",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tapiz sintético",
+    "medidas": "70 cm x 74 cm x 70 cm",
+    "puntos": 150,
+    "imagen": "img/exterior/tenerife.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Conjunto Marsella",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela para exterior",
+    "medidas": "100cm*72cm/100cm*72cm",
+    "puntos": 100,
+    "imagen": "img/exterior/mesas-marsella.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Sillas Marsella",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela para exterior",
+    "medidas": "100cm*72cm/100cm*72cm",
+    "puntos": 120,
+    "imagen": "img/exterior/sillas-marsella.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Divan Lanzarote",
+    "categoria": "exteriores",
+    "elementos": "Ratán exterior-Estructura aluminio",
+    "medidas": "161 cm x 73cm x 200cm",
+    "puntos": 700,
+    "imagen": "img/exterior/divan-lanzarote.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"}
+    ]
+  },
+  {
+    "nombre": "Gomera",
+    "categoria": "exteriores",
+    "elementos": "Ratán exterior-Estructura aluminio Bali diam",
+    "medidas": "145 diam",
+    "puntos": 1100,
+    "imagen": "img/exterior/gomera.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Acacia sillón",
+    "categoria": "exteriores",
+    "elementos": "Ratán exterior-Estructura aluminio",
+    "medidas": "100 cm x 90 cm x 90 cm",
+    "puntos": 380,
+    "imagen": "img/exterior/acacia-sillon.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Acacia sofá",
+    "categoria": "exteriores",
+    "elementos": "Ratán exterior-Estructura aluminio",
+    "medidas": "220 cm x 90 cm x 90 cm",
+    "puntos": 1000,
+    "imagen": "img/exterior/acacia-sofa.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Acacia mesa de centro",
+    "categoria": "exteriores",
+    "elementos": "Ratán exterior-Estructura aluminio",
+    "medidas": "108 cm x 30 cm x 58 cm",
+    "puntos": 200,
+    "imagen": "img/exterior/acacia-mesa-de-centro.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Conjunto Papasan",
+    "categoria": "exteriores",
+    "elementos": "Ratán natural / Estructura aluminio / Sillón: 2 plazas / 110 cm x 90 cm / Mesa de centro 50 cm",
+    "medidas": "Sillón: 2 plazas / 110 cm x 90 cm / Mesa de centro 50 cm",
+    "puntos": 260,
+    "imagen": "img/exterior/conjunto-papasan.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Papasan",
+    "categoria": "exteriores",
+    "elementos": "Ratán natural / Estructura aluminio",
+    "medidas": "110 cm x 90 cm",
+    "puntos": 120,
+    "imagen": "img/exterior/papasan.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Conjunto Manhattan",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela para exterior / Silla: 70cm * 73cm * 67cm / Mesa: 40cm * 40cm * 40cm",
+    "medidas": "Silla: 70cm * 73cm * 67cm / Mesa: 40cm * 40cm * 40cm",
+    "puntos": 380,
+    "imagen": "img/exterior/conjunto-manhattan.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Conjunto Acacia",
+    "categoria": "exteriores",
+    "elementos": "Ratán natural",
+    "medidas": "65cm*95cm*65cm",
+    "puntos": 147,
+    "imagen": "img/exterior/conjunto-acacia2.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Silla Acacia",
+    "categoria": "exteriores",
+    "elementos": "Ratán natural",
+    "medidas": "65cm*95cm*65cm",
+    "puntos": 47,
+    "imagen": "img/exterior/silla-acacia.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Mesa Acacia",
+    "categoria": "exteriores",
+    "elementos": "Ratán natural / diam 60",
+    "medidas": "diam 60",
+    "puntos": 47,
+    "imagen": "img/exterior/mesa-acacia.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Beige", "hex": "#E8DEC9"}
+    ]
+  },
+  {
+    "nombre": "Conjunto Denia",
+    "categoria": "exteriores",
+    "elementos": "Ratán sintético-Estructura de aluminio / Sillón 2 plazas: 130 cm x 71 cm x 60 cm / Sillón 1 plaza: 70cm*71cm*60cm / Mesa: 100cm*50cm*38cm",
+    "medidas": "Sillón 2 plazas: 130 cm x 71 cm x 60 cm / Sillón 1 plaza: 70cm*71cm*60cm / Mesa: 100cm*50cm*38cm",
+    "puntos": 540,
+    "imagen": "img/exterior/conjunto-denia.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Tumbona Max",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela para exterior / 65cm*196cm/30cm",
+    "medidas": "65cm*196cm/30cm",
+    "puntos": 160,
+    "imagen": "img/exterior/tumbona-max.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"},
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Hamaca Algarve",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela sintética / 61cm*106cm*98cm",
+    "medidas": "61cm*106cm*98cm",
+    "puntos": 90,
+    "imagen": "img/exterior/hamaca-algarve.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"},
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Tumbona extra",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio-tela sintética con mesita de mesa a los lados / 197cm*203cm*35cm",
+    "medidas": "197cm*203cm*35cm",
+    "puntos": 240,
+    "imagen": "img/exterior/tumbona-extra.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Azul", "hex": "#4169E1"},
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Marrón", "hex": "#8B4513"}
+    ]
+  },
+  {
+    "nombre": "Tumbona modelo Málaga",
+    "categoria": "exteriores",
+    "elementos": "Madera acacia · Aluminio blanco / 200 cm x 15 cm x 65 cm / Colchoneta silla exterior de m. grosor",
+    "medidas": "200 cm x 15 cm x 65 cm",
+    "puntos": 180,
+    "imagen": "img/exterior/tumbona-modelo-malaga.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Mesita tumbona",
+    "categoria": "exteriores",
+    "elementos": "Estructura de aluminio / 48cm*48cm*43cm",
+    "medidas": "48cm*48cm*43cm",
+    "puntos": 50,
+    "imagen": "img/exterior/mesita-tumbona.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "nombre": "Colchoneta",
+    "categoria": "exteriores",
+    "elementos": "Espuma tejida para exterior / 121cm*61cm*78cm",
+    "medidas": "121cm*61cm*78cm",
+    "puntos": 120,
+    "imagen": "img/exterior/colchoneta.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  }
+]

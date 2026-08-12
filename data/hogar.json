@@ -1,0 +1,443 @@
+[
+  {
+    "nombre": "Composición 1",
+    "categoria": "Hogar",
+    "elementos": "Cama nido / Armario / Mesa estudio / Estantería",
+    "medidas": "Forma L - 329 x 240 cm",
+    "puntos": 380,
+    "imagen": "img/hogyjuv/composicion-1.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Roble natural", "hex": "#D2B48C"},
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 2",
+    "categoria": "Hogar",
+    "elementos": "Cama nido + cajón / Repisa / Panel LED / Mesa estudio con pata",
+    "medidas": "347 cm",
+    "puntos": 310,
+    "imagen": "img/hogyjuv/composicion-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Roble natural", "hex": "#D2B48C"},
+      {"nombre": "Pizarra", "hex": "#708090"}
+    ]
+  },
+  {
+    "nombre": "Composición 3",
+    "categoria": "Hogar",
+    "elementos": "Cama nido + 2 cajones / Armario / Mesa estudio / Book soporte / Armario alto / Estantería / Estante pared / Base arcón",
+    "medidas": "Forma L - 249-254",
+    "puntos": 350,
+    "imagen": "img/hogyjuv/composicion-3.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 4",
+    "categoria": "Hogar",
+    "elementos": "Cama abatible / Estantería / Mesa abatible / Book soporte / Respaldos sobre cama / Repisas con quitamiedos",
+    "medidas": "Forma L - 304-250",
+    "puntos": 370,
+    "imagen": "img/hogyjuv/composicion-4.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "nombre": "Composición 5",
+    "categoria": "Hogar",
+    "elementos": "Estructura 2 muebles / Estantería / Armario extraíble / Cama / Mesa",
+    "medidas": "Forma L - 414-250",
+    "puntos": 480,
+    "imagen": "img/hogyjuv/composicion-5.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Rosa", "hex": "#FFC0CB"}
+    ]
+  },
+  {
+    "nombre": "Composición 6",
+    "categoria": "Hogar",
+    "elementos": "Escritorio con pared  / Cama / Repisa  / Book / Mesa con ruedas",
+    "medidas": "Forma L - 254-250",
+    "puntos": 330,
+    "imagen": "img/hogyjuv/composicion-6.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 7",
+    "categoria": "Hogar",
+    "elementos": "Escritorio / Cama / Book soporte / Repisa / Mesa estudio",
+    "medidas": "Forma L - 279-254",
+    "puntos": 320,
+    "imagen": "img/hogyjuv/composicion-7.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Mozart", "hex": "#F5F5F5"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"}
+    ]
+  },
+  {
+    "nombre": "Composición 8",
+    "categoria": "Hogar",
+    "elementos": "Cama / Mesa estudio + módulo / Armario / Estantería / Módulo redondo pared",
+    "medidas": "388",
+    "puntos": 360,
+    "imagen": "img/hogyjuv/composicion-8.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Teja", "hex": "#C04000"},
+      {"nombre": "Oliva", "hex": "#6B8E23"}
+    ]
+  },
+  {
+    "nombre": "Composición 9",
+    "categoria": "Hogar",
+    "elementos": "Revestimiento pared / Cama compacta (camas) / Mesa de estudio / Cama extra / Book cajones",
+    "medidas": "Forma L - 444-170",
+    "puntos": 430,
+    "imagen": "img/hogyjuv/composicion-9.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Teja", "hex": "#C04000"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "Composición 10",
+    "categoria": "Hogar",
+    "elementos": "Revestimiento pared / Escritorio / Mesa + 2 cajones / Cama / Mueble estantería / Cama auxiliar inferior",
+    "medidas": "350",
+    "puntos": 360,
+    "imagen": "img/hogyjuv/composicion-10.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Rosa", "hex": "#FFC0CB"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "nombre": "Composición 11",
+    "categoria": "Hogar",
+    "elementos": "Cabecero / Pie de cama tapizado / Armario / Cómoda / Espejo",
+    "medidas": "300",
+    "puntos": 310,
+    "imagen": "img/hogyjuv/composicion-11.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Rosado", "hex": "#FFB6C1"}
+    ]
+  },
+  {
+    "nombre": "Composición 12",
+    "categoria": "Hogar",
+    "elementos": "Cama abatible + armario / Mesa de estudio / Estante y portón",
+    "medidas": "344",
+    "puntos": 380,
+    "imagen": "img/hogyjuv/composicion-12.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Pizarra", "hex": "#708090"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "nombre": "Composición 13",
+    "categoria": "Hogar",
+    "elementos": "Cama doble / Cama / Mesa / Arcón / Colgar de letra",
+    "medidas": "Forma L - 279-254",
+    "puntos": 340,
+    "imagen": "img/hogyjuv/composicion-13.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Pizarra", "hex": "#708090"},
+      {"nombre": "Amarillo", "hex": "#FFFF00"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "nombre": "Composición 14",
+    "categoria": "Hogar",
+    "elementos": "Revestimiento pared / Cama (pasaje forma) / Mueble bajo / Cama / Mesa estudio + cajón / Book apoyo",
+    "medidas": "Forma L - 392-230",
+    "puntos": 420,
+    "imagen": "img/hogyjuv/composicion-14.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Arena", "hex": "#F5F5DC"},
+      {"nombre": "Blanco", "hex": "#FFFFFF"},
+      {"nombre": "Roble natural", "hex": "#D2B48C"}
+    ]
+  },   
+  {
+    "id": "libreria-oslo-3",
+    "nombre": "Libreria Oslo 3",
+    "categoria": "Hogar",
+    "material": "Lacado/madera",
+    "espesor": "30mm",
+    "medidas": "320 cm x 280 cm x 45 cm",
+    "puntos": 500,
+    "imagen": "img/salones/libreria-oslo3.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "nombre": "Mesas Marsella",
+    "categoria": "Hogar",
+    "elementos": "Estructura de aluminio tela para exterior",
+    "medidas": "100cm*72cm/100cm*72cm",
+    "puntos": 100,
+    "imagen": "img/exterior/mesas-marsella.jpg",
+    "oferta": false,
+    "fecha_agregado": 1723233600,
+    "colores": [
+      {"nombre": "Negro", "hex": "#000000"}
+    ]
+  },
+  {
+    "id": "mesa-cristal",
+    "nombre": "Mesa Cristal",
+    "categoria": "Hogar",
+    "material": "Cristal",
+    "base": "Base de madera",
+    "medidas": "90 cm x 90 cm · 110 cm x 90 cm",
+    "puntos": 500,
+    "imagen": "img/centromesas/mesa-cristal.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Cristal", "hex": "#F0F8FF"},
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "mesa-roble",
+    "nombre": "Mesa Roble",
+    "categoria": "Hogar",
+    "material": "Madera",
+    "base": "Base de madera",
+    "medidas": "90 cm x 90 cm · 110 cm x 90 cm",
+    "puntos": 300,
+    "imagen": "img/centromesas/mesa-roble.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "braga-mesa",
+    "nombre": "Braga",
+    "categoria": "Hogar",
+    "material": "Tapa en sintered stone",
+    "base": "Base en metal pintado",
+    "tipo": "Mesa extensible",
+    "medidas": "1600-2400 x 900 x 750 mm",
+    "puntos": 680,
+    "imagen": "img/mesascomedor/braga.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Piedra Sinterizada", "hex": "#E8E8E8"},
+      {"nombre": "Metal Pintado", "hex": "#4A4A4A"}
+    ]
+  },
+  {
+    "id": "lazo-mesa",
+    "nombre": "Lazo",
+    "categoria": "Hogar",
+    "material": "Tablero de madera roble",
+    "tipo": "Extensible + 60 cm",
+    "medidas": "120ø",
+    "puntos": 780,
+    "imagen": "img/mesascomedor/lazo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Roble", "hex": "#D2B48C"}
+    ]
+  },
+  {
+    "id": "simp-floral-taburete",
+    "nombre": "Simp Floral",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 47 cm",
+    "puntos": 55,
+    "imagen": "img/taburetes/simp-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#808080"},
+      {"nombre": "Verde", "hex": "#00695C"}
+    ]
+  },
+  {
+    "id": "simp-polipiel-taburete",
+    "nombre": "Simp Polipiel",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Polipiel",
+    "base": "Base negro",
+    "medidas": "48 cm x 100 cm x 47 cm",
+    "puntos": 45,
+    "imagen": "img/taburetes/simp-polipiel.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Marrón", "hex": "#5D4037"}
+    ]
+  },
+  {
+    "id": "pausa",
+    "nombre": "Pausa",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "80 cm x 84 cm x 85 cm",
+    "puntos": 500,
+    "imagen": "img/sofas/pausa.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul", "hex": "#2E4053"},
+      {"nombre": "Granate", "hex": "#943126"},
+      {"nombre": "Gris Oscuro", "hex": "#5D6D7E"},
+      {"nombre": "Gris Claro", "hex": "#D5D8DC"}
+    ]
+  },
+  {
+    "id": "pausa-3-plazas",
+    "nombre": "Pausa 3 Plazas",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "240 cm x 84 cm x 85 cm",
+    "puntos": 780,
+    "imagen": "img/sofas/pausa-3-plazas.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul", "hex": "#2E4053"},
+      {"nombre": "Granate", "hex": "#943126"},
+      {"nombre": "Gris Oscuro", "hex": "#5D6D7E"},
+      {"nombre": "Gris Claro", "hex": "#D5D8DC"}
+    ]
+  },
+  {
+    "id": "amivera",
+    "nombre": "Amivera",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Tela",
+    "base": "Estructura madera",
+    "medidas": "76 cm x 71 cm x 81 cm",
+    "puntos": 360,
+    "imagen": "img/sofas/amivera.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Amarillo", "hex": "#F4D03F"},
+      {"nombre": "Azul Marino", "hex": "#1B4F72"},
+      {"nombre": "Marrón Oscuro", "hex": "#5D4037"},
+      {"nombre": "Rosa", "hex": "#D98880"},
+      {"nombre": "Beige", "hex": "#E5E7E9"}
+    ]
+  },
+  {
+    "id": "american",
+    "nombre": "American",
+    "categoria": "Hogar",
+    "uso": "Interior",
+    "material": "Estructura metálica - Apilable",
+    "base": "Patas inoxidables",
+    "medidas": "45 cm x 90 cm x 45 cm",
+    "puntos": 60,
+    "imagen": "img/sillas/american.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris claro", "hex": "#E6E6E6"}
+    ]
+  },
+  {
+    "id": "simp-piel",
+    "nombre": "Simp Piel",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Polipiel",
+    "base": "Base negro",
+    "medidas": "41 cm x 89 cm x 44 cm",
+    "puntos": 40,
+    "imagen": "img/sillas/simp-piel.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Mostaza", "hex": "#D9A05B"}
+    ]
+  },
+  {
+    "id": "simp-floral",
+    "nombre": "Simp Floral",
+    "categoria": "Hogar",
+    "uso": "Uso interior",
+    "material": "Terciopelo",
+    "base": "Base negro",
+    "medidas": "41 cm x 89 cm x 44 cm",
+    "puntos": 47,
+    "imagen": "img/sillas/simp-floral.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Mostaza", "hex": "#D9A05B"},
+      {"nombre": "Gris", "hex": "#666666"},
+      {"nombre": "Verde", "hex": "#3E8E7E"}
+    ]
+  }
+]

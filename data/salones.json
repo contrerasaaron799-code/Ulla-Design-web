@@ -1,0 +1,145 @@
+[
+  {
+    "id": "attica",
+    "nombre": "Attica",
+    "categoria": "salones",
+    "material": "Tab. porcelanico · Lacado/madera",
+    "base": "Patas metalica",
+    "medidas": "260 cm x 60 cm x 45 cm",
+    "puntos": "1000 / 800",
+    "imagen": "img/salones/attica.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "villa",
+    "nombre": "Villa",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "base": "Base metalica",
+    "medidas": "260 cm x 50 cm x 45 cm",
+    "puntos": 820,
+    "imagen": "img/salones/villa.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "salon-sara",
+    "nombre": "Salon Sara",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30mm",
+    "medidas": "300 cm x 80 cm x 45 cm",
+    "puntos": 1100,
+    "imagen": "img/salones/salon-sara.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "salon-sara-2",
+    "nombre": "Salon Sara 2",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30 mm",
+    "medidas": "300 cm x 124 cm x 45 cm",
+    "puntos": 1130,
+    "imagen": "img/salones/salon-sara-2.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "aparador-sara",
+    "nombre": "Aparador Sara",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30 mm",
+    "medidas": "160 cm x 95 cm x 45 cm · 180 cm x 95 cm x 45 cm",
+    "puntos": "680 / 700",
+    "imagen": "img/salones/aparador-sara.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "aparador-oslo",
+    "nombre": "Aparador Oslo",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "medidas": "160 cm x 95 cm x 45 cm · 180 cm x 95 cm x 45 cm",
+    "puntos": "680 / 700",
+    "imagen": "img/salones/aparador-oslo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "libreria-oslo",
+    "nombre": "Libreria Oslo",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30mm",
+    "medidas": "270 cm x 240 cm x 45 cm",
+    "puntos": 1200,
+    "imagen": "img/salones/libreria-oslo.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "libreria-oslo-2",
+    "nombre": "Libreria Oslo 2",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30mm",
+    "medidas": "310 cm x 240 cm x 45 cm",
+    "puntos": 1380,
+    "imagen": "img/salones/libreria-oslo2.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  },
+  {
+    "id": "libreria-oslo-3",
+    "nombre": "Libreria Oslo 3",
+    "categoria": "salones",
+    "material": "Lacado/madera",
+    "espesor": "30mm",
+    "medidas": "320 cm x 280 cm x 45 cm",
+    "puntos": 500,
+    "imagen": "img/salones/libreria-oslo3.jpg",
+    "oferta": false,
+    "fecha_agregado": 172323360,
+    "colores": [
+      {"nombre": "Lacado", "hex": "#FFFFFF"},
+      {"nombre": "Madera", "hex": "#CD853F"}
+    ]
+  }
+]
