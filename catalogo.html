@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <!-- NUEVO FILTRO: SUBCATEGORÍAS (Se oculta/muestra según la categoría principal) -->
+      <!-- NUEVO FILTRO: SUBCATEGORÍAS -->
       <div class="custom-dropdown" id="subcategoryDropdownContainer">
         <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
         <div class="dropdown-menu" id="subcategoryMenu">
@@ -132,11 +132,32 @@
   </div>
 </div>
 
-<!-- Modal de Detalles de Tableros -->
+<!-- Modal de Detalles de Tableros (X sin círculo) -->
 <div class="detail-modal-overlay" id="detailModal" onclick="handleDetailModalClick(event)">
   <div class="detail-modal-container">
     <span class="detail-close-btn" onclick="closeDetailModal()">×</span>
     <img id="detailImage" src="" alt="Detalles del producto">
+  </div>
+</div>
+
+<!-- NUEVO Modal de Producto (Vista desprendida con X roja limpia) -->
+<div class="product-modal-overlay" id="productModal" onclick="handleProductModalClick(event)">
+  <div class="product-modal-container">
+    <span class="product-close-btn" onclick="closeProductModal()">×</span>
+    <div class="product-modal-layout">
+      <div class="product-modal-image">
+        <img id="productModalImg" src="" alt="">
+      </div>
+      <div class="product-modal-info">
+        <h2 id="productModalName"></h2>
+        <p class="info-line" id="productModalUso"></p>
+        <p class="info-line" id="productModalMaterial"></p>
+        <p class="info-line" id="productModalBase"></p>
+        <p class="info-line" id="productModalMedidas"></p>
+        <div id="productModalColores" class="color-swatches"></div>
+        <button id="productModalBtn" class="btn-add-cart-modal">Agregar al carrito</button>
+      </div>
+    </div>
   </div>
 </div>
 

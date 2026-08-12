@@ -1,7 +1,6 @@
 const grid = document.getElementById('productGrid');
 let productsData = [];
 
-// Mapas de subcategorías para las categorías agrupadas
 const subcategoryMap = {
     'hogar': ['todos', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'],
     'hotel': ['todos', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'],
@@ -80,96 +79,116 @@ function renderCatalog(items) {
         card.setAttribute('data-category', itemCategory);
         card.setAttribute('data-date', item.fecha_agregado || item.date || '0');
         
+        // Guardamos TODOS los datos en atributos data- para el modal
+        card.setAttribute('data-name', itemName);
+        card.setAttribute('data-image', itemImage);
+        card.setAttribute('data-category', itemCategory);
+        card.setAttribute('data-uso', item.uso || '');
+        card.setAttribute('data-material', item.material || item.elementos || item.description || '');
+        card.setAttribute('data-base', item.base || '');
+        card.setAttribute('data-medidas', item.medidas || '');
+        card.setAttribute('data-colores', JSON.stringify(itemColores));
+        
         if (itemDetalleImg) card.setAttribute('data-detalle', itemDetalleImg);
 
-        let colorHtml = '';
-        if (itemColores.length > 0) {
-            colorHtml = `<div class="color-swatches">`;
-            itemColores.forEach(c => {
-                colorHtml += `<span class="color-dot" style="background-color: ${c.hex};" title="${c.nombre}"></span>`;
-            });
-            colorHtml += `</div>`;
-        }
-
-        // Generamos las líneas de información SOLO si existen en el JSON
-        let infoHtml = '';
-        if (item.uso) infoHtml += `<p class="info-line">Uso: ${item.uso}</p>`;
-        if (item.material) infoHtml += `<p class="info-line">Material: ${item.material}</p>`;
-        if (item.base) infoHtml += `<p class="info-line">Base: ${item.base}</p>`;
-        if (item.medidas) infoHtml += `<p class="info-line">Medidas: ${item.medidas}</p>`;
-
+        // TARJETA LIMPIA: Solo la imagen. Sin texto oculto.
         card.innerHTML = `
             <img src="${itemImage}" alt="${itemName}">
-            <div class="card-overlay">
-                <div class="card-hidden-content">
-                    <h3>${itemName}</h3>
-                    ${infoHtml}
-                    ${colorHtml}
-                    <button class="btn-add-cart" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${itemImage}', '${itemCategory}')">Agregar al carrito</button>
-                </div>
-            </div>
         `;
         grid.appendChild(card);
 
-        card.addEventListener('mousemove', (e) => {
-            if (card.classList.contains('active')) return;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -10;
-            const rotateY = ((x - centerX) / centerX) * 10;
-            card.style.transition = 'none'; 
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            card.style.boxShadow = `${-rotateY}px ${rotateX}px 20px rgba(0,0,0,0.15)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            if (!card.classList.contains('active')) {
-                card.style.transition = ''; 
-                card.style.transform = '';
-                card.style.boxShadow = '';
-            }
-        });
-
-        /* --- EVENTO DE CLIC CORREGIDO PARA TABLEROS --- */
+        /* --- EVENTO DE CLIC CORREGIDO --- */
         card.addEventListener('click', (e) => {
+            // Si el clic fue en el botón de carrito (no existe en la tarjeta, pero por seguridad lo dejamos)
             if (e.target.classList.contains('btn-add-cart')) return;
-            const detalleUrl = card.getAttribute('data-detalle');
             
+            // Si tiene imagen de detalle (tableros), abrimos el modal de tableros
+            const detalleUrl = card.getAttribute('data-detalle');
             if (detalleUrl) {
-                // FORZAMOS que la tarjeta se active visualmente (para que el botón aparezca)
-                const isActive = card.classList.contains('active');
-                card.style.transition = '';
-                card.style.transform = '';
-                card.style.boxShadow = '';
-                document.querySelectorAll('.focus-card').forEach(c => c.classList.remove('active'));
-                grid.classList.remove('has-active');
-                card.classList.add('active');
-                grid.classList.add('has-active');
-                
-                // Y ahora abrimos el modal con la tabla de medidas
                 openDetailModal(detalleUrl);
                 return;
             }
 
-            // Lógica normal para los demás productos
-            const isActive = card.classList.contains('active');
-            card.style.transition = '';
-            card.style.transform = '';
-            card.style.boxShadow = '';
-            document.querySelectorAll('.focus-card').forEach(c => c.classList.remove('active'));
-            grid.classList.remove('has-active');
-            if (!isActive) {
-                card.classList.add('active');
-                grid.classList.add('has-active');
-            }
+            // Si no, abrimos el nuevo modal de producto desprendido
+            openProductModal(card);
         });
     });
     applyFilters();
 }
 
+// ================= FUNCIONES DE LOS MODALES =================
+
+/* MODAL DE DETALLES DE TABLEROS (YA CON X ROJA LIMPIA) */
+function openDetailModal(imgSrc) {
+    document.getElementById('detailImage').src = imgSrc;
+    document.getElementById('detailModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeDetailModal() {
+    document.getElementById('detailModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+function handleDetailModalClick(e) {
+    if (e.target.id === 'detailModal') closeDetailModal();
+}
+
+/* NUEVO MODAL DE PRODUCTO (CON IMAGEN GRANDE Y DATOS A UN LADO) */
+function openProductModal(card) {
+    // Obtener datos de la tarjeta
+    const name = card.getAttribute('data-name');
+    const image = card.getAttribute('data-image');
+    const category = card.getAttribute('data-category');
+    const uso = card.getAttribute('data-uso');
+    const material = card.getAttribute('data-material');
+    const base = card.getAttribute('data-base');
+    const medidas = card.getAttribute('data-medidas');
+    const colores = card.getAttribute('data-colores');
+
+    // Inyectar datos en el modal
+    document.getElementById('productModalImg').src = image;
+    document.getElementById('productModalName').textContent = name;
+    document.getElementById('productModalUso').textContent = uso ? `Uso: ${uso}` : '';
+    document.getElementById('productModalMaterial').textContent = material ? `Material: ${material}` : '';
+    document.getElementById('productModalBase').textContent = base ? `Base: ${base}` : '';
+    document.getElementById('productModalMedidas').textContent = medidas ? `Medidas: ${medidas}` : '';
+
+    // Inyectar colores
+    const colorContainer = document.getElementById('productModalColores');
+    colorContainer.innerHTML = '';
+    if (colores) {
+        try {
+            const coloresArray = JSON.parse(colores);
+            coloresArray.forEach(c => {
+                const dot = document.createElement('span');
+                dot.className = 'color-dot';
+                dot.style.backgroundColor = c.hex;
+                dot.title = c.nombre;
+                colorContainer.appendChild(dot);
+            });
+        } catch(e) { colorContainer.innerHTML = ''; }
+    }
+
+    // Configurar botón de agregar al carrito en el modal
+    const btn = document.getElementById('productModalBtn');
+    btn.onclick = function() { 
+        addToCart(name, image, category); 
+        closeProductModal(); 
+    };
+
+    // Mostrar modal y bloquear scroll de fondo
+    document.getElementById('productModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    document.getElementById('productModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+function handleProductModalClick(e) {
+    if (e.target.id === 'productModal') closeProductModal();
+}
+
+// ================= CHECK URL PARAMS =================
 function checkUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const targetId = urlParams.get('focus');
@@ -177,8 +196,8 @@ function checkUrlParams() {
         const targetCard = document.getElementById(targetId);
         if (targetCard) {
             targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            targetCard.classList.add('active');
-            grid.classList.add('has-active');
+            // No activamos el "active" porque ya no se usa, pero podemos abrir el modal directamente
+            openProductModal(targetCard);
         }
     }
     const categoriaUrl = urlParams.get('categoria');
@@ -190,6 +209,7 @@ function checkUrlParams() {
 
 window.addEventListener('DOMContentLoaded', loadProducts);
 
+// ================= LÓGICA DEL CARRITO DE COMPRAS (Sin cambios) =================
 let cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
 updateCartUI();
 
@@ -273,6 +293,7 @@ function sendCartToWhatsApp() {
     updateCartUI();
 }
 
+// ================= FILTROS Y BÚSQUEDA =================
 const dropdownTrigger = document.getElementById('dropdownTrigger');
 const dropdownMenu = document.getElementById('dropdownMenu');
 const dropdownContainer = document.getElementById('filterDropdownContainer');
@@ -355,13 +376,12 @@ function updateSubcategoryMenu(category) {
 }
 
 function applyFilters() {
-    // --- NUEVO: Agregamos o quitamos la clase 'view-all' según la categoría ---
+    // --- Lógica de alineación central para "Todos" ---
     if (currentCategory === 'todos') {
         grid.classList.add('view-all');
     } else {
         grid.classList.remove('view-all');
     }
-    // ----------------------------------------------------------------------
 
     const searchTerm = searchInput.value.toLowerCase().trim();
     const cardsArray = Array.from(grid.querySelectorAll('.focus-card'));
@@ -381,7 +401,7 @@ function applyFilters() {
     cardsArray.forEach(card => {
         const catString = card.getAttribute('data-category') || '';
         const catList = catString.split(',').map(c => c.trim());
-        const title = card.querySelector('h3').textContent.toLowerCase();
+        const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
         const desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent.toLowerCase() : '';
 
         const matchesCategory = (currentCategory === 'todos' || targetCategories.some(cat => catList.includes(cat)));
@@ -401,18 +421,3 @@ function applyFilters() {
 }
 
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
-
-function openDetailModal(imgSrc) {
-    document.getElementById('detailImage').src = imgSrc;
-    document.getElementById('detailModal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-function closeDetailModal() {
-    document.getElementById('detailModal').classList.remove('show');
-    document.body.style.overflow = '';
-}
-function handleDetailModalClick(e) {
-    if (e.target.id === 'detailModal') {
-        closeDetailModal();
-    }
-}
