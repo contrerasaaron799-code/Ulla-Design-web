@@ -29,14 +29,14 @@ a { text-decoration: none; color: inherit; }
 .brand-text .ulla { 
     color: var(--accent); 
     font-family: Inter, Helvetica Neue, sans-serif; /* Fuente modernizada */
-    font-size: 18px; 
+    font-size: 20px; 
     font-weight: 600; 
 }
 
 .brand-text .design { 
     color: var(--headline); 
     font-family: Inter, Helvetica Neue, sans-serif; /* Misma fuente que el rojo */
-    font-size: 22px; 
+    font-size: 20px; 
     font-weight: 600; 
 }
 .menu-wrap { margin-left: auto; display: flex; align-items: center; gap: 22px; }
