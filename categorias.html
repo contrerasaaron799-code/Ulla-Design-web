@@ -84,7 +84,7 @@ a{ text-decoration:none; color:inherit; }
 .category-card {
     background: var(--card);
     border-radius: var(--radius-card);
-    padding: 24px 24px 0 24px; /* Borde reducido y sin padding inferior */
+    padding: 16px 16px 0 16px; /* Margen ultra reducido para escritorio */
     text-align: center;
     box-shadow: var(--shadow-card);
     border: 1px solid transparent;
@@ -93,7 +93,7 @@ a{ text-decoration:none; color:inherit; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* El contenido va arriba */
+    justify-content: flex-start;
     min-height: 340px;
 }
 .category-card:hover {
@@ -103,10 +103,10 @@ a{ text-decoration:none; color:inherit; }
 
 .category-image {
     width: 100%;
-    height: 150px; /* Mantenemos altura fija para que se vea uniforme */
+    height: 180px; /* Imagen más grande en escritorio */
     object-fit: cover;
-    margin-top: 16px; /* Un pequeño margen para separar el botón de la imagen */
-    border-radius: 0 0 var(--radius-card) var(--radius-card); /* Se ajusta a la esquina de la tarjeta */
+    margin-top: 8px; /* Un espacio mínimo entre el botón y la imagen */
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
     background-color: transparent; 
 }
 
@@ -137,8 +137,8 @@ a{ text-decoration:none; color:inherit; }
    ========================================= */
 @media (max-width: 1024px){
     .category-grid { grid-template-columns: repeat(2, 1fr); }
-    .category-card { min-height: 280px; padding: 20px 20px 0 20px; }
-    .category-image { height: 130px; }
+    .category-card { min-height: 280px; padding: 14px 14px 0 14px; }
+    .category-image { height: 150px; margin-top: 6px; }
 }
 
 @media (max-width: 768px){
@@ -150,11 +150,11 @@ a{ text-decoration:none; color:inherit; }
   }
   .category-card { 
     min-height: 240px; 
-    padding: 16px 16px 0 16px; 
+    padding: 12px 12px 0 12px; /* Margen prácticamente pegado en móvil */
   }
   .category-image { 
-    height: 100px; 
-    margin-top: 12px;
+    height: 120px; 
+    margin-top: 6px;
   }
   .category-name { 
     font-size: 15px; 
