@@ -389,30 +389,30 @@ margin-bottom:22px;
 .product-card .btn, .feature-card .btn { min-height: 44px; width: 100%; }
 .product-content { padding: 16px; }
 
-/* HERO MÓVIL CON TEXTO ARRIBA Y ABAJO */
+/* HERO MÓVIL: TODO ARRIBA Y DEGRADADO DESDE EL BORDE SUPERIOR */
 .hero{
 min-height:520px;
 background:
-linear-gradient(180deg, rgba(246,241,241,.12) 0%, rgba(246,241,241,.25) 60%, rgba(246,241,241,.90) 90%),
+/* Degradado desde el borde de arriba hacia abajo */
+linear-gradient(180deg, rgba(246,241,241,0.85) 0%, rgba(246,241,241,0.4) 30%, rgba(246,241,241,0) 100%),
 url('sofas2.jpg') center 20% / cover no-repeat !important;
 }
 
 .hero-inner{
 width:100%;
-padding: 40px 20px 40px; /* Espacio superior e inferior */
+padding: 100px 20px 20px; /* Espacio superior para que no choque con el menú */
 display: flex;
 flex-direction: column;
-justify-content: flex-start; /* El título se queda arriba */
-min-height: inherit;
+justify-content: flex-start; /* Todo el contenido arriba */
+align-items: flex-start;
 }
 
-/* El subtítulo y el botón los empujamos hasta el fondo */
 .hero-inner .lead {
-    margin-top: auto; /* Empuja el texto hacia abajo */
+    margin-top: 16px;
     margin-bottom: 16px;
 }
 .hero-inner .hero-actions {
-    margin-top: 0; /* El botón queda justo debajo del subtítulo */
+    margin-top: 0;
 }
 
 .cards-row,.grid{grid-template-columns:1fr}
