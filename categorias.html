@@ -84,7 +84,7 @@ a{ text-decoration:none; color:inherit; }
 .category-card {
     background: var(--card);
     border-radius: var(--radius-card);
-    padding: 16px 16px 0 16px; /* Margen ultra reducido para escritorio */
+    padding: 16px 16px 0 16px; /* Márgenes ultra reducidos */
     text-align: center;
     box-shadow: var(--shadow-card);
     border: 1px solid transparent;
@@ -94,7 +94,7 @@ a{ text-decoration:none; color:inherit; }
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 340px;
+    min-height: 400px; /* TARJETA MÁS ALTA (Antes 340px) */
 }
 .category-card:hover {
     transform: translateY(-4px);
@@ -103,9 +103,9 @@ a{ text-decoration:none; color:inherit; }
 
 .category-image {
     width: 100%;
-    height: 180px; /* Imagen más grande en escritorio */
+    height: 240px; /* IMAGEN MÁS GRANDE (Antes 180px) */
     object-fit: cover;
-    margin-top: 8px; /* Un espacio mínimo entre el botón y la imagen */
+    margin-top: 8px; 
     border-radius: 0 0 var(--radius-card) var(--radius-card);
     background-color: transparent; 
 }
@@ -137,8 +137,8 @@ a{ text-decoration:none; color:inherit; }
    ========================================= */
 @media (max-width: 1024px){
     .category-grid { grid-template-columns: repeat(2, 1fr); }
-    .category-card { min-height: 280px; padding: 14px 14px 0 14px; }
-    .category-image { height: 150px; margin-top: 6px; }
+    .category-card { min-height: 340px; padding: 14px 14px 0 14px; } /* Tablet (Antes 280px) */
+    .category-image { height: 200px; margin-top: 6px; } /* Tablet (Antes 150px) */
 }
 
 @media (max-width: 768px){
@@ -149,11 +149,11 @@ a{ text-decoration:none; color:inherit; }
     gap: 16px; 
   }
   .category-card { 
-    min-height: 240px; 
-    padding: 12px 12px 0 12px; /* Margen prácticamente pegado en móvil */
+    min-height: 300px; /* Móvil (Antes 240px) */
+    padding: 12px 12px 0 12px; 
   }
   .category-image { 
-    height: 120px; 
+    height: 160px; /* Móvil (Antes 120px) */
     margin-top: 6px;
   }
   .category-name { 
