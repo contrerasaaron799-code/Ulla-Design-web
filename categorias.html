@@ -77,14 +77,15 @@ a{ text-decoration:none; color:inherit; }
 /* --- GRID DE CATEGORÍAS --- */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columnas en escritorio */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
+/* --- TARJETA CON FLEXBOX MÁGICO --- */
 .category-card {
     background: var(--card);
     border-radius: var(--radius-card);
-    padding: 16px 16px 0 16px; /* Márgenes ultra reducidos */
+    padding: 0; /* Sin márgenes internos para que la imagen llegue al borde */
     text-align: center;
     box-shadow: var(--shadow-card);
     border: 1px solid transparent;
@@ -92,29 +93,28 @@ a{ text-decoration:none; color:inherit; }
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
-    min-height: 400px; /* TARJETA MÁS ALTA (Antes 340px) */
+    min-height: 400px; /* Tarjeta alta */
+    overflow: hidden; /* Para que los bordes de la imagen se redondeen */
 }
 .category-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-floating);
 }
 
-.category-image {
-    width: 100%;
-    height: 240px; /* IMAGEN MÁS GRANDE (Antes 180px) */
-    object-fit: cover;
-    margin-top: 8px; 
-    border-radius: 0 0 var(--radius-card) var(--radius-card);
-    background-color: transparent; 
+/* --- CONTENEDOR DEL TEXTO Y BOTÓN --- */
+.card-top {
+    padding: 16px 16px 10px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-name {
     font-weight: 600;
     font-size: 20px;
     color: var(--headline);
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .category-btn {
@@ -130,6 +130,17 @@ a{ text-decoration:none; color:inherit; }
 }
 .category-btn:hover { opacity: 0.9; }
 
+/* --- IMAGEN QUE SE EXPANDE --- */
+.category-image {
+    width: 100%;
+    /* EL TRUCO: flex-grow 1 ocupa todo el espacio sobrante */
+    flex-grow: 1; 
+    object-fit: cover;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+    background-color: transparent; 
+    min-height: 120px; /* Altura mínima por seguridad */
+}
+
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
 /* =========================================
@@ -137,8 +148,8 @@ a{ text-decoration:none; color:inherit; }
    ========================================= */
 @media (max-width: 1024px){
     .category-grid { grid-template-columns: repeat(2, 1fr); }
-    .category-card { min-height: 340px; padding: 14px 14px 0 14px; } /* Tablet (Antes 280px) */
-    .category-image { height: 200px; margin-top: 6px; } /* Tablet (Antes 150px) */
+    .category-card { min-height: 340px; }
+    .card-top { padding: 14px 14px 8px 14px; }
 }
 
 @media (max-width: 768px){
@@ -149,16 +160,14 @@ a{ text-decoration:none; color:inherit; }
     gap: 16px; 
   }
   .category-card { 
-    min-height: 300px; /* Móvil (Antes 240px) */
-    padding: 12px 12px 0 12px; 
+    min-height: 280px; 
   }
-  .category-image { 
-    height: 160px; /* Móvil (Antes 120px) */
-    margin-top: 6px;
+  .card-top { 
+    padding: 10px 10px 6px 10px; 
   }
   .category-name { 
     font-size: 15px; 
-    margin-bottom: 12px; 
+    margin-bottom: 8px; 
   }
   .category-btn { 
     padding: 6px 14px; 
@@ -217,113 +226,145 @@ a{ text-decoration:none; color:inherit; }
     <div class="category-grid">
         <!-- 1. Sillas -->
         <div class="category-card">
-            <div class="category-name">Sillas</div>
-            <a href="catalogo.html?categoria=sillas" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Sillas</div>
+                <a href="catalogo.html?categoria=sillas" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="sillascat.jpg" alt="Sillas" class="category-image">
         </div>
 
         <!-- 2. Sillones y Sofás -->
         <div class="category-card">
-            <div class="category-name">Sillones y Sofás</div>
-            <a href="catalogo.html?categoria=sofas" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Sillones y Sofás</div>
+                <a href="catalogo.html?categoria=sofas" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="sofascat.jpg" alt="Sillones y Sofás" class="category-image">
         </div>
 
         <!-- 3. Taburetes -->
         <div class="category-card">
-            <div class="category-name">Taburetes</div>
-            <a href="catalogo.html?categoria=taburetes" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Taburetes</div>
+                <a href="catalogo.html?categoria=taburetes" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="taburetescat.jpg" alt="Taburetes" class="category-image">
         </div>
 
         <!-- 4. Paneles -->
         <div class="category-card">
-            <div class="category-name">Paneles</div>
-            <a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Paneles</div>
+                <a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="img/paneles.png" alt="Paneles" class="category-image">
         </div>
 
         <!-- 5. Suelos Vinilicos -->
         <div class="category-card">
-            <div class="category-name">Suelos Vinílicos</div>
-            <a href="catalogo.html?categoria=suelos vinilicos" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Suelos Vinílicos</div>
+                <a href="catalogo.html?categoria=suelos vinilicos" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="suelovinilico.jpg" alt="Suelos Vinílicos" class="category-image">
         </div>
 
         <!-- 6. Lámparas y Decoración -->
         <div class="category-card">
-            <div class="category-name">Lámparas y Decoración</div>
-            <a href="catalogo.html?categoria=lamparas y decoracion" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Lámparas y Decoración</div>
+                <a href="catalogo.html?categoria=lamparas y decoracion" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="lamparascat.jpg" alt="Lámparas y Decoración" class="category-image">
         </div>
 
         <!-- 7. Salones -->
         <div class="category-card">
-            <div class="category-name">Salones</div>
-            <a href="catalogo.html?categoria=salones" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Salones</div>
+                <a href="catalogo.html?categoria=salones" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="salonescat.jpg" alt="Salones" class="category-image">
         </div>
 
         <!-- 8. Mesas de comedor -->
         <div class="category-card">
-            <div class="category-name">Mesas de comedor</div>
-            <a href="catalogo.html?categoria=mesasdecomedor" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Mesas de comedor</div>
+                <a href="catalogo.html?categoria=mesasdecomedor" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="comedorcat.jpg" alt="Mesas de comedor" class="category-image">
         </div>
 
         <!-- 9. Centros de Mesa -->
         <div class="category-card">
-            <div class="category-name">Centros de Mesa</div>
-            <a href="catalogo.html?categoria=mesasdecentro" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Centros de Mesa</div>
+                <a href="catalogo.html?categoria=mesasdecentro" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="centrocat.jpg" alt="Centros de Mesa" class="category-image">
         </div>
 
         <!-- 10. Juvenil -->
         <div class="category-card">
-            <div class="category-name">Juvenil</div>
-            <a href="catalogo.html?categoria=juvenil" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Juvenil</div>
+                <a href="catalogo.html?categoria=juvenil" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="juvenilcat.jpg" alt="Juvenil" class="category-image">
         </div>
 
         <!-- 11. Exterior -->
         <div class="category-card">
-            <div class="category-name">Exterior</div>
-            <a href="catalogo.html?categoria=exteriores" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Exterior</div>
+                <a href="catalogo.html?categoria=exteriores" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="exteriorcat.jpg" alt="Exterior" class="category-image">
         </div>
 
         <!-- 12. Bases metálicas y Tableros -->
         <div class="category-card">
-            <div class="category-name">Bases metálicas y Tableros</div>
-            <a href="catalogo.html?categoria=basesmetalicas" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Bases metálicas y Tableros</div>
+                <a href="catalogo.html?categoria=basesmetalicas" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="img/bases.jpg" alt="Bases metálicas y Tableros" class="category-image">
         </div>
 
         <!-- 13. Bancos de Hostelería -->
         <div class="category-card">
-            <div class="category-name">Bancos de Hostelería</div>
-            <a href="catalogo.html?categoria=bancos de hosteleria" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Bancos de Hostelería</div>
+                <a href="catalogo.html?categoria=bancos de hosteleria" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="img/bancos.jpg" alt="Bancos de Hostelería" class="category-image">
         </div>
 
         <!-- 14. Hotel -->
         <div class="category-card">
-            <div class="category-name">Hotel</div>
-            <a href="catalogo.html?categoria=hotel" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Hotel</div>
+                <a href="catalogo.html?categoria=hotel" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="img/hotel.jpg" alt="Hotel" class="category-image">
         </div>
 
         <!-- 15. Hogar -->
         <div class="category-card">
-            <div class="category-name">Hogar</div>
-            <a href="catalogo.html?categoria=hogar" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Hogar</div>
+                <a href="catalogo.html?categoria=hogar" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Hogar" class="category-image">
         </div>
 
         <!-- 16. Contract -->
         <div class="category-card">
-            <div class="category-name">Contract</div>
-            <a href="catalogo.html?categoria=contract" class="category-btn">Ver catálogo</a>
+            <div class="card-top">
+                <div class="category-name">Contract</div>
+                <a href="catalogo.html?categoria=contract" class="category-btn">Ver catálogo</a>
+            </div>
             <img src="img/contract.jpg" alt="Contract" class="category-image">
         </div>
     </div>
