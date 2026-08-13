@@ -389,12 +389,15 @@ margin-bottom:22px;
 .product-card .btn, .feature-card .btn { min-height: 44px; width: 100%; }
 .product-content { padding: 16px; }
 
-/* HERO MÓVIL: TEXTO ARRIBA Y BOTÓN ABAJO */
+/* HERO MÓVIL CORREGIDO: EL BOTÓN VA AL FONDO */
 .hero{
 min-height:520px;
 background:
 linear-gradient(180deg, rgba(246,241,241,0.85) 0%, rgba(246,241,241,0.4) 30%, rgba(246,241,241,0) 100%),
 url('sofas2.jpg') center 20% / cover no-repeat !important;
+/* Convertimos el hero en contenedor flex para estirar al hijo */
+display: flex;
+flex-direction: column;
 }
 
 .hero-inner{
@@ -404,20 +407,21 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start; /* El título y la frase se quedan arriba */
 align-items: flex-start;
+flex-grow: 1; /* CLAVE: Estira el cuadro interior hasta el fondo */
 }
 
 .hero-inner .lead {
-    margin-top: 8px; /* La frase está arriba */
+    margin-top: 8px;
     margin-bottom: 4px;
 }
 
-/* NUEVO: El contenedor del botón se va al fondo automáticamente */
+/* El contenedor del botón se va al fondo */
 .hero-inner .hero-actions {
-    margin-top: auto; /* ¡Empuja el botón hasta el fondo! */
-    margin-bottom: 5px; /* Un pequeño espacio para que no pegue contra el borde */
+    margin-top: auto; /* Empuja el botón hasta el fondo */
+    margin-bottom: 25px; /* Un poco de aire en la parte de abajo */
 }
 
-/* Botón un poco más pequeño en el héroe móvil (el cliente lo pidió antes) */
+/* Botón un poco más pequeño */
 .hero-inner .hero-actions .btn-primary {
     width: auto;
     padding: 8px 20px;
