@@ -14,7 +14,7 @@
 --accent-dark:#8E1E1E;
 --bg:#F6F1F1;
 --card:#FFFFFF;
---subtle:#EFE8E7;
+--subtle:#EFE8E8;
 --border:#DDCFCF;
 --headline:#2A1B1B;
 --body:#5F4A4A;
@@ -389,7 +389,7 @@ margin-bottom:22px;
 .product-card .btn, .feature-card .btn { min-height: 44px; width: 100%; }
 .product-content { padding: 16px; }
 
-/* HERO MÓVIL: TÍTULO ARRIBA, FRASE Y BOTÓN UN POCO MÁS ARRIBA */
+/* HERO MÓVIL: TEXTO ARRIBA Y BOTÓN ABAJO */
 .hero{
 min-height:520px;
 background:
@@ -402,19 +402,22 @@ width:100%;
 padding: 25px 20px 20px; 
 display: flex;
 flex-direction: column;
-justify-content: flex-start; 
+justify-content: flex-start; /* El título y la frase se quedan arriba */
 align-items: flex-start;
 }
 
 .hero-inner .lead {
-    margin-top: 8px;
+    margin-top: 8px; /* La frase está arriba */
     margin-bottom: 4px;
 }
+
+/* NUEVO: El contenedor del botón se va al fondo automáticamente */
 .hero-inner .hero-actions {
-    margin-top: 4px;
+    margin-top: auto; /* ¡Empuja el botón hasta el fondo! */
+    margin-bottom: 5px; /* Un pequeño espacio para que no pegue contra el borde */
 }
 
-/* NUEVO: Botón más pequeño en el héroe móvil */
+/* Botón un poco más pequeño en el héroe móvil (el cliente lo pidió antes) */
 .hero-inner .hero-actions .btn-primary {
     width: auto;
     padding: 8px 20px;
@@ -568,7 +571,7 @@ align-items: flex-start;
     <div class="testimonial-card">
       <h4 class="testimonial-name">Laura S.</h4>
       <div class="testimonial-stars">★★★★½</div>
-      <p class="testimonial-quote">"Me encantó la variedad y el estilo de sus productos. Encontré exactamente lo que necesitaba para darle un toque moderno y acogedor a mi sala."</p>
+      <p class="testimonial-quote">"Me encantó la variedad y el estilo de sus productos. Encontré exactamente lo que necesitaba para darle un toque moderno y acogedor a mi sala. El único detalle fue el tiempo de entrega, pero valió totalmente la pena."</p>
     </div>
   </div>
 </section>
