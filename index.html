@@ -389,31 +389,35 @@ margin-bottom:22px;
 .product-card .btn, .feature-card .btn { min-height: 44px; width: 100%; }
 .product-content { padding: 16px; }
 
-/* HERO MÓVIL: TODO ARRIBA Y DEGRADADO DESDE EL BORDE SUPERIOR */
+/* HERO MÓVIL: TÍTULO ARRIBA, FRASE Y BOTÓN UN POCO MÁS ARRIBA */
 .hero{
 min-height:520px;
 background:
-/* Degradado desde el borde de arriba hacia abajo */
 linear-gradient(180deg, rgba(246,241,241,0.85) 0%, rgba(246,241,241,0.4) 30%, rgba(246,241,241,0) 100%),
 url('sofas2.jpg') center 20% / cover no-repeat !important;
 }
 
 .hero-inner{
 width:100%;
-/* CAMBIO: De 100px a 70px para subir el texto justo debajo del marco */
 padding: 25px 20px 20px; 
 display: flex;
 flex-direction: column;
-justify-content: flex-start; /* Todo el contenido arriba */
+justify-content: flex-start; 
 align-items: flex-start;
 }
 
 .hero-inner .lead {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 4px;
 }
 .hero-inner .hero-actions {
-    margin-top: 0;
+    margin-top: 4px;
+}
+
+/* NUEVO: Botón más pequeño en el héroe móvil */
+.hero-inner .hero-actions .btn-primary {
+    width: auto;
+    padding: 8px 20px;
 }
 
 .cards-row,.grid{grid-template-columns:1fr}
