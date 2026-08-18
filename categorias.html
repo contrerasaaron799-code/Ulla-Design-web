@@ -268,13 +268,13 @@ a{ text-decoration:none; color:inherit; }
   display: block;
   min-height: 120px;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1);
-  transform-origin: center bottom; /* <--- CAMBIO CLAVE: el zoom crece desde abajo */
+  /* Origen de zoom centrado (por defecto) – sin cambios */
 }
 
-/* Zoom de imagen al interactuar */
+/* Zoom de imagen al interactuar (AHORA MÁS SUAVE: 1.03 en lugar de 1.05) */
 .glowing-wrapper:hover .category-card img,
 .glowing-wrapper.touched .category-card img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .card-top {
