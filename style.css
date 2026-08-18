@@ -2,150 +2,455 @@
   --accent: #C62828;
   --accent-light: #D95B5B;
   --accent-dark: #8E1E1E;
-  --bg: #FAFAFA;
-  --card: #FAFAFA;
+  --bg: #F6F1F1;
+  --card: #FFFFFF;
   --subtle: #EFE8E8;
   --border: #DDCFCF;
   --headline: #2A1B1B;
   --body: #5F4A4A;
   --muted: #8B7474;
   --inverse: #FFFFFF;
-  --shadow-card: 0 4px 12px rgba(42,27,27,0.03);
-  --shadow-floating: 0 25px 50px rgba(42,27,27,.2), 0 10px 20px rgba(0,0,0,.1);
+  --shadow-card: 0 8px 20px rgba(42, 27, 27, 0.08);
+  --shadow-floating: 0 12px 40px rgba(42, 27, 27, 0.12);
   --radius-card: 12px;
   --radius-button: 8px;
   --container: 1200px;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; font-family: Inter, Helvetica Neue, sans-serif; background: var(--bg); color: var(--body); }
+
+body {
+  margin: 0;
+  font-family: Inter, Helvetica Neue, sans-serif;
+  background: var(--bg);
+  color: var(--body);
+}
+
 a { text-decoration: none; color: inherit; }
-.container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; position: relative; }
 
-.nav { height: 80px; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 10px; min-width: 0; white-space: nowrap; }
-.brand-logo { width: 48px; height: 32px; flex: 0 0 auto; display: block; }
-.brand-text { display: flex; align-items: baseline; gap: 4px; line-height: 1; }
-.brand-text .ulla { 
-    color: var(--accent); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 24px; 
-    font-weight: 700; 
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+  position: relative;
 }
 
-.brand-text .design { 
-    color: var(--headline); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 20px; 
-    font-weight: 600; 
-}
-.menu-wrap { margin-left: auto; display: flex; align-items: center; gap: 22px; }
-.menu { display: flex; align-items: center; gap: 22px; white-space: nowrap; }
-.menu a { position: relative; padding: 6px 0; }
-.menu a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--accent); transition: .25s ease; }
-.menu a:hover::after { width: 100%; }
-
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; border-radius: var(--radius-button); transition: .2s ease; font-weight: 500; white-space: nowrap; flex: 0 0 auto; }
-.btn:hover { transform: translateY(-2px); opacity: .92; }
-.btn-primary { background: var(--accent); color: var(--inverse); padding: 10px 22px; }
-.btn-secondary { background: #A84E4E; color: var(--inverse); padding: 10px 24px; }
-.btn-ghost { background: transparent; color: var(--headline); border: 1px solid var(--border); padding: 10px 18px; }
-
-/* Menú Hamburguesa */
-.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
-.hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
-.mobile-menu { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--card); flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; box-shadow: var(--shadow-floating); border-radius: 0 0 var(--radius-card) var(--radius-card); z-index: 100; }
-.mobile-menu.show { display: flex; }
-
-h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; }
-.section { padding: 48px 0; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 22px; }
-.section-title { font-size: 32px; line-height: 1.2; }
-
-.catalog-controls { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; background: var(--card); padding: 16px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); margin-bottom: 32px; }
-.controls-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.search-input { background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 16px; border-radius: var(--radius-button); font-family: Inter, sans-serif; font-size: 14px; outline: none; transition: all 0.2s ease; width: 220px; }
-.search-input:focus { border-color: var(--accent); background: var(--card); }
-.custom-dropdown { position: relative; }
-.dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; }
-.dropdown-trigger:hover, .dropdown-trigger.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
-.dropdown-trigger .arrow { font-size: 10px; transition: transform 0.3s ease; }
-.dropdown-trigger.active .arrow { transform: rotate(180deg); }
-.dropdown-menu { position: absolute; top: calc(100% + 12px); left: 0; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow-floating); padding: 24px; width: max-content; max-width: 380px; z-index: 50; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; border: 1px solid var(--border); }
-.dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown-section h4 { font-size: 12px; font-family: Inter, sans-serif; margin-bottom: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
-.dropdown-options { display: flex; flex-wrap: wrap; gap: 8px; }
-.dropdown-item { background: var(--bg); border: 1px solid transparent; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--body); transition: all 0.2s ease; font-family: Inter, sans-serif; }
-.dropdown-item:hover { background: var(--subtle); border-color: var(--border); }
-.dropdown-item.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
-.dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
-
-/* =========================================
-   SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
-   ========================================= */
-.focus-grid { 
-  column-count: 4; 
-  column-gap: 24px; 
-  min-height: 300px; 
-  padding: 0 1px; 
+/* ===== HEADER / NAV ===== */
+.nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.focus-card { 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 32px;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+}
+
+.brand-text .ulla {
+  color: var(--accent);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.brand-text .design {
+  color: var(--headline);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu-wrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+.menu a {
+  position: relative;
+  padding: 6px 0;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.25s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+  width: 100%;
+}
+
+.menu a.active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-button);
+  transition: 0.2s ease;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--inverse) !important;
+  padding: 10px 22px;
+}
+
+.btn-secondary {
+  background: #A84E4E;
+  color: var(--inverse);
+  padding: 10px 24px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--headline);
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+}
+
+/* ===== MENÚ HAMBURGUESA (MÓVIL) ===== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 20;
+}
+
+.hamburger svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--headline);
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  box-shadow: var(--shadow-floating);
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-15px);
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0 0;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.45s ease,
+              visibility 0.45s ease;
+}
+
+.mobile-menu.show {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  padding: 24px 0;
+}
+
+.mobile-menu a {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--headline);
+  padding: 8px 0;
+  transition: color 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent);
+}
+
+.mobile-menu .btn-primary {
+  margin-top: 8px;
+}
+
+/* ===== SECCIONES Y TÍTULOS ===== */
+.section {
+  padding: 48px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--headline);
+  margin: 0;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ===== EFECTO GLOWING (Borde brillante) ===== */
+.glowing-wrapper {
+  position: relative;
+  border-radius: var(--radius-card);
+  background: var(--border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.glowing-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-floating);
+}
+
+.glowing-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(198, 40, 40, 1),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+.glowing-wrapper:hover .glowing-effect {
+  opacity: 1;
+}
+
+/* ===== BOTÓN CON ESTADO (carga / éxito) ===== */
+.stateful-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(198, 40, 40, 0.25);
+  outline: none;
+  min-width: 200px;
+  height: 50px;
+}
+
+.stateful-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--accent-dark);
+}
+
+.stateful-button:active {
+  transform: translateY(0);
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-spinner {
+  display: none;
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 0.8s linear infinite;
+  position: absolute;
+}
+
+.btn-success {
+  display: none;
+  position: absolute;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stateful-button.loading .btn-content,
+.stateful-button.success .btn-content {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.stateful-button.loading .btn-spinner {
+  display: block;
+}
+
+.stateful-button.success {
+  background: linear-gradient(145deg, #b40505, #e30606) !important;
+}
+
+.stateful-button.success .btn-spinner {
+  display: none;
+}
+
+.stateful-button.success .btn-success {
+  display: block;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===== ESTILOS DEL CATÁLOGO (focus-grid, modales, carrito) ===== */
+/* (Se mantienen exactamente como los tenías en style.css original) */
+.focus-grid {
+  column-count: 4;
+  column-gap: 24px;
+  min-height: 300px;
+  padding: 0 1px;
+}
+
+.focus-card {
   break-inside: avoid;
-  position: relative; 
-  margin-bottom: 24px; 
-  border-radius: var(--radius-card); 
-  overflow: hidden; 
-  cursor: pointer; 
-  background: transparent; 
-  border: 1px solid transparent; 
-  box-shadow: var(--shadow-card); 
-  perspective: 1000px; /* CLAVE: El 3D se aplica individualmente a cada carta */
-  transform-style: preserve-3d; 
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-card);
+  perspective: 1000px;
+  transform-style: preserve-3d;
   will-change: transform;
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease;
 }
 
-.focus-card img { 
-  width: 100%; 
-  height: auto; 
-  display: block; 
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
+.focus-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
 }
 
-/* =========================================
-   ALINEACIÓN CENTRAL (SOLO PARA CATEGORÍAS PRINCIPALES)
-   ========================================= */
+/* Alineación central para categorías principales */
 .focus-grid.view-all {
-    display: flex !important;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    column-count: 1 !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  column-count: 1 !important;
 }
 
 .focus-grid.view-all .focus-card {
-    width: calc(25% - 18px);
-    margin-bottom: 0;
-    height: auto !important;
-    display: block;
+  width: calc(25% - 18px);
+  margin-bottom: 0;
+  height: auto !important;
+  display: block;
 }
 
-@media (max-width: 1024px) { 
-    .focus-grid.view-all .focus-card {
-        width: calc(33.33% - 16px);
-    }
+@media (max-width: 1024px) {
+  .focus-grid:not(.view-all) { column-count: 3; }
+  .focus-grid.view-all .focus-card { width: calc(33.33% - 16px); }
 }
+
 @media (max-width: 768px) {
-    .focus-grid.view-all .focus-card {
-        width: calc(50% - 12px);
-    }
+  .focus-grid:not(.view-all) { column-count: 2; }
+  .focus-grid.view-all .focus-card { width: calc(50% - 12px); }
 }
 
-/* =========================================
-   MODAL DE DETALLES DE TABLEROS
-   ========================================= */
+/* ===== MODALES Y CARRITO (ya estaban en style.css, se mantienen) ===== */
 .detail-modal-overlay {
   position: fixed; inset: 0;
   background: rgba(42, 27, 27, 0.8);
@@ -216,9 +521,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   background: var(--accent-dark);
 }
 
-/* =========================================
-   MODAL DE PRODUCTO
-   ========================================= */
 .product-modal-overlay {
   position: fixed; inset: 0;
   background: rgba(42, 27, 27, 0.65);
@@ -246,7 +548,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: transform 0.3s ease;
 }
 .product-modal-overlay.show .product-modal-container { transform: translateY(0); }
-
 .product-close-btn {
   position: absolute;
   top: 10px;
@@ -261,7 +562,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   line-height: 1;
 }
 .product-close-btn:hover { transform: scale(1.2); }
-
 .product-modal-layout {
   display: flex;
   gap: 30px;
@@ -323,9 +623,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 .btn-add-cart-modal:hover { transform: translateY(-2px); background: var(--accent-dark); }
 
-/* =========================================
-   CARRITO Y MODALES
-   ========================================= */
 .cart-floating-container { position: fixed; bottom: 30px; right: 30px; z-index: 999; }
 .btn-view-cart { background: var(--headline); color: var(--inverse); padding: 14px 24px; border-radius: 40px; box-shadow: var(--shadow-floating); font-weight: 600; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 2px solid var(--accent); transition: transform 0.2s ease; }
 .btn-view-cart:hover { transform: scale(1.05); }
@@ -358,47 +655,44 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .btn-checkout:hover { background: var(--accent-dark); transform: translateY(-2px); }
 .empty-cart-message { text-align: center; padding: 40px 0; color: var(--muted); font-style: italic; }
 
-.footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
-
-@media (max-width: 1024px) { 
-  .focus-grid:not(.view-all) { column-count: 3; }
-}
-@media (max-width: 768px) {
+/* ===== MEDIA QUERIES GLOBALES ===== */
+@media (max-width: 900px) {
   .hamburger { display: block; }
   .menu-wrap { display: none; }
-  .focus-grid:not(.view-all) { column-count: 2; }
+  .nav { gap: 12px; }
+}
+
+@media (max-width: 768px) {
   .catalog-controls { flex-direction: column; align-items: stretch; }
   .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
   .search-input { width: 100%; }
-  
-  /* Responsive modal tableros */
+
   .detail-modal-container { padding: 10px; }
   .detail-modal-container img { max-height: 60vh; }
 
-  /* Responsive modal producto */
   .product-modal-overlay { padding: 10px; }
   .product-modal-container { padding: 20px; max-height: 95vh; }
-  .product-modal-layout { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 15px; 
+  .product-modal-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
     width: 100%;
     max-height: 80vh;
-    overflow-y: auto; 
+    overflow-y: auto;
     padding-right: 5px;
   }
-  .product-modal-image { 
-    max-width: 100%; 
-    width: 100%; 
-    display: flex; 
+  .product-modal-image {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
     justify-content: center;
     flex-shrink: 0;
   }
-  .product-modal-image img { 
-    max-height: 35vh; 
-    width: auto; 
-    max-width: 100%; 
-    object-fit: contain; 
+  .product-modal-image img {
+    max-height: 35vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
   .product-modal-info { width: 100%; flex-shrink: 0; }
   .product-modal-info h2 { font-size: 22px; margin-bottom: 8px; }
