@@ -53,19 +53,18 @@ a{ text-decoration:none; color:inherit; }
 .btn:hover{ transform:translateY(-2px); opacity:.92; }
 .btn-primary{ background:var(--accent); color:#FFFFFF !important; padding:10px 22px; }
 
-/* Menú Hamburguesa (Botón fijo en top) */
+/* Menú Hamburguesa */
 .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
 .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
 /* =========================================
-   MENÚ MÓVIL ESTILO "HOJA" (REDONDEADO Y FLUIDO)
+   MENÚ MÓVIL ANIMADO (Apertura y Cierre Fluido)
    ========================================= */
 .mobile-menu {
   position: absolute;
   top: 80px; left: 0; right: 0;
   background: var(--card);
-  /* Esquinas redondeadas como el resto del diseño */
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-card); /* Esquinas redondeadas */
   box-shadow: var(--shadow-floating);
   z-index: 100;
 
@@ -73,30 +72,32 @@ a{ text-decoration:none; color:inherit; }
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 0;
-
-  /* --- ANIMACIÓN SUAVE DE ENTRADA Y SALIDA --- */
+  
+  /* Estado cerrado: invisible, colapsado y ligeramente arriba */
   max-height: 0;
   opacity: 0;
-  transform: translateY(-15px) scale(0.98); /* Empieza un poco más arriba y ligeramente más pequeño */
+  transform: translateY(-15px);
   visibility: hidden;
   pointer-events: none;
   overflow: hidden;
+  padding: 0 0; /* Padding 0 para que se cierre completamente */
   
-  /* Aplicamos la transición a todas las propiedades */
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transición suave para todas las propiedades, incluido el padding */
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.45s ease,
+              visibility 0.45s ease;
 }
 
-/* Cuando se abre el menú */
+/* Cuando se abre el menú: visible, expandido y en su lugar */
 .mobile-menu.show {
   max-height: 500px;
   opacity: 1;
-  transform: translateY(0) scale(1); /* Vuelve a su tamaño y posición normal */
+  transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
-  padding: 24px 0;
+  padding: 24px 0; /* El padding aparece suavemente */
 }
 
 .mobile-menu a {
@@ -109,16 +110,12 @@ a{ text-decoration:none; color:inherit; }
   width: 100%;
   text-align: center;
 }
-.mobile-menu a:hover {
-  color: var(--accent);
-}
+.mobile-menu a:hover { color: var(--accent); }
 
-.mobile-menu .btn-primary {
-  margin-top: 8px;
-}
+.mobile-menu .btn-primary { margin-top: 8px; }
 
 /* =========================================
-   CONTENIDO DE CATEGORÍAS - 3 Columnas en Escritorio
+   CONTENIDO DE CATEGORÍAS
    ========================================= */
 .section { padding: 48px 0; }
 .section-head { text-align: center; margin-bottom: 40px; }
@@ -154,7 +151,7 @@ a{ text-decoration:none; color:inherit; }
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
 /* =========================================
-   RESPONSIVE (Tabletas y Móviles)
+   RESPONSIVE
    ========================================= */
 @media (max-width: 1024px){ .category-grid { grid-template-columns: repeat(2, 1fr); } .category-card { min-height: 340px; } .card-top { padding: 14px 14px 8px 14px; } }
 
