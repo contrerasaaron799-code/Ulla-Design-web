@@ -202,6 +202,7 @@ a{ text-decoration:none; color:inherit; }
   overflow: hidden;
 }
 
+/* Efecto hover en escritorio (borde iluminado) */
 .glowing-wrapper:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-floating);
@@ -227,6 +228,22 @@ a{ text-decoration:none; color:inherit; }
 }
 
 .glowing-wrapper:hover .glowing-effect { opacity: 1; }
+
+/* =========================================
+   EFECTO TÁCTIL PARA MÓVIL (levantar + brillo vinotinto desde abajo)
+   ========================================= */
+.glowing-wrapper.touched {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(198, 40, 40, 0.4), 0 6px 20px rgba(198, 40, 40, 0.2);
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.2s ease;
+}
+
+/* También se puede activar con :active en móviles, pero usamos clase JS para control */
+.glowing-wrapper:active {
+  /* solo para asegurar feedback inmediato en algunos navegadores */
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 8px 30px rgba(198, 40, 40, 0.3);
+}
 
 /* =========================================
    TARJETA DE CATEGORÍA (ajustada para el wrapper)
@@ -547,7 +564,7 @@ a{ text-decoration:none; color:inherit; }
 <footer class="footer container">Ulla Design &copy; 2026</footer>
 
 <script>
-  // Script para el efecto glowing (igual que en index)
+  // Script para el efecto glowing en escritorio
   const glowingCards = document.querySelectorAll('.glowing-wrapper');
   glowingCards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -558,6 +575,36 @@ a{ text-decoration:none; color:inherit; }
       card.style.setProperty('--mouse-y', `${y}px`);
     });
   });
+
+  // Script para el efecto táctil en móvil (touch)
+  // Se aplica solo si el dispositivo soporta eventos touch
+  if ('ontouchstart' in window) {
+    glowingCards.forEach(card => {
+      let touchTimer;
+
+      card.addEventListener('touchstart', function(e) {
+        // Si el toque fue en el botón, no activamos el efecto
+        if (e.target.closest('.category-btn')) return;
+
+        // Agregamos la clase 'touched' para el efecto de levantamiento y brillo
+        this.classList.add('touched');
+        clearTimeout(touchTimer);
+      });
+
+      card.addEventListener('touchend', function(e) {
+        // Quitamos el efecto después de un breve momento para simular un "release" elegante
+        touchTimer = setTimeout(() => {
+          this.classList.remove('touched');
+        }, 600);
+      });
+
+      // Si el dedo se mueve fuera, cancelamos el efecto
+      card.addEventListener('touchcancel', function() {
+        this.classList.remove('touched');
+        clearTimeout(touchTimer);
+      });
+    });
+  }
 
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>
