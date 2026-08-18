@@ -83,7 +83,6 @@
 
     /* =========================================
        MENÚ MÓVIL ANIMADO (Glassmorphism + Escalado)
-       CORRECCIÓN: z-index aumentado a 2000 para estar por encima de los controles
        ========================================= */
     .mobile-menu {
       position: absolute;
@@ -96,7 +95,7 @@
       border-radius: 0 0 var(--radius-card) var(--radius-card);
       box-shadow: var(--shadow-floating);
       border-top: 1px solid rgba(255, 255, 255, 0.3);
-      z-index: 2000; /* <--- AUMENTADO */
+      z-index: 2000;
 
       display: flex;
       flex-direction: column;
@@ -414,7 +413,7 @@
     }
 
     /* =========================================
-       MODAL DE PRODUCTO
+       MODAL DE PRODUCTO - CORREGIDO PARA IMÁGENES ALTAS
        ========================================= */
     .product-modal-overlay {
       position: fixed; inset: 0;
@@ -441,6 +440,7 @@
       box-shadow: var(--shadow-floating);
       transform: translateY(20px);
       transition: transform 0.3s ease;
+      overflow: hidden;
     }
     .product-modal-overlay.show .product-modal-container { transform: translateY(0); }
 
@@ -463,14 +463,23 @@
       display: flex;
       gap: 30px;
       align-items: center;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding-right: 5px;
     }
     .product-modal-image {
       flex: 1;
       max-width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
     .product-modal-image img {
       width: 100%;
       height: auto;
+      max-height: 60vh;
+      object-fit: contain;
       border-radius: var(--radius-button);
       display: block;
     }
@@ -521,7 +530,7 @@
     .btn-add-cart-modal:hover { transform: translateY(-2px); background: var(--accent-dark); }
 
     /* =========================================
-       CARRITO Y MODALES - CORREGIDO PARA SCROLL
+       CARRITO Y MODALES
        ========================================= */
     .cart-floating-container { 
       position: fixed; 
@@ -850,6 +859,7 @@
         display: flex;
         justify-content: center;
         flex-shrink: 0;
+        overflow: hidden;
       }
       .product-modal-image img {
         max-height: 35vh;
@@ -1123,10 +1133,6 @@
       if (badge) badge.textContent = totalCount;
     };
   }
-
-  // ELIMINAMOS LOS LISTENERS MANUALES DE DROPDOWNS
-  // Dejamos que catalogo.js maneje los eventos de los desplegables.
-  // Solo aseguramos que el menú hamburguesa funcione.
 
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>
