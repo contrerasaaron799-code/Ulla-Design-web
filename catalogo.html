@@ -210,16 +210,16 @@
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 22px; }
     .section-title { font-size: 32px; line-height: 1.2; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; margin: 0; }
 
-    .catalog-controls { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; background: var(--card); padding: 16px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); margin-bottom: 32px; }
+    .catalog-controls { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; background: var(--card); padding: 16px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); margin-bottom: 32px; position: relative; z-index: 500; }
     .controls-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .search-input { background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 16px; border-radius: var(--radius-button); font-family: Inter, sans-serif; font-size: 14px; outline: none; transition: all 0.2s ease; width: 220px; }
     .search-input:focus { border-color: var(--accent); background: var(--card); }
-    .custom-dropdown { position: relative; }
+    .custom-dropdown { position: relative; z-index: 1000; } /* <-- CORRECCIÓN CLAVE: El contenedor debe tener z-index alto */
     .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; }
     .dropdown-trigger:hover, .dropdown-trigger.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
     .dropdown-trigger .arrow { font-size: 10px; transition: transform 0.3s ease; }
     .dropdown-trigger.active .arrow { transform: rotate(180deg); }
-    /* CORRECCIÓN Z-INDEX: los menús desplegables estarán por encima de las cartas */
+    /* CORRECCIÓN: El menú desplegable debe estar por encima de todo */
     .dropdown-menu { 
       position: absolute; 
       top: calc(100% + 12px); 
@@ -230,7 +230,7 @@
       padding: 24px; 
       width: max-content; 
       max-width: 380px; 
-      z-index: 999; 
+      z-index: 1001; 
       opacity: 0; 
       visibility: hidden; 
       transform: translateY(-10px); 
@@ -253,6 +253,8 @@
       column-gap: 24px;
       min-height: 300px;
       padding: 0 1px;
+      position: relative;
+      z-index: 1;
     }
 
     .focus-card {
@@ -761,7 +763,7 @@
       });
     }, {
       threshold: 0.1,
-      rootMargin: '0px 0px -80px 0px'  // Aparece 80px antes de llegar
+      rootMargin: '0px 0px -50px 0px'  // Aparece 80px antes de llegar
     });
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach(el => observer.observe(el));
