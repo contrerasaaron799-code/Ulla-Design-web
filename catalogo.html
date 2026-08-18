@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- No se requiere estilo extra, todo ya está en style.css -->
 </head>
 <body>
 <header class="container">
@@ -41,6 +42,7 @@
   <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 </button>
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
   <a href="index.html">Inicio</a>
   <a href="categorias.html">Catálogo</a>
   <a href="nosotros.html">Acerca de nosotros</a>
@@ -137,6 +139,7 @@
   <div class="detail-modal-container">
     <span class="detail-close-btn" onclick="closeDetailModal()">×</span>
     <img id="detailImage" src="" alt="Detalles del producto">
+    <!-- NUEVO BOTÓN DE AGREGAR AL CARRITO -->
     <button id="detailModalAddCart" class="btn-add-cart-detail">Agregar al carrito</button>
   </div>
 </div>
