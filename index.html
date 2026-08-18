@@ -154,7 +154,205 @@
   </style>
 </head>
 <body>
-  <!-- (El contenido HTML se mantiene igual, solo cambia el estilo) -->
-  ...
+<header class="container">
+<nav class="nav">
+<a class="brand" href="#">
+<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" />
+  <path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" />
+  <path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" />
+  <path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" />
+  <path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" />
+  <path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" />
+</svg>
+
+<span class="brand-text">
+  <span class="design">Grupo</span>
+  <span class="ulla">UMD</span>
+</span>
+</a>
+
+<!-- Menú de escritorio -->
+<div class="menu-wrap">
+<div class="menu">
+<a href="#">Inicio</a>
+<a href="categorias.html">Catalogo</a>
+<a href="nosotros.html">Acerca de nosotros</a>
+<a href="servicios.html">Servicios</a>
+</div>
+<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+
+<!-- Botón Hamburguesa (Solo se ve en móvil) -->
+<button class="hamburger" onclick="toggleMenu()">
+  <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</button>
+
+<!-- Menú desplegable móvil -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">Inicio</a>
+  <a href="categorias.html">Catalogo</a>
+  <a href="nosotros.html">Acerca de nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+<section class="hero">
+<div class="hero-inner">
+<h1>Desde tus sueños a tu hogar</h1>
+<p class="lead">Creamos el mueble perfecto para cada rincón</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="categorias.html">Ver más</a>
+</div>
+</div>
+</section>
+
+<h2 class="section-title" style="margin-top: 48px; margin-bottom: 16px; text-align: center;">Encuentra tu espacio</h2>
+
+<section class="cards-row">
+  <!-- Tarjeta Hotel -->
+  <div class="glowing-wrapper">
+    <div class="glowing-effect"></div>
+    <article class="product-card">
+      <img src="fotoparaelcuadrodelhotelito.jpg" alt="Hotel" />
+      <div class="product-content">
+        <h4>Hotel</h4>
+        <div class="caption">Confort y elegancia para que tus huéspedes nunca quieran irse.</div>
+        <a class="btn btn-primary" href="catalogo.html?categoria=hotel">Ver</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Tarjeta Hogar -->
+  <div class="glowing-wrapper">
+    <div class="glowing-effect"></div>
+    <article class="product-card">
+      <img src="fotoparaelcuadrodelhogar.jpg" alt="Hogar" />
+      <div class="product-content">
+        <h4>Hogar</h4>
+        <div class="caption">Muebles que transforman tu espacio en un verdadero hogar.</div>
+        <a class="btn btn-primary" href="catalogo.html?categoria=hogar">Ver</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Tarjeta Contract -->
+  <div class="glowing-wrapper">
+    <div class="glowing-effect"></div>
+    <article class="product-card">
+      <img src="fotoparacuadrodelrestaurante.jpg" alt="Contract" />
+      <div class="product-content">
+        <h4>Contract</h4>
+        <div class="caption">Mobiliario de diseño artesanal que invita a quedarse. Diseños a la altura de tus clientes</div>
+        <a class="btn btn-primary" href="catalogo.html?categoria=contract">Ver</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="testimonials-banner">
+  <div class="glowing-effect"></div>
+  <div class="testimonials-info">
+    <h2>Experiencias Ulla Design</h2>
+    <p>Descubre lo que opinan las empresas y personas que han confiado en nuestros proyectos de decoración e interiorismo.</p>
+    <div class="testimonial-dots" id="testimonialDots">
+      <span class="dot active" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+      <span class="dot" onclick="setSlide(2)"></span>
+      <span class="dot" onclick="setSlide(3)"></span>
+    </div>
+  </div>
+
+  <div class="testimonial-card-wrapper">
+    <!-- Reseña 1: Cliente fiel y natural -->
+    <div class="testimonial-card active">
+      <h4 class="testimonial-name">Ana R.</h4>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"Llevo años confiando en Ulla Design para mis proyectos de decoración y siempre superan mis expectativas. La atención al detalle y la calidad de sus muebles es de otro nivel. 100% recomendados."</p>
+    </div>
+
+    <!-- Reseña 2: El cliente que desconfiaba al principio -->
+    <div class="testimonial-card">
+      <h4 class="testimonial-name">Javier M.</h4>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"Admito que al principio no estaba muy seguro de comprar muebles a medida sin verlos físicamente. Sin embargo, el equipo de Ulla me asesoró increíblemente bien y el resultado fue mucho mejor de lo que imaginaba. ¡Volveré a comprarles!"</p>
+    </div>
+
+    <!-- Reseña 3: Cliente empresarial / Comercial -->
+    <div class="testimonial-card">
+      <h4 class="testimonial-name">María G. (Eventos Lujo)</h4>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"Reformamos el salón de eventos de nuestro local y el mobiliario de Ulla Design fue el centro de atención de todos los invitados. Calidad, estilo y confort en cada pieza. Un acierto total para nuestro negocio."</p>
+    </div>
+
+    <!-- Reseña 4: Cliente que buscaba un estilo específico -->
+    <div class="testimonial-card">
+      <h4 class="testimonial-name">Laura S.</h4>
+      <div class="testimonial-stars">★★★★½</div>
+      <p class="testimonial-quote">"Me encantó la variedad y el estilo de sus productos. Encontré exactamente lo que necesitaba para darle un toque moderno y acogedor a mi sala. El único detalle fue el tiempo de entrega, pero valió totalmente la pena."</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer container">Ulla Design &copy; 2026</footer>
+
+<script>
+  // SCRIPT PARA BANNER DE TESTIMONIOS
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => { slide.classList.toggle('active', i === index); });
+    dots.forEach((dot, i) => { dot.classList.toggle('active', i === index); });
+    currentSlide = index;
+  }
+  function setSlide(index) { showSlide(index); }
+  setInterval(() => { let nextSlide = (currentSlide + 1) % slides.length; showSlide(nextSlide); }, 5000);
+
+  // SCRIPT PARA EL EFECTO GLOWING 
+  const glowingCards = document.querySelectorAll('.glowing-wrapper, .testimonials-banner');
+  glowingCards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // SCRIPT PARA TARJETAS 3D
+  const cards3d = document.querySelectorAll('.feature-card');
+  cards3d.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -15; 
+      const rotateY = ((x - centerX) / centerX) * 15;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.boxShadow = `${-rotateY}px ${rotateX}px 30px rgba(0,0,0,0.3)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      card.style.boxShadow = 'var(--shadow-card)';
+      card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    });
+    card.addEventListener('mouseenter', () => { card.style.transition = 'none'; });
+  });
+
+  // SCRIPT PARA ABRIR Y CERRAR EL MENÚ EN MÓVIL
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+  }
+</script>
 </body>
 </html>
