@@ -214,8 +214,45 @@
     .controls-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .search-input { background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 16px; border-radius: var(--radius-button); font-family: Inter, sans-serif; font-size: 14px; outline: none; transition: all 0.2s ease; width: 220px; }
     .search-input:focus { border-color: var(--accent); background: var(--card); }
-    .custom-dropdown { position: relative; z-index: 1000; }
-    .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; }
+
+    /* =========================================
+       GRUPO DE DESPLEGABLES (Categorías + Subcategorías)
+       ========================================= */
+    .dropdown-group {
+      display: flex;
+      align-items: center;
+      gap: 0; /* sin gap para que el deslizamiento sea continuo */
+      overflow: hidden; /* oculta el subcategoría cuando está colapsado */
+      position: relative;
+    }
+
+    .custom-dropdown { position: relative; z-index: 1000; flex-shrink: 0; }
+
+    #filterDropdownContainer {
+      flex-shrink: 0;
+    }
+
+    #subcategoryDropdownContainer {
+      max-width: 0;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: max-width 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                  opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 0;
+    }
+
+    #subcategoryDropdownContainer.visible {
+      max-width: 300px;
+      opacity: 1;
+      transform: translateX(0);
+      margin-left: 16px; /* espacio entre los dos botones */
+    }
+
+    .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; white-space: nowrap; }
     .dropdown-trigger:hover, .dropdown-trigger.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
     .dropdown-trigger .arrow { font-size: 10px; transition: transform 0.3s ease; }
     .dropdown-trigger.active .arrow { transform: rotate(180deg); }
@@ -243,16 +280,6 @@
     .dropdown-item:hover { background: var(--subtle); border-color: var(--border); }
     .dropdown-item.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
     .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
-
-    /* =========================================
-       FILTRO DE SUBCATEGORÍAS (SOLO VISIBLE PARA HOTEL, CONTRACT, HOGAR)
-       ========================================= */
-    #subcategoryDropdownContainer {
-      display: none !important;
-    }
-    #subcategoryDropdownContainer.visible {
-      display: block !important;
-    }
 
     /* =========================================
        SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
@@ -646,7 +673,7 @@
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
     /* =========================================
-       RESPONSIVE (MÓVIL) - CORRECCIÓN DE DESPLEGABLES
+       RESPONSIVE (MÓVIL)
        ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -654,11 +681,39 @@
       .catalog-controls { flex-direction: column; align-items: stretch; }
       .search-input { width: 100%; }
       
-      /* Ajuste de los desplegables en móvil para que no se salgan de la caja */
-      .custom-dropdown { width: 100%; }
+      .dropdown-group {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .custom-dropdown { 
+        width: 100%; 
+        flex-basis: 100%;
+      }
       .dropdown-trigger { 
         width: 100%; 
         justify-content: space-between;
+      }
+      #subcategoryDropdownContainer {
+        max-width: 0;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: max-width 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                    opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        overflow: hidden;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-left: 0;
+        width: auto;
+      }
+      #subcategoryDropdownContainer.visible {
+        max-width: 100%;
+        opacity: 1;
+        transform: translateX(0);
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+        flex-basis: 100%;
       }
       .dropdown-menu { 
         width: 100% !important; 
@@ -778,44 +833,47 @@
     <div class="controls-left">
       <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos...">
       
-      <!-- FILTRO PRINCIPAL: CATEGORÍAS -->
-      <div class="custom-dropdown" id="filterDropdownContainer">
-        <button class="dropdown-trigger" id="dropdownTrigger">Categorías <span class="arrow">▼</span></button>
-        <div class="dropdown-menu" id="dropdownMenu">
-          <div class="dropdown-section">
-            <h4>Categorías</h4>
-            <div class="dropdown-options" id="categoryFilters">
-              <button class="dropdown-item active" data-category="todos">Todos</button>
-              <button class="dropdown-item" data-category="sillas">Sillas</button>
-              <button class="dropdown-item" data-category="sofas">Sillones y Sofás</button>
-              <button class="dropdown-item" data-category="taburetes">Taburetes</button>
-              <button class="dropdown-item" data-category="paneles">Paneles</button>
-              <button class="dropdown-item" data-category="suelos vinilicos">Suelos Vinilicos</button>
-              <button class="dropdown-item" data-category="lamparas y decoracion">Lamparas y Decoración</button>
-              <button class="dropdown-item" data-category="salones">Salones</button>
-              <button class="dropdown-item" data-category="mesasdecomedor">Mesas de comedor</button>
-              <button class="dropdown-item" data-category="mesasdecentro">Centros de Mesa</button>
-              <button class="dropdown-item" data-category="juvenil">Juvenil</button>
-              <button class="dropdown-item" data-category="exteriores">Exterior</button>
-              <button class="dropdown-item" data-category="basesmetalicas">Bases metálicas y Tableros</button>
-              <button class="dropdown-item" data-category="bancos de hosteleria">Bancos de Hostelería</button>
-              <button class="dropdown-item" data-category="hotel">Hotel</button>
-              <button class="dropdown-item" data-category="hogar">Hogar</button>
-              <button class="dropdown-item" data-category="contract">Contract</button>
-              <button class="dropdown-item" data-category="oferta">Liquidación</button>
+      <!-- GRUPO DE DESPLEGABLES CON ANIMACIÓN -->
+      <div class="dropdown-group">
+        <!-- CATEGORÍAS -->
+        <div class="custom-dropdown" id="filterDropdownContainer">
+          <button class="dropdown-trigger" id="dropdownTrigger">Categorías <span class="arrow">▼</span></button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-section">
+              <h4>Categorías</h4>
+              <div class="dropdown-options" id="categoryFilters">
+                <button class="dropdown-item active" data-category="todos">Todos</button>
+                <button class="dropdown-item" data-category="sillas">Sillas</button>
+                <button class="dropdown-item" data-category="sofas">Sillones y Sofás</button>
+                <button class="dropdown-item" data-category="taburetes">Taburetes</button>
+                <button class="dropdown-item" data-category="paneles">Paneles</button>
+                <button class="dropdown-item" data-category="suelos vinilicos">Suelos Vinilicos</button>
+                <button class="dropdown-item" data-category="lamparas y decoracion">Lamparas y Decoración</button>
+                <button class="dropdown-item" data-category="salones">Salones</button>
+                <button class="dropdown-item" data-category="mesasdecomedor">Mesas de comedor</button>
+                <button class="dropdown-item" data-category="mesasdecentro">Centros de Mesa</button>
+                <button class="dropdown-item" data-category="juvenil">Juvenil</button>
+                <button class="dropdown-item" data-category="exteriores">Exterior</button>
+                <button class="dropdown-item" data-category="basesmetalicas">Bases metálicas y Tableros</button>
+                <button class="dropdown-item" data-category="bancos de hosteleria">Bancos de Hostelería</button>
+                <button class="dropdown-item" data-category="hotel">Hotel</button>
+                <button class="dropdown-item" data-category="hogar">Hogar</button>
+                <button class="dropdown-item" data-category="contract">Contract</button>
+                <button class="dropdown-item" data-category="oferta">Liquidación</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- FILTRO DE SUBCATEGORÍAS (OCULTO POR DEFECTO) -->
-      <div class="custom-dropdown" id="subcategoryDropdownContainer">
-        <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
-        <div class="dropdown-menu" id="subcategoryMenu">
-          <div class="dropdown-section">
-            <h4>Subcategoría</h4>
-            <div class="dropdown-options" id="subcategoryFilters">
-              <!-- Los botones se generan dinámicamente con JS -->
+        <!-- SUBCATEGORÍAS (se desliza) -->
+        <div class="custom-dropdown" id="subcategoryDropdownContainer">
+          <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
+          <div class="dropdown-menu" id="subcategoryMenu">
+            <div class="dropdown-section">
+              <h4>Subcategoría</h4>
+              <div class="dropdown-options" id="subcategoryFilters">
+                <!-- Los botones se generan dinámicamente con JS -->
+              </div>
             </div>
           </div>
         </div>
