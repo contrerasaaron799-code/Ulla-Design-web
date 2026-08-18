@@ -245,6 +245,16 @@
     .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
     /* =========================================
+       FILTRO DE SUBCATEGORÍAS (SOLO VISIBLE PARA HOTEL, CONTRACT, HOGAR)
+       ========================================= */
+    #subcategoryDropdownContainer {
+      display: none !important;
+    }
+    #subcategoryDropdownContainer.visible {
+      display: block !important;
+    }
+
+    /* =========================================
        SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
        ========================================= */
     .focus-grid {
@@ -635,12 +645,43 @@
 
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
+    /* =========================================
+       RESPONSIVE (MÓVIL) - CORRECCIÓN DE DESPLEGABLES
+       ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
       .menu-wrap { display: none; }
       .catalog-controls { flex-direction: column; align-items: stretch; }
-      .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
       .search-input { width: 100%; }
+      
+      /* Ajuste de los desplegables en móvil para que no se salgan de la caja */
+      .custom-dropdown { width: 100%; }
+      .dropdown-trigger { 
+        width: 100%; 
+        justify-content: space-between;
+      }
+      .dropdown-menu { 
+        width: 100% !important; 
+        max-width: 100% !important; 
+        left: 0; 
+        right: 0; 
+        box-sizing: border-box; 
+        padding: 16px;
+      }
+      .dropdown-options { 
+        width: 100%; 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 8px;
+        overflow: hidden;
+      }
+      .dropdown-item { 
+        flex: 1 0 auto; 
+        text-align: center; 
+        padding: 8px 12px; 
+        font-size: 12px;
+      }
+
       .detail-modal-container { padding: 10px; }
       .detail-modal-container img { max-height: 60vh; }
       .product-modal-overlay { padding: 10px; }
@@ -767,7 +808,7 @@
         </div>
       </div>
 
-      <!-- NUEVO FILTRO: SUBCATEGORÍAS -->
+      <!-- FILTRO DE SUBCATEGORÍAS (OCULTO POR DEFECTO) -->
       <div class="custom-dropdown" id="subcategoryDropdownContainer">
         <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
         <div class="dropdown-menu" id="subcategoryMenu">
@@ -895,7 +936,6 @@
   }
 
   // SOBRESCRIBIR LA FUNCIÓN addToCart PARA INCLUIR EL TOAST
-  // (CORREGIDO: usa la variable global cartItems en lugar de declarar una local)
   const originalAddToCart = window.addToCart;
   window.addToCart = function(name, image, category) {
     // Usamos la variable global cartItems (definida en catalogo.js)
