@@ -58,43 +58,45 @@ a{ text-decoration:none; color:inherit; }
 .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
 /* =========================================
-   MENÚ MÓVIL CORREGIDO (Fallo de display solucionado)
+   MENÚ MÓVIL ESTILO "HOJA" (REDONDEADO Y FLUIDO)
    ========================================= */
 .mobile-menu {
   position: absolute;
   top: 80px; left: 0; right: 0;
   background: var(--card);
+  /* Esquinas redondeadas como el resto del diseño */
+  border-radius: var(--radius-card);
   box-shadow: var(--shadow-floating);
-  border-radius: 0 0 var(--radius-card) var(--radius-card);
   z-index: 100;
 
-  /* --- CONFIGURACIÓN DE LA ANIMACIÓN --- */
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-10px);
-  visibility: hidden;
-  pointer-events: none;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* LA CLAVE: Se oculta sin display, solo se activa cuando tiene la clase .show */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 0; /* Padding 0 para que no se vea cuando está cerrado */
+  padding: 0;
+
+  /* --- ANIMACIÓN SUAVE DE ENTRADA Y SALIDA --- */
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-15px) scale(0.98); /* Empieza un poco más arriba y ligeramente más pequeño */
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  
+  /* Aplicamos la transición a todas las propiedades */
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Cuando se abre el menú */
 .mobile-menu.show {
-  max-height: 500px; /* Altura máxima para que quepa todo */
+  max-height: 500px;
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1); /* Vuelve a su tamaño y posición normal */
   visibility: visible;
   pointer-events: auto;
-  padding: 24px 0; /* Padding solo cuando está abierto */
+  padding: 24px 0;
 }
 
 .mobile-menu a {
@@ -104,6 +106,8 @@ a{ text-decoration:none; color:inherit; }
   color: var(--headline);
   padding: 8px 0;
   transition: color 0.2s ease;
+  width: 100%;
+  text-align: center;
 }
 .mobile-menu a:hover {
   color: var(--accent);
@@ -246,7 +250,7 @@ a{ text-decoration:none; color:inherit; }
                 <div class="category-name">Paneles</div>
                 <a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a>
             </div>
-            <img src="panelescat.jpg" alt="Paneles" class="category-image">
+            <img src="img/paneles.png" alt="Paneles" class="category-image">
         </div>
 
         <!-- 5. Suelos Vinilicos -->
