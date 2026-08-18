@@ -895,11 +895,10 @@
   }
 
   // SOBRESCRIBIR LA FUNCIÓN addToCart PARA INCLUIR EL TOAST
-  // (Esto anula la función del archivo catalogo.js externo para que todo funcione al instante)
+  // (CORREGIDO: usa la variable global cartItems en lugar de declarar una local)
   const originalAddToCart = window.addToCart;
   window.addToCart = function(name, image, category) {
-    // Lógica original (copiada y adaptada para mantener la funcionalidad)
-    let cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
+    // Usamos la variable global cartItems (definida en catalogo.js)
     const existingIndex = cartItems.findIndex(item => item.name === name);
     if (existingIndex > -1) { 
       cartItems[existingIndex].quantity += 1; 
@@ -908,7 +907,7 @@
     }
     localStorage.setItem('ulla_cart', JSON.stringify(cartItems));
     
-    // Actualizar UI del carrito (llama a la función global que ya existe en el exterior)
+    // Actualizar UI del carrito
     if (typeof updateCartUI === 'function') {
       updateCartUI();
     }
