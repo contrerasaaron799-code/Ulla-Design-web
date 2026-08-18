@@ -33,6 +33,8 @@ margin:0;
 font-family:Inter,Helvetica Neue,sans-serif;
 background:var(--bg);
 color:var(--body);
+background-image: radial-gradient(rgba(198, 40, 40, 0.02) 1px, transparent 1px);
+background-size: 20px 20px;
 }
 
 a{text-decoration:none;color:inherit}
@@ -42,11 +44,27 @@ margin:0 auto;
 position:relative;
 }
 
+/* =========================================
+   NAV BAR CON EFECTO STICKY Y GLASS
+   ========================================= */
 .nav{
 height:80px;
 display:flex;
 align-items:center;
 justify-content:space-between;
+position: sticky;
+top: 0;
+z-index: 50;
+background: rgba(246, 241, 241, 0.70);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+transition: background 0.3s ease, box-shadow 0.3s ease;
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.scrolled .nav {
+  background: rgba(246, 241, 241, 0.95);
+  box-shadow: 0 4px 20px rgba(42, 27, 27, 0.06);
 }
 
 .brand{
@@ -136,7 +154,9 @@ flex:0 0 auto;
 .btn:hover{transform:translateY(-2px);opacity:.92}
 .btn-primary{background:var(--accent);color:var(--inverse);padding:10px 22px}
 
-/* MENÚ HAMBURGUESA MÓVIL */
+/* =========================================
+   MENÚ HAMBURGUESA (MÓVIL)
+   ========================================= */
 .hamburger {
   display: none;
   background: none;
@@ -270,6 +290,9 @@ flex:0 0 auto;
   color: var(--accent);
 }
 
+/* =========================================
+   CONTENIDO
+   ========================================= */
 .section { padding: 48px 0; }
 .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; margin-top: 20px; }
 .section-title { font-family: "Playfair Display", Georgia, serif; font-size: 42px; line-height: 1.2; color: var(--headline); margin: 0 0 16px 0; font-weight: 500; }
@@ -316,6 +339,20 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 .stateful-button.success .btn-success { display: block; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes popIn { 0% { transform: scale(0.6); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+/* =========================================
+   ANIMACIONES FADE-UP
+   ========================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .footer{ padding: 40px 0; color:var(--muted); font-size:14px; text-align:center; border-top: 1px solid var(--border); margin-top: 40px; }
 
@@ -373,7 +410,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 
 <main class="container section">
   <div class="contact-layout">
-    <div class="contact-left">
+    <div class="contact-left fade-up">
       <h1 class="section-title">Hablemos de tu proyecto</h1>
       <p class="contact-subtitle">Estamos listos para transformar tu espacio. Escríbenos y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
 
@@ -403,7 +440,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
       </div>
     </div>
 
-    <div class="glowing-wrapper">
+    <div class="glowing-wrapper fade-up">
       <div class="glowing-effect"></div>
       <div class="form-inner">
         <h3>Envíanos un mensaje</h3>
@@ -480,6 +517,29 @@ function handleFormSubmit(e) {
     setTimeout(() => btn.classList.remove("success"), 3000);
   }, 1500);
 }
+
+// NAVBAR SCROLL SHADOW
+window.addEventListener('scroll', () => {
+  document.body.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// INTERSECTION OBSERVER PARA FADE-UP (reactivo)
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  const fadeElements = document.querySelectorAll('.fade-up');
+  fadeElements.forEach(el => observer.observe(el));
+});
 
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>

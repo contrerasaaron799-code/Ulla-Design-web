@@ -9,27 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{ --accent:#C62828; --accent-light:#D95B5B; --accent-dark:#8E1E1E; --bg:#F6F1F1; --card:#FFFFFF; --subtle:#EFE8E8; --border:#DDCFCF; --headline:#2A1B1B; --body:#5F4A4A; --muted:#8B7474; --inverse:#FFFFFF; --shadow-card:0 8px 20px rgba(42,27,27,.08); --shadow-floating:0 12px 40px rgba(42,27,27,.12); --radius-card:12px; --radius-button:8px; --container:1200px; }
-*{box-sizing:border-box} body{ margin:0; font-family:Inter,Helvetica Neue,sans-serif; background:var(--bg); color:var(--body); } a{text-decoration:none;color:inherit}
+*{box-sizing:border-box} body{ margin:0; font-family:Inter,Helvetica Neue,sans-serif; background:var(--bg); color:var(--body); background-image: radial-gradient(rgba(198, 40, 40, 0.02) 1px, transparent 1px); background-size: 20px 20px; } a{text-decoration:none;color:inherit}
 .container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; position:relative; }
-.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; }
+
+/* =========================================
+   NAV BAR CON EFECTO STICKY Y GLASS
+   ========================================= */
+.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; position: sticky; top: 0; z-index: 50; background: rgba(246, 241, 241, 0.70); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background 0.3s ease, box-shadow 0.3s ease; border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+body.scrolled .nav { background: rgba(246, 241, 241, 0.95); box-shadow: 0 4px 20px rgba(42, 27, 27, 0.06); }
 .brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
 .brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
 .brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
-
-.brand-text .ulla { 
-    color: var(--accent); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 24px; 
-    font-weight: 700; 
-}
-
-.brand-text .design { 
-    color: var(--headline); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 20px; 
-    font-weight: 600; 
-}
-
+.brand-text .ulla { color: var(--accent); font-family: "Playfair Display", Georgia, serif; font-size: 24px; font-weight: 700; }
+.brand-text .design { color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 600; }
 .menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
 .menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
 .menu a{ position:relative; padding:6px 0; }
@@ -63,7 +55,6 @@
   align-items: center;
   gap: 8px;
 
-  /* Estado cerrado */
   max-height: 0;
   opacity: 0;
   transform: translateY(-20px) scale(0.98);
@@ -165,6 +156,9 @@
   color: var(--accent);
 }
 
+/* =========================================
+   CONTENIDO
+   ========================================= */
 .section { padding: 48px 0; } .section-title { font-family: "Playfair Display", Georgia, serif; font-size: 38px; line-height: 1.2; color: var(--headline); margin: 0; font-weight: 500; } .text-center { text-align: center; }
 .services-header { margin-bottom: 48px; padding-top: 20px; } .services-subtitle { text-align: center; max-width: 650px; margin: 16px auto 0; color: var(--body); font-size: 17px; line-height: 1.6; }
 .services-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
@@ -205,6 +199,20 @@
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes popIn { 0% { transform: scale(0.6); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
+/* =========================================
+   ANIMACIONES FADE-UP
+   ========================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .footer{ padding: 40px 0; color:var(--muted); font-size:14px; text-align:center; border-top: 1px solid var(--border); margin-top: 40px; }
 @media (max-width: 900px) { .hamburger { display: block; } .menu-wrap { display: none; } .services-layout { grid-template-columns: 1fr; } .services-carousel-container { height: 350px; position: relative; top: 0; } .nav { gap: 12px; } }
 </style>
@@ -235,8 +243,8 @@
 
 <main class="container">
   <section class="section">
-    <div class="services-header"><h1 class="section-title text-center">Servicios</h1><p class="services-subtitle">Acompañamos cada etapa de tu proyecto, desde la idea inicial hasta el último detalle en tu espacio, asegurando calidad y confort.</p></div>
-    <div class="services-layout">
+    <div class="services-header fade-up"><h1 class="section-title text-center">Servicios</h1><p class="services-subtitle">Acompañamos cada etapa de tu proyecto, desde la idea inicial hasta el último detalle en tu espacio, asegurando calidad y confort.</p></div>
+    <div class="services-layout fade-up">
       <div class="services-carousel-container">
         <div class="carousel-track" id="carouselTrack">
           <img src="juvenilpp.png" alt="juvenilpp" class="carousel-slide" />
@@ -257,7 +265,7 @@
       </div>
     </div>
   </section>
-  <section class="cta-section glowing-wrapper">
+  <section class="cta-section glowing-wrapper fade-up">
     <div class="glowing-effect"></div>
     <div class="cta-inner"><h3 class="cta-title">Empecemos tu proyecto</h3><p class="cta-text">Estamos listos para transformar tu espacio. Haz clic para iniciar la conversación.</p><button id="stateful-btn" class="stateful-button" onclick="handleButtonClick()"><span class="btn-content"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="btn-wpp-icon" /><span>Listo?</span></span><span class="btn-spinner"></span><span class="btn-success">✓ Comenzemos</span></button></div>
   </section>
@@ -281,6 +289,30 @@ function currentSlide(n) { slideIndex = n; updateCarousel(); resetTimer(); }
 function startAutoPlay() { autoPlayInterval = setInterval(() => { slideIndex++; if (slideIndex >= slides.length) slideIndex = 0; updateCarousel(); }, 5000); }
 function resetTimer() { clearInterval(autoPlayInterval); startAutoPlay(); }
 initCarousel();
+
+// NAVBAR SCROLL SHADOW
+window.addEventListener('scroll', () => {
+  document.body.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// INTERSECTION OBSERVER PARA FADE-UP (reactivo)
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  const fadeElements = document.querySelectorAll('.fade-up');
+  fadeElements.forEach(el => observer.observe(el));
+});
+
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>
 </body>
