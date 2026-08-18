@@ -656,4 +656,103 @@
       <div class="custom-dropdown" id="subcategoryDropdownContainer">
         <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
         <div class="dropdown-menu" id="subcategoryMenu">
-          <
+          <div class="dropdown-section">
+            <h4>Subcategoría</h4>
+            <div class="dropdown-options" id="subcategoryFilters">
+              <!-- Los botones se generan dinámicamente con JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="focus-grid" id="productGrid"></div>
+</section>
+</main>
+
+<div class="cart-floating-container">
+  <button class="btn-view-cart" onclick="openCartModal()">🛒 Ver Carrito <span class="cart-badge" id="cartCount">0</span></button>
+</div>
+
+<!-- Modal del Carrito -->
+<div class="cart-modal-overlay" id="cartModalOverlay" onclick="handleModalClick(event)">
+  <div class="cart-modal-container">
+    <div class="cart-left-pane">
+      <div class="cart-header-row">
+        <h2>Shopping Cart</h2>
+        <span class="cart-items-count" id="modalItemsCount">0 Items</span>
+      </div>
+      <div class="cart-table-headers">
+        <span>Product Details</span>
+        <span>Quantity</span>
+      </div>
+      <div class="cart-items-list" id="cartItemsList"></div>
+      <button class="cart-continue-shopping" onclick="closeCartModal()">← Continue Shopping</button>
+      <button class="btn-checkout" onclick="checkout()">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Detalles de Tableros -->
+<div class="detail-modal-overlay" id="detailModal" onclick="handleDetailModalClick(event)">
+  <div class="detail-modal-container">
+    <span class="detail-close-btn" onclick="closeDetailModal()">×</span>
+    <img id="detailImage" src="" alt="Detalles del producto">
+    <button id="detailModalAddCart" class="btn-add-cart-detail">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- Modal de Producto -->
+<div class="product-modal-overlay" id="productModal" onclick="handleProductModalClick(event)">
+  <div class="product-modal-container">
+    <span class="product-close-btn" onclick="closeProductModal()">×</span>
+    <div class="product-modal-layout">
+      <div class="product-modal-image">
+        <img id="productModalImg" src="" alt="">
+      </div>
+      <div class="product-modal-info">
+        <h2 id="productModalName"></h2>
+        <p class="info-line" id="productModalUso"></p>
+        <p class="info-line" id="productModalMaterial"></p>
+        <p class="info-line" id="productModalBase"></p>
+        <p class="info-line" id="productModalMedidas"></p>
+        <div id="productModalColores" class="color-swatches"></div>
+        <button id="productModalBtn" class="btn-add-cart-modal">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer container">Ulla Design &copy; 2026</footer>
+
+<script>
+  // NAVBAR SCROLL SHADOW
+  window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // INTERSECTION OBSERVER PARA FADE-UP (reactivo)
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => observer.observe(el));
+  });
+
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+</script>
+<script src="catalogo.js"></script>
+</body>
+</html>
