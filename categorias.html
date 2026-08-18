@@ -191,7 +191,7 @@ a{ text-decoration:none; color:inherit; }
 .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
 /* =========================================
-   GLOWING WRAPPER PARA CATEGORÍAS (igual que en index)
+   GLOWING WRAPPER PARA CATEGORÍAS (con correcciones)
    ========================================= */
 .glowing-wrapper {
   position: relative;
@@ -203,46 +203,59 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* Efecto hover en escritorio (borde iluminado) */
-.glowing-wrapper:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-floating);
+@media (hover: hover) {
+  .glowing-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-floating);
+  }
+
+  .glowing-effect {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    background: radial-gradient(
+      600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+      rgba(198, 40, 40, 1),
+      transparent 40%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 2px; 
+  }
+
+  .glowing-wrapper:hover .glowing-effect { opacity: 1; }
 }
 
-.glowing-effect {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(198, 40, 40, 1),
-    transparent 40%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 2px; 
+/* En dispositivos sin hover (móvil/tablet), desactivamos el efecto glowing */
+@media (hover: none) {
+  .glowing-effect {
+    display: none;
+  }
+  .glowing-wrapper:hover {
+    transform: none;
+    box-shadow: var(--shadow-card);
+  }
 }
-
-.glowing-wrapper:hover .glowing-effect { opacity: 1; }
 
 /* =========================================
-   EFECTO TÁCTIL PARA MÓVIL (levantar + brillo vinotinto desde abajo)
+   EFECTO TÁCTIL PARA MÓVIL (levantar + brillo vinotinto suave)
    ========================================= */
 .glowing-wrapper.touched {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 12px 40px rgba(198, 40, 40, 0.4), 0 6px 20px rgba(198, 40, 40, 0.2);
+  /* Sombra más suave y difuminada */
+  box-shadow: 0 12px 40px rgba(198, 40, 40, 0.2), 0 6px 20px rgba(198, 40, 40, 0.1);
   transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.2s ease;
 }
 
 /* También se puede activar con :active en móviles, pero usamos clase JS para control */
 .glowing-wrapper:active {
-  /* solo para asegurar feedback inmediato en algunos navegadores */
   transform: translateY(-4px) scale(1.005);
-  box-shadow: 0 8px 30px rgba(198, 40, 40, 0.3);
+  box-shadow: 0 8px 30px rgba(198, 40, 40, 0.15);
 }
 
 /* =========================================
