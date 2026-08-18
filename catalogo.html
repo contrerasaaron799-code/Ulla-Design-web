@@ -214,12 +214,11 @@
     .controls-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .search-input { background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 16px; border-radius: var(--radius-button); font-family: Inter, sans-serif; font-size: 14px; outline: none; transition: all 0.2s ease; width: 220px; }
     .search-input:focus { border-color: var(--accent); background: var(--card); }
-    .custom-dropdown { position: relative; z-index: 1000; } /* <-- CORRECCIÓN CLAVE: El contenedor debe tener z-index alto */
+    .custom-dropdown { position: relative; z-index: 1000; }
     .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; }
     .dropdown-trigger:hover, .dropdown-trigger.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
     .dropdown-trigger .arrow { font-size: 10px; transition: transform 0.3s ease; }
     .dropdown-trigger.active .arrow { transform: rotate(180deg); }
-    /* CORRECCIÓN: El menú desplegable debe estar por encima de todo */
     .dropdown-menu { 
       position: absolute; 
       top: calc(100% + 12px); 
@@ -280,9 +279,6 @@
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
     }
 
-    /* =========================================
-       ALINEACIÓN CENTRAL (SOLO PARA CATEGORÍAS PRINCIPALES)
-       ========================================= */
     .focus-grid.view-all {
       display: flex !important;
       flex-wrap: wrap;
@@ -491,10 +487,110 @@
     /* =========================================
        CARRITO Y MODALES
        ========================================= */
-    .cart-floating-container { position: fixed; bottom: 30px; right: 30px; z-index: 999; }
-    .btn-view-cart { background: var(--headline); color: var(--inverse); padding: 14px 24px; border-radius: 40px; box-shadow: var(--shadow-floating); font-weight: 600; display: flex; align-items: center; gap: 10px; cursor: pointer; border: 2px solid var(--accent); transition: transform 0.2s ease; }
-    .btn-view-cart:hover { transform: scale(1.05); }
-    .cart-badge { background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 50%; font-size: 12px; }
+    .cart-floating-container { 
+      position: fixed; 
+      bottom: 30px; 
+      right: 30px; 
+      z-index: 999; 
+      display: flex;
+      align-items: center;
+    }
+    .btn-view-cart {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-floating);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+      color: var(--headline);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: Inter, sans-serif;
+      font-size: 15px;
+      position: relative;
+    }
+    .btn-view-cart:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(42, 27, 27, 0.15);
+    }
+    .btn-view-cart .icon-cart {
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--accent);
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(198, 40, 40, 0.25);
+    }
+
+    /* =========================================
+       TOAST NOTIFICATION (CARTELITO ELEGANTE)
+       ========================================= */
+    .toast-notification {
+      position: fixed;
+      top: 100px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 24px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-floating);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2001;
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      font-family: Inter, sans-serif;
+      max-width: 400px;
+    }
+    .toast-notification.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .toast-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .toast-message {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--headline);
+      line-height: 1.4;
+    }
 
     .cart-modal-overlay { position: fixed; inset: 0; background: rgba(42, 27, 27, 0.65); backdrop-filter: blur(5px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 20px; }
     .cart-modal-overlay.show { opacity: 1; visibility: visible; }
@@ -524,7 +620,7 @@
     .empty-cart-message { text-align: center; padding: 40px 0; color: var(--muted); font-style: italic; }
 
     /* =========================================
-       ANIMACIONES FADE-UP (Scroll-triggered - ahora permanecen visibles)
+       ANIMACIONES FADE-UP
        ========================================= */
     .fade-up {
       opacity: 0;
@@ -691,8 +787,23 @@
 </section>
 </main>
 
+<!-- =========================================
+   CARRITO FLOTANTE MEJORADO
+   ========================================= -->
 <div class="cart-floating-container">
-  <button class="btn-view-cart" onclick="openCartModal()">🛒 Ver Carrito <span class="cart-badge" id="cartCount">0</span></button>
+  <button class="btn-view-cart" onclick="openCartModal()">
+    <span class="icon-cart">🛒</span>
+    <span>Carrito</span>
+    <span class="cart-badge" id="cartCount">0</span>
+  </button>
+</div>
+
+<!-- =========================================
+   TOAST NOTIFICATION (CARTELITO)
+   ========================================= -->
+<div class="toast-notification" id="toastNotification">
+  <span class="toast-icon">✓</span>
+  <span class="toast-message">Producto agregado al carrito</span>
 </div>
 
 <!-- Modal del Carrito -->
@@ -746,31 +857,86 @@
 
 <footer class="footer container">Ulla Design &copy; 2026</footer>
 
+<!-- SCRIPTS -->
+<script src="catalogo.js"></script>
+
 <script>
   // NAVBAR SCROLL SHADOW
   window.addEventListener('scroll', () => {
     document.body.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // INTERSECTION OBSERVER PARA FADE-UP (ahora permanece visible)
+  // INTERSECTION OBSERVER PARA FADE-UP
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
-        // No se quita la clase al salir, así permanecen visibles
       });
     }, {
       threshold: 0.1,
-      rootMargin: '0px 0px -20px 0px'  // Aparece 80px antes de llegar
+      rootMargin: '0px 0px -80px 0px'
     });
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach(el => observer.observe(el));
   });
 
+  // TOAST NOTIFICATION
+  function showToast(message) {
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = toast.querySelector('.toast-message');
+    toastMessage.textContent = message || 'Producto agregado al carrito';
+    toast.classList.add('show');
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3200);
+  }
+
+  // SOBRESCRIBIR LA FUNCIÓN addToCart PARA INCLUIR EL TOAST
+  // (Esto anula la función del archivo catalogo.js externo para que todo funcione al instante)
+  const originalAddToCart = window.addToCart;
+  window.addToCart = function(name, image, category) {
+    // Lógica original (copiada y adaptada para mantener la funcionalidad)
+    let cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
+    const existingIndex = cartItems.findIndex(item => item.name === name);
+    if (existingIndex > -1) { 
+      cartItems[existingIndex].quantity += 1; 
+    } else { 
+      cartItems.push({ name, image, category, quantity: 1 }); 
+    }
+    localStorage.setItem('ulla_cart', JSON.stringify(cartItems));
+    
+    // Actualizar UI del carrito (llama a la función global que ya existe en el exterior)
+    if (typeof updateCartUI === 'function') {
+      updateCartUI();
+    }
+    
+    // Animación del badge
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+      badge.style.transform = 'scale(1.3)';
+      setTimeout(() => badge.style.transform = 'scale(1)', 200);
+    }
+
+    // Mostrar el TOAST ELEGANTE
+    showToast(`"${name}" agregado al carrito`);
+  };
+
+  // FUNCIONES DE APOYO PARA EL CARRITO (si no están definidas en el archivo externo)
+  // Asegurarnos de que updateCartUI esté disponible
+  if (typeof updateCartUI !== 'function') {
+    window.updateCartUI = function() {
+      // Implementación básica por si acaso (normalmente ya viene en catalogo.js)
+      const cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
+      const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+      const badge = document.getElementById('cartCount');
+      if (badge) badge.textContent = totalCount;
+    };
+  }
+
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>
-<script src="catalogo.js"></script>
 </body>
 </html>
