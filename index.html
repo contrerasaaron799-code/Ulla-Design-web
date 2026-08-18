@@ -808,20 +808,22 @@ flex-grow: 1;
     document.body.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // SCRIPT PARA SCROLL-TRIGGERED ANIMATIONS (Intersection Observer)
+  // SCRIPT PARA SCROLL-TRIGGERED ANIMATIONS (Intersection Observer - REACTIVO)
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible'); // Elimina la clase al salir de la vista
         }
       });
     }, {
-      threshold: 0.15, // se activa cuando el 15% del elemento es visible
-      rootMargin: '0px 0px -50px 0px' // un pequeño margen para adelantar la animación
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
     });
 
-    const fadeElements = document.querySelectorAll('.fade-up:not(.visible)');
+    const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach(el => observer.observe(el));
   });
 
