@@ -1,58 +1,369 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ulla Design - Categorías</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== ESTILOS EXCLUSIVOS DE CATEGORÍAS ===== */
-    .section-head { text-align: center; margin-bottom: 40px; }
-    .section-title { font-size: 38px; margin: 0 0 12px 0; }
-    .section-subtitle { font-size: 16px; color: var(--body); }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ulla Design - Categorías</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--accent:#C62828;
+--accent-light:#D95B5B;
+--accent-dark:#8E1E1E;
+--bg:#F6F1F1;
+--card:#FFFFFF;
+--subtle:#EFE8E8;
+--border:#DDCFCF;
+--headline:#2A1B1B;
+--body:#5F4A4A;
+--muted:#8B7474;
+--inverse:#FFFFFF;
+--shadow-card:0 8px 20px rgba(42,27,27,.08);
+--shadow-floating:0 12px 40px rgba(42,27,27,.12);
+--radius-card:12px;
+--radius-button:8px;
+--container:1200px;
+}
 
-    .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .category-card {
-      background: var(--card);
-      border-radius: var(--radius-card);
-      padding: 0;
-      text-align: center;
-      box-shadow: var(--shadow-card);
-      border: 1px solid transparent;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 400px;
-      overflow: hidden;
-    }
-    .category-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-floating); }
-    .card-top { padding: 16px 16px 10px 16px; display: flex; flex-direction: column; align-items: center; }
-    .category-name { font-weight: 600; font-size: 20px; color: var(--headline); margin-bottom: 14px; }
-    .category-btn { display: inline-block; background: var(--accent); color: #FFFFFF !important; padding: 10px 24px; border-radius: var(--radius-button); font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
-    .category-btn:hover { opacity: 0.9; }
-    .category-image { width: 100%; flex-grow: 1; object-fit: cover; border-radius: 0 0 var(--radius-card) var(--radius-card); background-color: transparent; min-height: 120px; }
+*{box-sizing:border-box;}
+body{ margin:0; font-family:Inter, Helvetica Neue, sans-serif; background:var(--bg); color:var(--body); }
+a{ text-decoration:none; color:inherit; }
+.container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; position:relative; }
 
-    @media (max-width: 1024px) {
-      .category-grid { grid-template-columns: repeat(2, 1fr); }
-      .category-card { min-height: 340px; }
-      .card-top { padding: 14px 14px 8px 14px; }
-    }
-    @media (max-width: 768px) {
-      .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .category-card { min-height: 280px; }
-      .card-top { padding: 10px 10px 6px 10px; }
-      .category-name { font-size: 15px; margin-bottom: 8px; }
-      .category-btn { padding: 6px 14px; font-size: 12px; }
-    }
-  </style>
+/* =========================================
+   HEADER Y MENÚ
+   ========================================= */
+.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
+.brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
+.brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
+.brand-text .ulla { color: var(--accent); font-family: "Playfair Display", Georgia, serif; font-size: 24px; font-weight: 700; }
+.brand-text .design { color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 600; }
+.menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
+.menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
+.menu a{ position:relative; padding:6px 0; }
+.menu a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.25s ease; }
+.menu a:hover::after{ width:100%; }
+.menu a.active::after { width: 100%; }
+.menu a.active { color: var(--accent); font-weight: 500; }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; cursor:pointer; border-radius:var(--radius-button); transition:.2s ease; font-weight:500; white-space:nowrap; flex:0 0 auto; }
+.btn:hover{ transform:translateY(-2px); opacity:.92; }
+.btn-primary{ background:var(--accent); color:#FFFFFF !important; padding:10px 22px; }
+
+/* Menú Hamburguesa */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
+.hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
+
+/* =========================================
+   MENÚ MÓVIL ANIMADO (Apertura y Cierre Fluido)
+   ========================================= */
+.mobile-menu {
+  position: absolute;
+  top: 80px; left: 0; right: 0;
+  background: var(--card);
+  border-radius: var(--radius-card); /* Esquinas redondeadas */
+  box-shadow: var(--shadow-floating);
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  
+  /* Estado cerrado: invisible, colapsado y ligeramente arriba */
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-15px);
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0 0; /* Padding 0 para que se cierre completamente */
+  
+  /* Transición suave para todas las propiedades, incluido el padding */
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.45s ease,
+              visibility 0.45s ease;
+}
+
+/* Cuando se abre el menú: visible, expandido y en su lugar */
+.mobile-menu.show {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  padding: 24px 0; /* El padding aparece suavemente */
+}
+
+.mobile-menu a {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--headline);
+  padding: 8px 0;
+  transition: color 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+.mobile-menu a:hover { color: var(--accent); }
+
+.mobile-menu .btn-primary { margin-top: 8px; }
+
+/* =========================================
+   CONTENIDO DE CATEGORÍAS
+   ========================================= */
+.section { padding: 48px 0; }
+.section-head { text-align: center; margin-bottom: 40px; }
+.section-title { font-size: 38px; line-height: 1.2; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; margin: 0 0 12px 0; }
+.section-subtitle { font-size: 16px; color: var(--body); }
+
+.category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+.category-card {
+    background: var(--card);
+    border-radius: var(--radius-card);
+    padding: 0;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    border: 1px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 400px;
+    overflow: hidden;
+}
+.category-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-floating); }
+
+.card-top { padding: 16px 16px 10px 16px; display: flex; flex-direction: column; align-items: center; }
+.category-name { font-weight: 600; font-size: 20px; color: var(--headline); margin-bottom: 14px; }
+.category-btn { display: inline-block; background: var(--accent); color: #FFFFFF !important; padding: 10px 24px; border-radius: var(--radius-button); font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
+.category-btn:hover { opacity: 0.9; }
+
+.category-image { width: 100%; flex-grow: 1; object-fit: cover; border-radius: 0 0 var(--radius-card) var(--radius-card); background-color: transparent; min-height: 120px; }
+
+.footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px){ .category-grid { grid-template-columns: repeat(2, 1fr); } .category-card { min-height: 340px; } .card-top { padding: 14px 14px 8px 14px; } }
+
+@media (max-width: 768px){
+  .hamburger { display: block; }
+  .menu-wrap { display: none; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .category-card { min-height: 280px; }
+  .card-top { padding: 10px 10px 6px 10px; }
+  .category-name { font-size: 15px; margin-bottom: 8px; }
+  .category-btn { padding: 6px 14px; font-size: 12px; }
+}
+</style>
 </head>
 <body>
-  <!-- Contenido igual -->
-  ...
+<header class="container">
+<nav class="nav">
+<a class="brand" href="index.html">
+<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" />
+  <path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" />
+  <path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" />
+  <path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" />
+  <path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" />
+  <path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" />
+</svg>
+<span class="brand-text">
+    <span class="design">Grupo</span>
+    <span class="ulla">UMD</span>
+</span>
+</a>
+
+<div class="menu-wrap">
+<div class="menu">
+<a href="index.html">Inicio</a>
+<a href="categorias.html" class="active">Catalogo</a>
+<a href="nosotros.html">Acerca de nosotros</a>
+<a href="servicios.html">Servicios</a>
+</div>
+<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+
+<button class="hamburger" onclick="toggleMenu()">
+  <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</button>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a>
+  <a href="categorias.html">Catálogo</a>
+  <a href="nosotros.html">Acerca de nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+</nav>
+</header>
+
+<main class="container section">
+    <div class="section-head">
+        <h1 class="section-title">Explora nuestras colecciones</h1>
+        <p class="section-subtitle">Selecciona una categoría para descubrir los muebles disponibles.</p>
+    </div>
+
+    <div class="category-grid">
+        <!-- 1. Sillas -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Sillas</div>
+                <a href="catalogo.html?categoria=sillas" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="sillascat.jpg" alt="Sillas" class="category-image">
+        </div>
+
+        <!-- 2. Sillones y Sofás -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Sillones y Sofás</div>
+                <a href="catalogo.html?categoria=sofas" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="sofascat.jpg" alt="Sillones y Sofás" class="category-image">
+        </div>
+
+        <!-- 3. Taburetes -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Taburetes</div>
+                <a href="catalogo.html?categoria=taburetes" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="taburetescat.jpg" alt="Taburetes" class="category-image">
+        </div>
+
+        <!-- 4. Paneles -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Paneles</div>
+                <a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="panelescat.jpg" alt="Paneles" class="category-image">
+        </div>
+
+        <!-- 5. Suelos Vinilicos -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Suelos Vinílicos</div>
+                <a href="catalogo.html?categoria=suelos vinilicos" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="suelovinilico.jpg" alt="Suelos Vinílicos" class="category-image">
+        </div>
+
+        <!-- 6. Lámparas y Decoración -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Lámparas y Decoración</div>
+                <a href="catalogo.html?categoria=lamparas y decoracion" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="lamparascat.jpg" alt="Lámparas y Decoración" class="category-image">
+        </div>
+
+        <!-- 7. Salones -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Salones</div>
+                <a href="catalogo.html?categoria=salones" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="salonescat.jpg" alt="Salones" class="category-image">
+        </div>
+
+        <!-- 8. Mesas de comedor -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Mesas de comedor</div>
+                <a href="catalogo.html?categoria=mesasdecomedor" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="comedorcat.jpg" alt="Mesas de comedor" class="category-image">
+        </div>
+
+        <!-- 9. Centros de Mesa -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Centros de Mesa</div>
+                <a href="catalogo.html?categoria=mesasdecentro" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="centrocat.jpg" alt="Centros de Mesa" class="category-image">
+        </div>
+
+        <!-- 10. Juvenil -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Juvenil</div>
+                <a href="catalogo.html?categoria=juvenil" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="juvenilcat.jpg" alt="Juvenil" class="category-image">
+        </div>
+
+        <!-- 11. Exterior -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Exterior</div>
+                <a href="catalogo.html?categoria=exteriores" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="exteriorcat.jpg" alt="Exterior" class="category-image">
+        </div>
+
+        <!-- 12. Bases metálicas y Tableros -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Bases metálicas y Tableros</div>
+                <a href="catalogo.html?categoria=basesmetalicas" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="img/bases.jpg" alt="Bases metálicas y Tableros" class="category-image">
+        </div>
+
+        <!-- 13. Bancos de Hostelería -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Bancos de Hostelería</div>
+                <a href="catalogo.html?categoria=bancos de hosteleria" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="img/bancos.jpg" alt="Bancos de Hostelería" class="category-image">
+        </div>
+
+        <!-- 14. Hotel -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Hotel</div>
+                <a href="catalogo.html?categoria=hotel" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="img/hotel.jpg" alt="Hotel" class="category-image">
+        </div>
+
+        <!-- 15. Hogar -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Hogar</div>
+                <a href="catalogo.html?categoria=hogar" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Hogar" class="category-image">
+        </div>
+
+        <!-- 16. Contract -->
+        <div class="category-card">
+            <div class="card-top">
+                <div class="category-name">Contract</div>
+                <a href="catalogo.html?categoria=contract" class="category-btn">Ver catálogo</a>
+            </div>
+            <img src="img/contract.jpg" alt="Contract" class="category-image">
+        </div>
+    </div>
+</main>
+
+<footer class="footer container">Ulla Design &copy; 2026</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+</script>
 </body>
 </html>

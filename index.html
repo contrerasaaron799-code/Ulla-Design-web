@@ -1,157 +1,440 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ulla Design</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== ESTILOS EXCLUSIVOS DE INDEX ===== */
-    .hero {
-      position: relative;
-      min-height: 560px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow-floating);
-      background:
-        linear-gradient(90deg, rgba(246,241,241,.97) 0%, rgba(246,241,241,.84) 28%, rgba(246,241,241,.20) 48%, rgba(246,241,241,.04) 100%),
-        url('sofaparaelinicio.jpg') 75% center/cover no-repeat;
-    }
-    .hero-inner {
-      width: min(50%, 500px);
-      padding: 78px 64px;
-    }
-    h1 {
-      font-size: clamp(44px, 5vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-    }
-    .lead {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 430px;
-      margin-bottom: 28px;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ulla Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--accent:#C62828;
+--accent-light:#D95B5B;
+--accent-dark:#8E1E1E;
+--bg:#F6F1F1;
+--card:#FFFFFF;
+--subtle:#EFE8E8;
+--border:#DDCFCF;
+--headline:#2A1B1B;
+--body:#5F4A4A;
+--muted:#8B7474;
+--inverse:#FFFFFF;
+--shadow-card:0 8px 20px rgba(42,27,27,.08);
+--shadow-floating:0 12px 40px rgba(42,27,27,.12);
+--radius-card:12px;
+--radius-button:8px;
+--container:1200px;
+}
 
-    .cards-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 36px;
-      position: relative;
-      z-index: 2;
-    }
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Inter,Helvetica Neue,sans-serif;
+background:var(--bg);
+color:var(--body);
+}
 
-    .product-card {
-      position: relative;
-      z-index: 2;
-      background: var(--card);
-      margin: 2px;
-      border-radius: calc(var(--radius-card) - 2px);
-      overflow: hidden;
-      height: calc(100% - 4px);
-      display: flex;
-      flex-direction: column;
-      border: none;
-      box-shadow: none;
-    }
-    .product-card img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-    }
-    .product-content {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .product-content h4 {
-      font-family: Inter, sans-serif;
-      font-size: 18px;
-      line-height: 1.35;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .caption {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 14px;
-      flex-grow: 1;
-    }
+a{text-decoration:none;color:inherit}
+.container{
+width:min(var(--container), calc(100% - 32px));
+margin:0 auto;
+position:relative;
+}
 
-    /* ===== BANNER DE RESEÑAS ===== */
-    .testimonials-banner {
-      position: relative;
-      margin: 56px 0 28px;
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      background: linear-gradient(135deg, #3A3030 0%, #221717 100%);
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: center;
-      box-shadow: var(--shadow-floating);
-      z-index: 0;
-    }
-    .testimonials-banner > * { position: relative; z-index: 2; }
-    .testimonials-info h2 { color: #FFFFFF; font-size: 34px; margin-bottom: 12px; }
-    .testimonials-info p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-    .testimonial-dots { display: flex; gap: 8px; }
-    .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s ease;
-    }
-    .dot.active { background: var(--accent); width: 24px; border-radius: 10px; }
-    .testimonial-card-wrapper { position: relative; min-height: 310px; }
-    .testimonial-card {
-      position: absolute; inset: 0; background: #FFFFFF; border-radius: 16px; padding: 5px 10px;
-      color: var(--headline); box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      opacity: 0; visibility: hidden; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(12px);
-    }
-    .testimonial-card.active { opacity: 1; visibility: visible; transform: translateY(0); }
-    .testimonial-name { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: var(--headline); margin: 0 0 4px 0; }
-    .testimonial-stars { color: #FFB800; font-size: 16px; letter-spacing: 2px; margin-bottom: 10px; }
-    .testimonial-quote { font-size: 14px; line-height: 1.5; color: var(--body); font-style: italic; margin: 0; }
+.nav{
+height:80px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
 
-    @media (max-width: 1024px) {
-      .hero-inner { width: 66%; padding: 64px 40px; }
-      .cards-row { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 520px;
-        background:
-          linear-gradient(180deg, rgba(246,241,241,0.85) 0%, rgba(246,241,241,0.4) 30%, rgba(246,241,241,0) 100%),
-          url('sofas2.jpg') center 20% / cover no-repeat !important;
-        display: flex;
-        flex-direction: column;
-      }
-      .hero-inner {
-        width: 100%;
-        padding: 25px 20px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-grow: 1;
-      }
-      .hero-inner .lead { margin-top: 8px; margin-bottom: 4px; }
-      .hero-inner .hero-actions { margin-top: auto; margin-bottom: 25px; }
-      .hero-inner .hero-actions .btn-primary { width: auto; padding: 8px 20px; }
-      .cards-row { grid-template-columns: 1fr; }
-      .testimonials-banner { grid-template-columns: 1fr; padding: 32px 20px; }
-      .testimonial-card-wrapper { min-height: 330px; }
-    }
-  </style>
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+min-width:0;
+white-space:nowrap;
+}
+
+.brand-logo{
+width:48px;
+height:32px;
+flex:0 0 auto;
+display:block;
+}
+
+.brand-text{
+display:flex;
+align-items:baseline;
+gap:4px;
+line-height:1;
+}
+
+.brand-text .ulla { 
+    color: var(--accent); 
+    font-family: "Playfair Display", Georgia, serif; 
+    font-size: 24px; 
+    font-weight: 700; 
+}
+
+.brand-text .design { 
+    color: var(--headline); 
+    font-family: "Playfair Display", Georgia, serif; 
+    font-size: 20px; 
+    font-weight: 600; 
+}
+
+.menu-wrap{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:22px;
+}
+
+.menu{
+display:flex;
+align-items:center;
+gap:22px;
+white-space:nowrap;
+}
+
+.menu a{
+position:relative;
+padding:6px 0;
+}
+
+.menu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:0;
+height:2px;
+background:var(--accent);
+transition:.25s ease;
+}
+
+.menu a:hover::after{width:100%}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+border:none;
+cursor:pointer;
+border-radius:var(--radius-button);
+transition:.2s ease;
+font-weight:500;
+white-space:nowrap;
+flex:0 0 auto;
+}
+
+.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn-primary{background:var(--accent);color:var(--inverse);padding:10px 22px}
+.btn-secondary{background:#A84E4E;color:var(--inverse);padding:10px 24px}
+.btn-ghost{background:transparent;color:var(--headline);border:1px solid var(--border);padding:10px 18px}
+
+/* =========================================
+   MENÚ HAMBURGUESA (PARA MÓVIL)
+   ========================================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 20;
+}
+
+.hamburger svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--headline);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  box-shadow: var(--shadow-floating);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  z-index: 100;
+}
+
+.mobile-menu.show { display: flex; }
+
+/* =========================================
+   SECCIONES PRINCIPALES DE LA PÁGINA
+   ========================================= */
+.hero{
+position:relative;
+min-height:560px;
+border-radius:24px;
+overflow:hidden;
+box-shadow:var(--shadow-floating);
+background:
+linear-gradient(90deg, rgba(246,241,241,.97) 0%, rgba(246,241,241,.84) 28%, rgba(246,241,241,.20) 48%, rgba(246,241,241,.04) 100%),
+url('sofaparaelinicio.jpg') 75% center/cover no-repeat;
+}
+
+.hero-inner{
+width:min(50%, 500px);
+padding:78px 64px;
+}
+
+h1,h2,h3,h4{
+margin:0;
+color:var(--headline);
+font-family:"Playfair Display", Georgia, serif;
+font-weight:500;
+}
+
+h1{
+font-size:clamp(44px, 5vw, 68px);
+line-height:1.05;
+letter-spacing:-.02em;
+margin-bottom:18px;
+}
+
+.lead{
+font-size:18px;
+line-height:1.6;
+max-width:430px;
+margin-bottom:28px;
+}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.cards-row{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+margin-top:36px;
+position:relative;
+z-index:2;
+}
+
+/* =========================================
+   EFECTO GLOWING WRAPPER (Borde Brillante con Neón)
+   ========================================= */
+.glowing-wrapper {
+  position: relative;
+  border-radius: var(--radius-card);
+  background: var(--border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.glowing-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-floating);
+}
+
+.glowing-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(198, 40, 40, 1),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px; 
+}
+
+.glowing-wrapper:hover .glowing-effect { opacity: 1; }
+
+.product-card{
+position: relative;
+z-index: 2;
+background: var(--card);
+margin: 2px;
+border-radius: calc(var(--radius-card) - 2px);
+overflow: hidden;
+height: calc(100% - 4px);
+display: flex;
+flex-direction: column;
+border: none;
+box-shadow: none;
+}
+
+.product-card img{
+width:100%;
+aspect-ratio:4/3;
+object-fit:cover;
+display:block;
+}
+
+.product-content{
+padding: 20px;
+display: flex;
+flex-direction: column;
+flex-grow: 1;
+}
+
+.product-content h4{
+font-family:Inter,sans-serif;
+font-size:18px;
+line-height:1.35;
+font-weight:600;
+margin-bottom:6px;
+}
+
+.caption{
+font-size:14px;
+color:var(--muted);
+margin-bottom:14px;
+flex-grow: 1;
+}
+
+.section{padding:48px 0 0}
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:16px;
+margin-bottom:22px;
+}
+.section-title{font-size:32px;line-height:1.2;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.footer{padding:24px 0 40px;color:var(--muted);font-size:14px;text-align:center;}
+
+/* =========================================
+   BANNER PRINCIPAL DE RESEÑAS
+   ========================================= */
+.testimonials-banner {
+  position: relative;
+  margin: 56px 0 28px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: linear-gradient(135deg, #3A3030 0%, #221717 100%);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  box-shadow: var(--shadow-floating);
+  z-index: 0;
+}
+.testimonials-banner .glowing-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(198, 40, 40, 1), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px; 
+}
+.testimonials-banner:hover .glowing-effect { opacity: 1; }
+.testimonials-banner > * { position: relative; z-index: 2; }
+
+.testimonials-info h2 { color: #FFFFFF; font-size: 34px; margin-bottom: 12px; }
+.testimonials-info p { color: rgba(255, 255, 255, 0.82); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+
+.testimonial-dots { display: flex; gap: 8px; }
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3); cursor: pointer; transition: all 0.3s ease;
+}
+.dot.active { background: var(--accent); width: 24px; border-radius: 10px; }
+
+.testimonial-card-wrapper { position: relative; min-height: 310px; }
+.testimonial-card {
+  position: absolute; inset: 0; background: #FFFFFF; border-radius: 16px; padding: 5px 10px;
+  color: var(--headline); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(12px);
+}
+.testimonial-card.active { opacity: 1; visibility: visible; transform: translateY(0); }
+.testimonial-name { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; color: var(--headline); margin: 0 0 4px 0; }
+.testimonial-stars { color: #FFB800; font-size: 16px; letter-spacing: 2px; margin-bottom: 10px; }
+.testimonial-quote { font-size: 14px; line-height: 1.5; color: var(--body); font-style: italic; margin: 0; }
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+@media (max-width: 1024px){
+.hero-inner{width:66%;padding:64px 40px}
+.cards-row,.grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width: 768px){
+/* Menú móvil visible */
+.hamburger { display: block; }
+.menu-wrap { display: none; }
+
+/* Ajustes para pantallas táctiles (botones grandes) */
+.product-card .btn, .feature-card .btn { min-height: 44px; width: 100%; }
+.product-content { padding: 16px; }
+
+/* HERO MÓVIL CORREGIDO: EL BOTÓN VA AL FONDO */
+.hero{
+min-height:520px;
+background:
+linear-gradient(180deg, rgba(246,241,241,0.85) 0%, rgba(246,241,241,0.4) 30%, rgba(246,241,241,0) 100%),
+url('sofas2.jpg') center 20% / cover no-repeat !important;
+/* Convertimos el hero en contenedor flex para estirar al hijo */
+display: flex;
+flex-direction: column;
+}
+
+.hero-inner{
+width:100%;
+padding: 25px 20px 20px; 
+display: flex;
+flex-direction: column;
+justify-content: flex-start; /* El título y la frase se quedan arriba */
+align-items: flex-start;
+flex-grow: 1; /* CLAVE: Estira el cuadro interior hasta el fondo */
+}
+
+.hero-inner .lead {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+/* El contenedor del botón se va al fondo */
+.hero-inner .hero-actions {
+    margin-top: auto; /* Empuja el botón hasta el fondo */
+    margin-bottom: 25px; /* Un poco de aire en la parte de abajo */
+}
+
+/* Botón un poco más pequeño */
+.hero-inner .hero-actions .btn-primary {
+    width: auto;
+    padding: 8px 20px;
+}
+
+.cards-row,.grid{grid-template-columns:1fr}
+.section-head{flex-direction:column;align-items:flex-start}
+.testimonials-banner {
+  grid-template-columns: 1fr; padding: 32px 20px;
+}
+.testimonial-card-wrapper { min-height: 330px; }
+}
+</style>
 </head>
 <body>
 <header class="container">

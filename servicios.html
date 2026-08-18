@@ -1,48 +1,165 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ulla Design - Servicios</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== ESTILOS EXCLUSIVOS DE SERVICIOS ===== */
-    .services-header { margin-bottom: 48px; padding-top: 20px; }
-    .services-subtitle { text-align: center; max-width: 650px; margin: 16px auto 0; color: var(--body); font-size: 17px; line-height: 1.6; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ulla Design - Servicios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{ --accent:#C62828; --accent-light:#D95B5B; --accent-dark:#8E1E1E; --bg:#F6F1F1; --card:#FFFFFF; --subtle:#EFE8E8; --border:#DDCFCF; --headline:#2A1B1B; --body:#5F4A4A; --muted:#8B7474; --inverse:#FFFFFF; --shadow-card:0 8px 20px rgba(42,27,27,.08); --shadow-floating:0 12px 40px rgba(42,27,27,.12); --radius-card:12px; --radius-button:8px; --container:1200px; }
+*{box-sizing:border-box} body{ margin:0; font-family:Inter,Helvetica Neue,sans-serif; background:var(--bg); color:var(--body); } a{text-decoration:none;color:inherit}
+.container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; position:relative; }
+.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
+.brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
+.brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
 
-    .services-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
-    .services-carousel-container { position: sticky; top: 40px; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-floating); border: 1px solid var(--border); height: 600px; }
-    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
-    .carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; }
-    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.8); color: var(--headline); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 3; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .carousel-btn:hover { background: #ffffff; color: var(--accent); transform: translateY(-50%) scale(1.1); }
-    .carousel-btn.prev { left: 20px; } .carousel-btn.next { right: 20px; }
-    .carousel-dots { position: absolute; bottom: 24px; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 3; }
-    .dot { width: 10px; height: 10px; background-color: rgba(255, 255, 255, 0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s, transform 0.3s; }
-    .dot:hover { background-color: rgba(255, 255, 255, 0.8); } .dot.active { background-color: var(--accent); transform: scale(1.3); }
+.brand-text .ulla { 
+    color: var(--accent); 
+    font-family: "Playfair Display", Georgia, serif; 
+    font-size: 24px; 
+    font-weight: 700; 
+}
 
-    .services-list { display: flex; flex-direction: column; gap: 20px; }
-    .service-inner { position: relative; z-index: 2; background: var(--card); margin: 2.5px; padding: 25.5px; border-radius: calc(var(--radius-card) - 2.5px); display: flex; gap: 24px; height: calc(100% - 5px); }
-    .service-num { font-family: "Playfair Display", Georgia, serif; font-size: 32px; font-weight: 600; color: var(--accent); line-height: 1; min-width: 45px; }
-    .service-text h4 { font-family: Inter, sans-serif; font-size: 20px; font-weight: 600; color: var(--headline); margin: 0 0 10px 0; }
-    .service-text p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--body); }
+.brand-text .design { 
+    color: var(--headline); 
+    font-family: "Playfair Display", Georgia, serif; 
+    font-size: 20px; 
+    font-weight: 600; 
+}
 
-    .cta-section { margin-top: 60px; }
-    .cta-inner { position: relative; z-index: 2; background: var(--card); margin: 2.5px; padding: 50px 20px; border-radius: calc(var(--radius-card) - 2.5px); text-align: center; }
-    .cta-title { font-family: "Playfair Display", Georgia, serif; font-size: 32px; color: var(--headline); margin: 0 0 10px 0; }
-    .cta-text { font-size: 16px; color: var(--body); margin: 0 0 28px 0; }
+.menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
+.menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
+.menu a{ position:relative; padding:6px 0; }
+.menu a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.25s ease; }
+.menu a:hover::after{width:100%} .menu a.active::after { width: 100%; } .menu a.active { color: var(--accent); font-weight: 500; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; cursor:pointer; border-radius:var(--radius-button); transition:.2s ease; font-weight:500; white-space:nowrap; flex:0 0 auto; }
+.btn:hover{transform:translateY(-2px);opacity:.92} .btn-primary{background:var(--accent);color:var(--inverse);padding:10px 22px}
 
-    @media (max-width: 900px) {
-      .services-layout { grid-template-columns: 1fr; }
-      .services-carousel-container { height: 350px; position: relative; top: 0; }
-    }
-  </style>
+/* MENÚ HAMBURGUESA MÓVIL */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
+.hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
+.mobile-menu { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--card); flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; box-shadow: var(--shadow-floating); border-radius: 0 0 var(--radius-card) var(--radius-card); z-index: 100; }
+.mobile-menu.show { display: flex; }
+
+.section { padding: 48px 0; } .section-title { font-family: "Playfair Display", Georgia, serif; font-size: 38px; line-height: 1.2; color: var(--headline); margin: 0; font-weight: 500; } .text-center { text-align: center; }
+.services-header { margin-bottom: 48px; padding-top: 20px; } .services-subtitle { text-align: center; max-width: 650px; margin: 16px auto 0; color: var(--body); font-size: 17px; line-height: 1.6; }
+.services-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+.services-carousel-container { position: sticky; top: 40px; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-floating); border: 1px solid var(--border); height: 600px; }
+.carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+.carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.8); color: var(--headline); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 3; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.carousel-btn:hover { background: #ffffff; color: var(--accent); transform: translateY(-50%) scale(1.1); }
+.carousel-btn.prev { left: 20px; } .carousel-btn.next { right: 20px; }
+.carousel-dots { position: absolute; bottom: 24px; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 3; }
+.dot { width: 10px; height: 10px; background-color: rgba(255, 255, 255, 0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s, transform 0.3s; }
+.dot:hover { background-color: rgba(255, 255, 255, 0.8); } .dot.active { background-color: var(--accent); transform: scale(1.3); }
+.services-list { display: flex; flex-direction: column; gap: 20px; }
+.glowing-wrapper { position: relative; border-radius: var(--radius-card); background: var(--border); box-shadow: var(--shadow-card); transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; }
+.glowing-wrapper:hover { transform: translateY(-4px); box-shadow: var(--shadow-floating); }
+.glowing-effect { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s ease; background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), var(--accent), transparent 40%); z-index: 1; }
+.glowing-wrapper:hover .glowing-effect { opacity: 1; }
+.service-inner { position: relative; z-index: 2; background: var(--card); margin: 2.5px; padding: 25.5px; border-radius: calc(var(--radius-card) - 2.5px); display: flex; gap: 24px; height: calc(100% - 5px); }
+.service-num { font-family: "Playfair Display", Georgia, serif; font-size: 32px; font-weight: 600; color: var(--accent); line-height: 1; min-width: 45px; }
+.service-text h4 { font-family: Inter, sans-serif; font-size: 20px; font-weight: 600; color: var(--headline); margin: 0 0 10px 0; }
+.service-text p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--body); }
+
+.cta-section { margin-top: 60px; }
+.cta-inner { position: relative; z-index: 2; background: var(--card); margin: 2.5px; padding: 50px 20px; border-radius: calc(var(--radius-card) - 2.5px); text-align: center; }
+.cta-title { font-family: "Playfair Display", Georgia, serif; font-size: 32px; color: var(--headline); margin: 0 0 10px 0; }
+.cta-text { font-size: 16px; color: var(--body); margin: 0 0 28px 0; }
+.stateful-button { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; color: #ffffff; background-color: var(--accent); border: none; border-radius: 50px; cursor: pointer; overflow: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(198, 40, 40, 0.25); outline: none; min-width: 200px; height: 50px; }
+.stateful-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(198, 40, 40, 0.35); background-color: var(--accent-dark); } .stateful-button:active { transform: translateY(0); }
+.btn-content { display: flex; align-items: center; gap: 10px; transition: opacity 0.2s ease, transform 0.2s ease; }
+.btn-wpp-icon { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; display: block; filter: brightness(0) invert(1); }
+.btn-spinner { display: none; width: 22px; height: 22px; border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: #ffffff; animation: spin 0.8s linear infinite; position: absolute; }
+.btn-success { display: none; position: absolute; font-size: 16px; font-weight: 600; }
+.stateful-button.loading .btn-content, .stateful-button.success .btn-content { opacity: 0; transform: translateY(-10px); }
+.stateful-button.loading .btn-spinner { display: block; }
+.stateful-button.success { background: linear-gradient(145deg, #b40505, #e30606) !important; }
+.stateful-button.success .btn-spinner { display: none; }
+.stateful-button.success .btn-success { display: block; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes popIn { 0% { transform: scale(0.6); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+.footer{ padding: 40px 0; color:var(--muted); font-size:14px; text-align:center; border-top: 1px solid var(--border); margin-top: 40px; }
+@media (max-width: 900px) { .hamburger { display: block; } .menu-wrap { display: none; } .services-layout { grid-template-columns: 1fr; } .services-carousel-container { height: 350px; position: relative; top: 0; } .nav { gap: 12px; } }
+</style>
 </head>
 <body>
-  <!-- Contenido igual, solo se ha quitado el CSS general y se ha dejado este bloque específico -->
-  ...
+<header class="container">
+<nav class="nav">
+<a class="brand" href="index.html">
+<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" /><path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" /><path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" /><path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" /><path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" /><path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" /></svg>
+<span class="brand-text">
+  <span class="design">Grupo</span>
+  <span class="ulla">UMD</span>
+</span>
+</a>
+
+<div class="menu-wrap">
+<div class="menu"><a href="index.html">Inicio</a><a href="categorias.html">Catálogo</a><a href="nosotros.html">Acerca de nosotros</a><a href="servicios.html" class="active">Servicios</a></div>
+<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+
+<button class="hamburger" onclick="toggleMenu()"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a><a href="categorias.html">Catálogo</a><a href="nosotros.html">Acerca de nosotros</a><a href="servicios.html">Servicios</a><a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="services-header"><h1 class="section-title text-center">Servicios</h1><p class="services-subtitle">Acompañamos cada etapa de tu proyecto, desde la idea inicial hasta el último detalle en tu espacio, asegurando calidad y confort.</p></div>
+    <div class="services-layout">
+      <div class="services-carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="juvenilpp.png" alt="juvenilpp" class="carousel-slide" />
+          <img src="paneles.png" alt="paneles" class="carousel-slide" />
+          <img src="salones.png" alt="salones" class="carousel-slide" />
+          <img src="sofas.png" alt="sofas" class="carousel-slide" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="carousel-dots"><span class="dot active" onclick="currentSlide(0)"></span><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div>
+      </div>
+      <div class="services-list">
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="service-inner"><span class="service-num">01</span><div class="service-text"><h4>Asesoría y Análisis</h4><p>Antes de diseñar, entendemos tus necesidades, objetivos, estilo, presupuesto y el uso que tendrá el espacio. Analizamos cada detalle para ofrecer la mejor solución.</p></div></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="service-inner"><span class="service-num">02</span><div class="service-text"><h4>Diseño del Proyecto</h4><p>Creamos la propuesta de distribución, definimos materiales, acabados, medidas y cada elemento del mobiliario para que el proyecto responda perfectamente a tus necesidades.</p></div></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="service-inner"><span class="service-num">03</span><div class="service-text"><h4>Visualización 3D</h4><p>Desarrollamos modelos y renders realistas para que puedas visualizar el resultado final antes de iniciar la fabricación, permitiendo realizar ajustes con total seguridad.</p></div></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="service-inner"><span class="service-num">04</span><div class="service-text"><h4>Fabricación</h4><p>Fabricamos cada pieza con maquinaria especializada, materiales de alta calidad y un estricto control en cada etapa del proceso para garantizar precisión y durabilidad.</p></div></div></article>
+        <article class="glowing-wrapper"><div class="glowing-effect"></div><div class="service-inner"><span class="service-num">05</span><div class="service-text"><h4>Instalación</h4><p>Nuestro equipo realiza la instalación cuidando cada detalle para entregar un espacio completamente terminado, funcional y listo para su uso.</p></div></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section glowing-wrapper">
+    <div class="glowing-effect"></div>
+    <div class="cta-inner"><h3 class="cta-title">Empecemos tu proyecto</h3><p class="cta-text">Estamos listos para transformar tu espacio. Haz clic para iniciar la conversación.</p><button id="stateful-btn" class="stateful-button" onclick="handleButtonClick()"><span class="btn-content"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="btn-wpp-icon" /><span>Listo?</span></span><span class="btn-spinner"></span><span class="btn-success">✓ Comenzemos</span></button></div>
+  </section>
+</main>
+<footer class="footer container">Ulla Design &copy; 2026</footer>
+
+<script>
+function handleButtonClick() {
+  const btn = document.getElementById("stateful-btn");
+  if (btn.classList.contains("loading") || btn.classList.contains("success")) return;
+  btn.classList.add("loading");
+  setTimeout(() => { btn.classList.remove("loading"); btn.classList.add("success"); setTimeout(() => { window.location.href = "contactanos.html"; }, 1000); }, 2500);
+}
+const glowingCards = document.querySelectorAll('.glowing-wrapper');
+glowingCards.forEach(card => { card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; card.style.setProperty('--mouse-x', `${x}px`); card.style.setProperty('--mouse-y', `${y}px`); }); });
+let slideIndex = 0; const track = document.getElementById('carouselTrack'); const slides = document.querySelectorAll('.carousel-slide'); const dots = document.querySelectorAll('.dot'); let autoPlayInterval;
+function initCarousel() { if(slides.length > 0) { updateCarousel(); startAutoPlay(); } }
+function updateCarousel() { track.style.transform = `translateX(-${slideIndex * 100}%)`; dots.forEach(dot => dot.classList.remove('active')); dots[slideIndex].classList.add('active'); }
+function moveSlide(step) { slideIndex += step; if (slideIndex >= slides.length) slideIndex = 0; if (slideIndex < 0) slideIndex = slides.length - 1; updateCarousel(); resetTimer(); }
+function currentSlide(n) { slideIndex = n; updateCarousel(); resetTimer(); }
+function startAutoPlay() { autoPlayInterval = setInterval(() => { slideIndex++; if (slideIndex >= slides.length) slideIndex = 0; updateCarousel(); }, 5000); }
+function resetTimer() { clearInterval(autoPlayInterval); startAutoPlay(); }
+initCarousel();
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+</script>
 </body>
 </html>
