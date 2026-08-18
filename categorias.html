@@ -17,6 +17,8 @@
 --border:#DDCFCF;
 --headline:#2A1B1B;
 --body:#5F4A4A;
+--muted:#8B7474;
+--inverse:#FFFFFF;
 --shadow-card:0 8px 20px rgba(42,27,27,.08);
 --shadow-floating:0 12px 40px rgba(42,27,27,.12);
 --radius-card:12px;
@@ -36,18 +38,8 @@ a{ text-decoration:none; color:inherit; }
 .brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
 .brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
 .brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
-.brand-text .ulla { 
-    color: var(--accent); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 24px; 
-    font-weight: 700; 
-}
-.brand-text .design { 
-    color: var(--headline); 
-    font-family: "Playfair Display", Georgia, serif; 
-    font-size: 20px; 
-    font-weight: 600; 
-}
+.brand-text .ulla { color: var(--accent); font-family: "Playfair Display", Georgia, serif; font-size: 24px; font-weight: 700; }
+.brand-text .design { color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 600; }
 .menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
 .menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
 .menu a{ position:relative; padding:6px 0; }
@@ -60,11 +52,44 @@ a{ text-decoration:none; color:inherit; }
 .btn:hover{ transform:translateY(-2px); opacity:.92; }
 .btn-primary{ background:var(--accent); color:#FFFFFF !important; padding:10px 22px; }
 
-/* Menú Hamburguesa */
+/* Menú Hamburguesa (Botón fijo en top) */
 .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
 .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
-.mobile-menu { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--card); flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; box-shadow: var(--shadow-floating); border-radius: 0 0 var(--radius-card) var(--radius-card); z-index: 100; }
-.mobile-menu.show { display: flex; }
+
+/* =========================================
+   MENÚ MÓVIL CON ANIMACIÓN FLUIDA
+   ========================================= */
+.mobile-menu {
+  display: block; /* Se mostrará mediante animación */
+  position: absolute;
+  top: 80px; left: 0; right: 0;
+  background: var(--card);
+  flex-direction: column; align-items: center; gap: 16px; padding: 24px 0;
+  box-shadow: var(--shadow-floating);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  z-index: 100;
+
+  /* --- CONFIGURACIÓN DE LA ANIMACIÓN --- */
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.4s ease;
+  overflow: hidden;
+}
+
+/* Cuando se abre el menú */
+.mobile-menu.show {
+  max-height: 500px; /* Altura máxima para que quepa todo */
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
 
 /* =========================================
    CONTENIDO DE CATEGORÍAS - 3 Columnas en Escritorio
@@ -74,18 +99,12 @@ a{ text-decoration:none; color:inherit; }
 .section-title { font-size: 38px; line-height: 1.2; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; margin: 0 0 12px 0; }
 .section-subtitle { font-size: 16px; color: var(--body); }
 
-/* --- GRID DE CATEGORÍAS --- */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px;
-}
+.category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
-/* --- TARJETA CON FLEXBOX MÁGICO --- */
 .category-card {
     background: var(--card);
     border-radius: var(--radius-card);
-    padding: 0; /* Sin márgenes internos para que la imagen llegue al borde */
+    padding: 0;
     text-align: center;
     box-shadow: var(--shadow-card);
     border: 1px solid transparent;
@@ -94,85 +113,33 @@ a{ text-decoration:none; color:inherit; }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 400px; /* Tarjeta alta */
-    overflow: hidden; /* Para que los bordes de la imagen se redondeen */
+    min-height: 400px;
+    overflow: hidden;
 }
-.category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-floating);
-}
+.category-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-floating); }
 
-/* --- CONTENEDOR DEL TEXTO Y BOTÓN --- */
-.card-top {
-    padding: 16px 16px 10px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.category-name {
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--headline);
-    margin-bottom: 14px;
-}
-
-.category-btn {
-    display: inline-block;
-    background: var(--accent);
-    color: #FFFFFF !important;
-    padding: 10px 24px;
-    border-radius: var(--radius-button);
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
+.card-top { padding: 16px 16px 10px 16px; display: flex; flex-direction: column; align-items: center; }
+.category-name { font-weight: 600; font-size: 20px; color: var(--headline); margin-bottom: 14px; }
+.category-btn { display: inline-block; background: var(--accent); color: #FFFFFF !important; padding: 10px 24px; border-radius: var(--radius-button); font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
 .category-btn:hover { opacity: 0.9; }
 
-/* --- IMAGEN QUE SE EXPANDE --- */
-.category-image {
-    width: 100%;
-    /* EL TRUCO: flex-grow 1 ocupa todo el espacio sobrante */
-    flex-grow: 1; 
-    object-fit: cover;
-    border-radius: 0 0 var(--radius-card) var(--radius-card);
-    background-color: transparent; 
-    min-height: 120px; /* Altura mínima por seguridad */
-}
+.category-image { width: 100%; flex-grow: 1; object-fit: cover; border-radius: 0 0 var(--radius-card) var(--radius-card); background-color: transparent; min-height: 120px; }
 
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
 /* =========================================
    RESPONSIVE (Tabletas y Móviles)
    ========================================= */
-@media (max-width: 1024px){
-    .category-grid { grid-template-columns: repeat(2, 1fr); }
-    .category-card { min-height: 340px; }
-    .card-top { padding: 14px 14px 8px 14px; }
-}
+@media (max-width: 1024px){ .category-grid { grid-template-columns: repeat(2, 1fr); } .category-card { min-height: 340px; } .card-top { padding: 14px 14px 8px 14px; } }
 
 @media (max-width: 768px){
   .hamburger { display: block; }
   .menu-wrap { display: none; }
-  .category-grid { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 16px; 
-  }
-  .category-card { 
-    min-height: 280px; 
-  }
-  .card-top { 
-    padding: 10px 10px 6px 10px; 
-  }
-  .category-name { 
-    font-size: 15px; 
-    margin-bottom: 8px; 
-  }
-  .category-btn { 
-    padding: 6px 14px; 
-    font-size: 12px; 
-  }
+  .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .category-card { min-height: 280px; }
+  .card-top { padding: 10px 10px 6px 10px; }
+  .category-name { font-size: 15px; margin-bottom: 8px; }
+  .category-btn { padding: 6px 14px; font-size: 12px; }
 }
 </style>
 </head>
