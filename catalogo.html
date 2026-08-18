@@ -83,6 +83,7 @@
 
     /* =========================================
        MENÚ MÓVIL ANIMADO (Glassmorphism + Escalado)
+       CORRECCIÓN: z-index aumentado a 2000 para estar por encima de los controles
        ========================================= */
     .mobile-menu {
       position: absolute;
@@ -95,7 +96,7 @@
       border-radius: 0 0 var(--radius-card) var(--radius-card);
       box-shadow: var(--shadow-floating);
       border-top: 1px solid rgba(255, 255, 255, 0.3);
-      z-index: 100;
+      z-index: 2000; /* <--- AUMENTADO */
 
       display: flex;
       flex-direction: column;
@@ -1123,39 +1124,9 @@
     };
   }
 
-  // =========================================
-  // RE-ASIGNAR EVENTOS DE CLICK A LOS DESPLEGABLES
-  // (para asegurar que funcionen incluso si el script externo falla)
-  // =========================================
-  document.addEventListener('DOMContentLoaded', function() {
-    // Categorías
-    const dropdownTrigger = document.getElementById('dropdownTrigger');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    if (dropdownTrigger && dropdownMenu) {
-      dropdownTrigger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('show');
-        dropdownTrigger.classList.toggle('active');
-      });
-    }
-    // Subcategorías
-    const subcategoryTrigger = document.getElementById('subcategoryTrigger');
-    const subcategoryMenu = document.getElementById('subcategoryMenu');
-    if (subcategoryTrigger && subcategoryMenu) {
-      subcategoryTrigger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        subcategoryMenu.classList.toggle('show');
-        subcategoryTrigger.classList.toggle('active');
-      });
-    }
-    // Cerrar al hacer clic fuera
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.custom-dropdown')) {
-        document.querySelectorAll('.dropdown-menu.show').forEach(el => el.classList.remove('show'));
-        document.querySelectorAll('.dropdown-trigger.active').forEach(el => el.classList.remove('active'));
-      }
-    });
-  });
+  // ELIMINAMOS LOS LISTENERS MANUALES DE DROPDOWNS
+  // Dejamos que catalogo.js maneje los eventos de los desplegables.
+  // Solo aseguramos que el menú hamburguesa funcione.
 
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
 </script>
