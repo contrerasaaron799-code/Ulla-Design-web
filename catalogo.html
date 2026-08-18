@@ -219,7 +219,24 @@
     .dropdown-trigger:hover, .dropdown-trigger.active { background: var(--accent); color: var(--inverse); border-color: var(--accent); }
     .dropdown-trigger .arrow { font-size: 10px; transition: transform 0.3s ease; }
     .dropdown-trigger.active .arrow { transform: rotate(180deg); }
-    .dropdown-menu { position: absolute; top: calc(100% + 12px); left: 0; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow-floating); padding: 24px; width: max-content; max-width: 380px; z-index: 50; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; border: 1px solid var(--border); }
+    /* CORRECCIÓN Z-INDEX: los menús desplegables estarán por encima de las cartas */
+    .dropdown-menu { 
+      position: absolute; 
+      top: calc(100% + 12px); 
+      left: 0; 
+      background: var(--card); 
+      border-radius: var(--radius-card); 
+      box-shadow: var(--shadow-floating); 
+      padding: 24px; 
+      width: max-content; 
+      max-width: 380px; 
+      z-index: 999; 
+      opacity: 0; 
+      visibility: hidden; 
+      transform: translateY(-10px); 
+      transition: all 0.3s ease; 
+      border: 1px solid var(--border); 
+    }
     .dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
     .dropdown-section h4 { font-size: 12px; font-family: Inter, sans-serif; margin-bottom: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
     .dropdown-options { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -505,7 +522,7 @@
     .empty-cart-message { text-align: center; padding: 40px 0; color: var(--muted); font-style: italic; }
 
     /* =========================================
-       ANIMACIONES FADE-UP (Scroll-triggered)
+       ANIMACIONES FADE-UP (Scroll-triggered - ahora permanecen visibles)
        ========================================= */
     .fade-up {
       opacity: 0;
@@ -733,19 +750,18 @@
     document.body.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // INTERSECTION OBSERVER PARA FADE-UP (reactivo)
+  // INTERSECTION OBSERVER PARA FADE-UP (ahora permanece visible)
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
         }
+        // No se quita la clase al salir, así permanecen visibles
       });
     }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -80px 0px'  // Aparece 80px antes de llegar
     });
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach(el => observer.observe(el));
