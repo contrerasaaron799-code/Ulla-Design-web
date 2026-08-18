@@ -58,19 +58,12 @@ a{ text-decoration:none; color:inherit; }
 .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
 /* =========================================
-   MENÚ MÓVIL CON ANIMACIÓN FLUIDA Y ORDEN CORREGIDO
+   MENÚ MÓVIL CORREGIDO (Fallo de display solucionado)
    ========================================= */
 .mobile-menu {
-  display: block; /* Se mostrará mediante animación */
   position: absolute;
   top: 80px; left: 0; right: 0;
   background: var(--card);
-  /* Organización del menú en columna y centrado */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px 0;
   box-shadow: var(--shadow-floating);
   border-radius: 0 0 var(--radius-card) var(--radius-card);
   z-index: 100;
@@ -81,11 +74,17 @@ a{ text-decoration:none; color:inherit; }
   transform: translateY(-10px);
   visibility: hidden;
   pointer-events: none;
+  overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
               opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.4s ease;
-  overflow: hidden;
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* LA CLAVE: Se oculta sin display, solo se activa cuando tiene la clase .show */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0; /* Padding 0 para que no se vea cuando está cerrado */
 }
 
 /* Cuando se abre el menú */
@@ -95,6 +94,7 @@ a{ text-decoration:none; color:inherit; }
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+  padding: 24px 0; /* Padding solo cuando está abierto */
 }
 
 .mobile-menu a {
@@ -109,9 +109,8 @@ a{ text-decoration:none; color:inherit; }
   color: var(--accent);
 }
 
-/* Botón dentro del menú móvil */
 .mobile-menu .btn-primary {
-  margin-top: 8px; /* Un poco de margen extra para separar el botón */
+  margin-top: 8px;
 }
 
 /* =========================================
