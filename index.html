@@ -34,7 +34,7 @@ font-family:Inter,Helvetica Neue,sans-serif;
 background:var(--bg);
 color:var(--body);
 background-image: radial-gradient(rgba(198, 40, 40, 0.02) 1px, transparent 1px);
-background-size: 20px 20px; /* Textura sutil de puntos */
+background-size: 20px 20px;
 }
 
 a{text-decoration:none;color:inherit}
@@ -62,7 +62,6 @@ transition: background 0.3s ease, box-shadow 0.3s ease;
 border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Al hacer scroll, la barra se vuelve más sólida y con sombra */
 body.scrolled .nav {
   background: rgba(246, 241, 241, 0.95);
   box-shadow: 0 4px 20px rgba(42, 27, 27, 0.06);
@@ -308,7 +307,6 @@ box-shadow:var(--shadow-floating);
 background:
 linear-gradient(90deg, rgba(246,241,241,.97) 0%, rgba(246,241,241,.84) 28%, rgba(246,241,241,.20) 48%, rgba(246,241,241,.04) 100%),
 url('sofaparaelinicio.jpg') 75% center/cover no-repeat;
-animation: fadeUp 1s ease-out forwards;
 }
 
 .hero-inner{
@@ -384,6 +382,20 @@ margin-bottom:28px;
 
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 
+/* =========================================
+   ANIMACIONES DE ENTRADA (Scroll-triggered)
+   ========================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .cards-row{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -391,16 +403,6 @@ gap:24px;
 margin-top:36px;
 position:relative;
 z-index:2;
-animation: fadeUp 1s ease-out 0.2s forwards;
-opacity: 0;
-}
-
-/* =========================================
-   ANIMACIÓN DE ENTRADA (FADE UP)
-   ========================================= */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================================
@@ -511,8 +513,6 @@ margin-bottom:22px;
   align-items: center;
   box-shadow: var(--shadow-floating);
   z-index: 0;
-  animation: fadeUp 1s ease-out 0.4s forwards;
-  opacity: 0;
 }
 .testimonials-banner .glowing-effect {
   position: absolute;
@@ -673,7 +673,7 @@ flex-grow: 1;
 </header>
 
 <main class="container">
-<section class="hero">
+<section class="hero fade-up visible">
 <div class="hero-inner">
 <h1>Desde tus sueños a tu hogar</h1>
 <p class="lead">Creamos el mueble perfecto para cada rincón</p>
@@ -689,7 +689,7 @@ flex-grow: 1;
 
 <h2 class="section-title" style="margin-top: 48px; margin-bottom: 16px; text-align: center;">Encuentra tu espacio</h2>
 
-<section class="cards-row">
+<section class="cards-row fade-up">
   <!-- Tarjeta Hotel -->
   <div class="glowing-wrapper">
     <div class="glowing-effect"></div>
@@ -730,7 +730,7 @@ flex-grow: 1;
   </div>
 </section>
 
-<section class="testimonials-banner">
+<section class="testimonials-banner fade-up">
   <div class="glowing-effect"></div>
   <div class="testimonials-info">
     <h2>Experiencias Ulla Design</h2>
@@ -806,6 +806,23 @@ flex-grow: 1;
   // SCRIPT PARA NAVBAR STICKY CON SHADOW DINÁMICO
   window.addEventListener('scroll', () => {
     document.body.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // SCRIPT PARA SCROLL-TRIGGERED ANIMATIONS (Intersection Observer)
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15, // se activa cuando el 15% del elemento es visible
+      rootMargin: '0px 0px -50px 0px' // un pequeño margen para adelantar la animación
+    });
+
+    const fadeElements = document.querySelectorAll('.fade-up:not(.visible)');
+    fadeElements.forEach(el => observer.observe(el));
   });
 
   // SCRIPT PARA ABRIR Y CERRAR EL MENÚ EN MÓVIL
