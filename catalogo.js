@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let productsData = [];
 
   // =========================================
-  // ORDEN PERSONALIZADO DE CATEGORÍAS
-  // (Puedes cambiar el orden de esta lista a tu gusto)
-  // Las categorías que no estén en esta lista aparecerán al final.
+  // ORDEN PERSONALIZADO DE CATEGORÍAS (TODO EN MINÚSCULAS)
+  // Puedes cambiar el orden a tu gusto.
   // =========================================
   const CATEGORY_ORDER = [
       'sillas',
@@ -24,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
       'hogar',
       'hotel',
       'contract',
-      'oferta'
+      'oferta',
+      'todos'
   ];
 
   const subcategoryMap = {
@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
               itemImage = 'https://via.placeholder.com/300';
           }
           let itemCategory = item.categoria || item.category || 'todos';
+          // Normalizamos: minúsculas y sin espacios
+          itemCategory = itemCategory.toLowerCase().trim();
           if (item.oferta === true) itemCategory = 'oferta';
           
           const itemDetalleImg = item.imagen_detalle || '';
@@ -401,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.stopPropagation(); 
           categoryBtns.forEach(b => b.classList.remove('active')); 
           btn.classList.add('active'); 
-          currentCategory = btn.getAttribute('data-category'); 
+          currentCategory = btn.getAttribute('data-category').toLowerCase().trim(); 
           updateSubcategoryMenu(currentCategory);
           currentSubcategory = 'todos';
           applyFilters(); 
@@ -464,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       cardsArray.forEach(card => {
-          const catString = card.getAttribute('data-category') || '';
+          const catString = (card.getAttribute('data-category') || '').toLowerCase().trim();
           const catList = catString.split(',').map(c => c.trim());
 
           const matchesCategory = (currentCategory === 'todos' || targetCategories.some(cat => catList.includes(cat)));
@@ -482,16 +484,19 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       // =========================================
-      // NUEVA LÓGICA DE AGRUPACIÓN POR CATEGORÍAS
-      // (SOLO APLICA CUANDO LA SUBCATEGORÍA ES "todos")
+      // AGRUPACIÓN POR CATEGORÍAS (SOLO CUANDO SUBCATEGORÍA ES 'todos')
       // =========================================
       if (currentSubcategory === 'todos') {
           const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
           const grouped = {};
 
-          // Agrupar por categoría
+          // Agrupar por primera categoría (normalizada)
           visibleCards.forEach(card => {
-              const cat = card.getAttribute('data-category');
+              let cat = (card.getAttribute('data-category') || '').toLowerCase().trim();
+              // Si tiene múltiples categorías, tomamos la primera
+              if (cat.includes(',')) {
+                  cat = cat.split(',')[0].trim();
+              }
               if (!grouped[cat]) grouped[cat] = [];
               grouped[cat].push(card);
           });
@@ -499,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Limpiar el grid para reordenar
           grid.innerHTML = '';
 
-          // Recorrer el orden personalizado definido en CATEGORY_ORDER
+          // Recorrer el orden personalizado
           CATEGORY_ORDER.forEach(cat => {
               if (grouped[cat]) {
                   grouped[cat].forEach(card => grid.appendChild(card));
@@ -507,16 +512,15 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
 
-          // Agregar cualquier categoría restante que no esté en el orden personalizado
+          // Agregar cualquier categoría restante
           Object.keys(grouped).forEach(cat => {
               grouped[cat].forEach(card => grid.appendChild(card));
           });
 
-          // Salir de la función para evitar conflictos con otros órdenes
-          return;
+          return; // Salir para evitar otros reordenamientos
       }
 
-      // --- ORDEN PERSONALIZADO PARA HOTEL ---
+      // --- ORDEN PERSONALIZADO PARA HOTEL (cuando no está en 'todos') ---
       if (currentCategory === 'hotel') {
           const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
           visibleCards.sort((a, b) => {
