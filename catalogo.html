@@ -82,20 +82,18 @@
     .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
     /* =========================================
-       MENÚ MÓVIL ANIMADO (CORREGIDO - FIJO Y ENCIMA DE TODO)
+       MENÚ MÓVIL ANIMADO - CORREGIDO (FONDO BLANCO SÓLIDO)
        ========================================= */
     .mobile-menu {
-      position: fixed; /* <--- CLAVE: Se sale del flujo y cubre todo */
+      position: fixed; /* Se sale del flujo y cubre todo */
       top: 80px;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: #ffffff; /* <--- CAMBIO CLAVE: BLANCO 100% SÓLIDO para tapar todo */
       border-radius: 0 0 var(--radius-card) var(--radius-card);
       box-shadow: var(--shadow-floating);
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      z-index: 9999; /* <--- CLAVE: Máxima prioridad */
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 9999; /* Máxima prioridad */
 
       display: flex;
       flex-direction: column;
@@ -750,7 +748,7 @@
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
     /* =========================================
-       RESPONSIVE (MÓVIL) - REVERTIDO A POSICIÓN ABSOLUTA EN DROPDOWNS
+       RESPONSIVE (MÓVIL) 
        ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -794,7 +792,7 @@
         overflow: visible !important;
       }
       .dropdown-menu { 
-        position: absolute !important; /* REVERTIDO PARA QUE FLOTE Y NO ROMPA EL DISEÑO */
+        position: absolute !important; 
         top: calc(100% + 12px) !important; 
         left: 0 !important; 
         width: 100% !important; 
@@ -894,7 +892,7 @@
   <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 </button>
 
-<!-- Menú móvil con position fixed y z-index máximo -->
+<!-- Menú móvil con fondo blanco 100% sólido -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
   <nav class="mobile-nav">
