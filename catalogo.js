@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
           grid.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);font-style:italic;">El catálogo está vacío o no se encontraron datos.</div>`;
       }
 
-      // --- Verificar si hay ofertas y ocultar el botón del filtro ---
       const hayOfertas = productsData.some(item => item.oferta === true);
       const botonOferta = document.querySelector('#categoryFilters .dropdown-item[data-category="oferta"]');
       
@@ -93,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
           card.setAttribute('data-category', itemCategory);
           card.setAttribute('data-date', item.fecha_agregado || item.date || '0');
           
-          // Guardamos TODOS los datos en atributos data- para el modal
           card.setAttribute('data-name', itemName);
           card.setAttribute('data-image', itemImage);
           card.setAttribute('data-uso', item.uso || '');
@@ -104,13 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
           
           if (itemDetalleImg) card.setAttribute('data-detalle', itemDetalleImg);
 
-          // TARJETA LIMPIA: Solo la imagen.
           card.innerHTML = `
               <img src="${itemImage}" alt="${itemName}">
           `;
           grid.appendChild(card);
 
-          /* --- EVENTOS 3D PARA TODAS LAS TARJETAS --- */
           card.addEventListener('mousemove', (e) => {
               if (card.classList.contains('active')) return;
               
@@ -136,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
 
-          /* --- EVENTO DE CLIC --- */
           card.addEventListener('click', (e) => {
               card.style.transition = '';
               card.style.transform = '';
@@ -152,8 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       applyFilters();
   }
-
-  // ================= FUNCIONES DE LOS MODALES =================
 
   function openDetailModal(card) {
       const imgSrc = card.getAttribute('data-detalle');
@@ -228,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.target.id === 'productModal') closeProductModal();
   }
 
-  // ================= CHECK URL PARAMS =================
   function checkUrlParams() {
       const urlParams = new URLSearchParams(window.location.search);
       const targetId = urlParams.get('focus');
@@ -246,7 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
-  // ================= LÓGICA DEL CARRITO DE COMPRAS =================
   let cartItems = JSON.parse(localStorage.getItem('ulla_cart')) || [];
   updateCartUI();
 
@@ -336,12 +327,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ================= FILTROS Y BÚSQUEDA =================
-  // Asignación de eventos para los desplegables (sin onclick en HTML)
   const dropdownTrigger = document.getElementById('dropdownTrigger');
   const dropdownMenu = document.getElementById('dropdownMenu');
+  const dropdownContainer = document.getElementById('filterDropdownContainer');
+  const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
   const subcategoryTrigger = document.getElementById('subcategoryTrigger');
   const subcategoryMenu = document.getElementById('subcategoryMenu');
+  const subcategoryFilters = document.getElementById('subcategoryFilters');
 
+  let currentCategory = 'todos';
+  let currentSubcategory = 'todos';
+
+  // EVENTO DEL BOTÓN CATEGORÍAS
   if (dropdownTrigger && dropdownMenu) {
       dropdownTrigger.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -350,6 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+  // EVENTO DEL BOTÓN SUBCATEGORÍAS
   if (subcategoryTrigger && subcategoryMenu) {
       subcategoryTrigger.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -358,22 +356,20 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Cerrar menús al hacer clic fuera
+  // CERRAR DROPDOWNS AL HACER CLIC FUERA
   document.addEventListener('click', function(e) {
       if (!e.target.closest('.custom-dropdown')) {
           document.querySelectorAll('.dropdown-menu.show').forEach(el => el.classList.remove('show'));
           document.querySelectorAll('.dropdown-trigger.active').forEach(el => el.classList.remove('active'));
       }
+      if (!e.target.closest('.focus-card')) { 
+          document.querySelectorAll('.focus-card').forEach(c => c.classList.remove('active')); 
+          if (grid) grid.classList.remove('has-active'); 
+      }
   });
 
-  // Filtros
   const categoryBtns = document.querySelectorAll('#categoryFilters .dropdown-item');
   const searchInput = document.getElementById('searchInput');
-  const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
-  const subcategoryFilters = document.getElementById('subcategoryFilters');
-
-  let currentCategory = 'todos';
-  let currentSubcategory = 'todos';
 
   categoryBtns.forEach(btn => { 
       btn.addEventListener('click', (e) => { 
@@ -421,7 +417,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function applyFilters() {
       if (!grid) return;
-      // --- Lógica de alineación central ---
       if (['todos', 'hogar', 'hotel', 'contract'].includes(currentCategory)) {
           grid.classList.add('view-all');
       } else {
@@ -446,17 +441,14 @@ document.addEventListener('DOMContentLoaded', function() {
       cardsArray.forEach(card => {
           const catString = card.getAttribute('data-category') || '';
           const catList = catString.split(',').map(c => c.trim());
-          const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
-          const desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent.toLowerCase() : '';
 
           const matchesCategory = (currentCategory === 'todos' || targetCategories.some(cat => catList.includes(cat)));
           let matchesSubcategory = true;
           if (currentSubcategory !== 'todos') {
               matchesSubcategory = catList.includes(currentSubcategory);
           }
-          const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
 
-          if (matchesCategory && matchesSubcategory && matchesSearch) { 
+          if (matchesCategory && matchesSubcategory) { 
               card.style.display = 'block'; 
           } else { 
               card.style.display = 'none'; 
@@ -464,7 +456,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       });
 
-      // --- ORDEN PERSONALIZADO PARA HOTEL ---
       if (currentCategory === 'hotel') {
           const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
           visibleCards.sort((a, b) => {
@@ -478,10 +469,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
-  // Cargar productos al iniciar
   loadProducts();
 
-  // Exponer funciones globales para el HTML
   window.addToCart = addToCart;
   window.updateQuantity = updateQuantity;
   window.removeFromCart = removeFromCart;
