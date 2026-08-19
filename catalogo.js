@@ -2,9 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const grid = document.getElementById('productGrid');
   let productsData = [];
 
+  const subcategoryMap = {
+      'hogar': ['todos', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'],
+      'hotel': ['todos', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'],
+      'contract': ['todos', 'bancos de hosteleria', 'sofas', 'sillas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas']
+  };
+
   // =========================================
-  // ORDEN PERSONALIZADO DE CATEGORÍAS (TODO EN MINÚSCULAS)
-  // Puedes cambiar el orden a tu gusto.
+  // ORDEN PERSONALIZADO DE CATEGORÍAS
+  // (Puedes cambiar el orden de esta lista a tu gusto)
   // =========================================
   const CATEGORY_ORDER = [
       'sillas',
@@ -26,12 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
       'oferta',
       'todos'
   ];
-
-  const subcategoryMap = {
-      'hogar': ['todos', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'],
-      'hotel': ['todos', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'],
-      'contract': ['todos', 'bancos de hosteleria', 'sofas', 'sillas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas']
-  };
 
   async function loadProducts() {
     try {
@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
               itemImage = 'https://via.placeholder.com/300';
           }
           let itemCategory = item.categoria || item.category || 'todos';
-          // Normalizamos: minúsculas y sin espacios
-          itemCategory = itemCategory.toLowerCase().trim();
           if (item.oferta === true) itemCategory = 'oferta';
           
           const itemDetalleImg = item.imagen_detalle || '';
@@ -403,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.stopPropagation(); 
           categoryBtns.forEach(b => b.classList.remove('active')); 
           btn.classList.add('active'); 
-          currentCategory = btn.getAttribute('data-category').toLowerCase().trim(); 
+          currentCategory = btn.getAttribute('data-category'); 
           updateSubcategoryMenu(currentCategory);
           currentSubcategory = 'todos';
           applyFilters(); 
@@ -466,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       cardsArray.forEach(card => {
-          const catString = (card.getAttribute('data-category') || '').toLowerCase().trim();
+          const catString = card.getAttribute('data-category') || '';
           const catList = catString.split(',').map(c => c.trim());
 
           const matchesCategory = (currentCategory === 'todos' || targetCategories.some(cat => catList.includes(cat)));
@@ -484,13 +482,14 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       // =========================================
-      // AGRUPACIÓN POR CATEGORÍAS (SOLO CUANDO SUBCATEGORÍA ES 'todos')
+      // NUEVA LÓGICA DE AGRUPACIÓN POR CATEGORÍAS
+      // (SOLO APLICA CUANDO LA SUBCATEGORÍA ES "todos")
       // =========================================
       if (currentSubcategory === 'todos') {
           const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
           const grouped = {};
 
-          // Agrupar por primera categoría (normalizada)
+          // Agrupar por categoría (normalizamos a minúsculas y sin espacios)
           visibleCards.forEach(card => {
               let cat = (card.getAttribute('data-category') || '').toLowerCase().trim();
               // Si tiene múltiples categorías, tomamos la primera
@@ -504,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Limpiar el grid para reordenar
           grid.innerHTML = '';
 
-          // Recorrer el orden personalizado
+          // Recorrer el orden personalizado definido en CATEGORY_ORDER
           CATEGORY_ORDER.forEach(cat => {
               if (grouped[cat]) {
                   grouped[cat].forEach(card => grid.appendChild(card));
@@ -512,12 +511,13 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
 
-          // Agregar cualquier categoría restante
+          // Agregar cualquier categoría restante que no esté en el orden personalizado
           Object.keys(grouped).forEach(cat => {
               grouped[cat].forEach(card => grid.appendChild(card));
           });
 
-          return; // Salir para evitar otros reordenamientos
+          // Salir de la función para evitar conflictos con el orden de Hotel
+          return;
       }
 
       // --- ORDEN PERSONALIZADO PARA HOTEL (cuando no está en 'todos') ---
