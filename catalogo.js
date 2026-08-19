@@ -2,6 +2,31 @@ document.addEventListener('DOMContentLoaded', function() {
   const grid = document.getElementById('productGrid');
   let productsData = [];
 
+  // =========================================
+  // ORDEN PERSONALIZADO DE CATEGORÍAS
+  // (Puedes cambiar el orden de esta lista a tu gusto)
+  // Las categorías que no estén en esta lista aparecerán al final.
+  // =========================================
+  const CATEGORY_ORDER = [
+      'sillas',
+      'sofas',
+      'taburetes',
+      'mesasdecomedor',
+      'mesasdecentro',
+      'paneles',
+      'salones',
+      'juvenil',
+      'exteriores',
+      'basesmetalicas',
+      'bancos de hosteleria',
+      'lamparas y decoracion',
+      'suelos vinilicos',
+      'hogar',
+      'hotel',
+      'contract',
+      'oferta'
+  ];
+
   const subcategoryMap = {
       'hogar': ['todos', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'],
       'hotel': ['todos', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'],
@@ -456,6 +481,42 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       });
 
+      // =========================================
+      // NUEVA LÓGICA DE AGRUPACIÓN POR CATEGORÍAS
+      // (SOLO APLICA CUANDO LA SUBCATEGORÍA ES "todos")
+      // =========================================
+      if (currentSubcategory === 'todos') {
+          const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
+          const grouped = {};
+
+          // Agrupar por categoría
+          visibleCards.forEach(card => {
+              const cat = card.getAttribute('data-category');
+              if (!grouped[cat]) grouped[cat] = [];
+              grouped[cat].push(card);
+          });
+
+          // Limpiar el grid para reordenar
+          grid.innerHTML = '';
+
+          // Recorrer el orden personalizado definido en CATEGORY_ORDER
+          CATEGORY_ORDER.forEach(cat => {
+              if (grouped[cat]) {
+                  grouped[cat].forEach(card => grid.appendChild(card));
+                  delete grouped[cat];
+              }
+          });
+
+          // Agregar cualquier categoría restante que no esté en el orden personalizado
+          Object.keys(grouped).forEach(cat => {
+              grouped[cat].forEach(card => grid.appendChild(card));
+          });
+
+          // Salir de la función para evitar conflictos con otros órdenes
+          return;
+      }
+
+      // --- ORDEN PERSONALIZADO PARA HOTEL ---
       if (currentCategory === 'hotel') {
           const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
           visibleCards.sort((a, b) => {
