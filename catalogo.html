@@ -221,7 +221,7 @@
       opacity: 1;
       transform: translateX(0);
       margin-left: 16px;
-      overflow: visible; /* <--- CORRECCIÓN CLAVE: Permite que el menú desplegable se vea */
+      overflow: visible; /* Permite que el menú desplegable se vea */
     }
 
     .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; white-space: nowrap; }
@@ -750,7 +750,7 @@
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
     /* =========================================
-       RESPONSIVE (MÓVIL)
+       RESPONSIVE (MÓVIL) - CORRECCIÓN FINAL: Z-INDEX PARA CATEGORÍAS
        ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -771,6 +771,12 @@
         width: 100%; 
         justify-content: space-between;
       }
+      
+      /* CORRECCIÓN: Aumentamos z-index del contenedor de categorías para que su menú quede por encima */
+      #filterDropdownContainer {
+        z-index: 2000 !important;
+      }
+
       #subcategoryDropdownContainer {
         max-width: 0;
         opacity: 0;
