@@ -1,669 +1,174 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ulla Design - Categorías</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
---accent:#C62828;
---accent-light:#D95B5B;
---accent-dark:#8E1E1E;
---bg:#F6F1F1;
---card:#FFFFFF;
---subtle:#EFE8E8;
---border:#DDCFCF;
---headline:#2A1B1B;
---body:#5F4A4A;
---muted:#8B7474;
---inverse:#FFFFFF;
---shadow-card:0 8px 20px rgba(42,27,27,.08);
---shadow-floating:0 12px 40px rgba(42,27,27,.12);
---radius-card:12px;
---radius-button:8px;
---container:1200px;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ulla Design - Categorías</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent:#C62828; --accent-light:#D95B5B; --accent-dark:#8E1E1E; --bg:#F6F1F1; --card:#FFFFFF; --subtle:#EFE8E8; --border:#DDCFCF; --headline:#2A1B1B; --body:#5F4A4A; --muted:#8B7474; --inverse:#FFFFFF; --shadow-card:0 8px 20px rgba(42,27,27,.08); --shadow-floating:0 12px 40px rgba(42,27,27,.12); --radius-card:12px; --radius-button:8px; --container:1200px; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Inter, Helvetica Neue, sans-serif; background:var(--bg); color:var(--body); background-image: radial-gradient(rgba(198, 40, 40, 0.02) 1px, transparent 1px); background-size: 20px 20px; }
+    body.menu-open { overflow: hidden; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; position: relative; }
 
-*{box-sizing:border-box;}
-body{ 
-  margin:0; 
-  font-family:Inter, Helvetica Neue, sans-serif; 
-  background:var(--bg); 
-  color:var(--body);
-  background-image: radial-gradient(rgba(198, 40, 40, 0.02) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-a{ text-decoration:none; color:inherit; }
-.container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; position:relative; }
+    /* NAV BAR */
+    .nav { height:80px; display:flex; align-items:center; justify-content:space-between; position: sticky; top: 0; z-index: 50; background: rgba(246, 241, 241, 0.70); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background 0.3s ease, box-shadow 0.3s ease; border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+    body.scrolled .nav { background: rgba(246, 241, 241, 0.95); box-shadow: 0 4px 20px rgba(42, 27, 27, 0.06); }
+    .brand { display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
+    .brand-logo { width:48px; height:32px; flex:0 0 auto; display:block; }
+    .brand-text { display:flex; align-items:baseline; gap:4px; line-height:1; }
+    .brand-text .ulla { color: var(--accent); font-family: "Playfair Display", Georgia, serif; font-size: 24px; font-weight: 700; }
+    .brand-text .design { color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 600; }
+    .menu-wrap { margin-left:auto; display:flex; align-items:center; gap:22px; }
+    .menu { display:flex; align-items:center; gap:22px; white-space:nowrap; }
+    .menu a { position:relative; padding:6px 0; }
+    .menu a::after { content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.25s ease; }
+    .menu a:hover::after { width:100%; } .menu a.active::after { width:100%; } .menu a.active { color: var(--accent); font-weight: 500; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; cursor:pointer; border-radius:var(--radius-button); transition:.2s ease; font-weight:500; white-space:nowrap; flex:0 0 auto; }
+    .btn:hover{transform:translateY(-2px);opacity:.92} .btn-primary{background:var(--accent);color:#FFFFFF !important;padding:10px 22px}
+    .hamburger { display: none; background: transparent; border: none; padding: 8px; cursor: pointer; color: var(--headline); }
+    .hamburger svg { width: 32px; height: 32px; fill: currentColor; }
 
-/* =========================================
-   NAV BAR CON EFECTO STICKY Y GLASS
-   ========================================= */
-.nav{
-height:80px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-position: sticky;
-top: 0;
-z-index: 50;
-background: rgba(246, 241, 241, 0.70);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-transition: background 0.3s ease, box-shadow 0.3s ease;
-border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
+    /* OVERLAY Y MENÚ MÓVIL */
+    .mobile-menu-overlay { position: fixed; inset: 0; z-index: 999999; display: flex; justify-content: center; align-items: flex-start; padding: 96px 16px 16px; background: rgba(42, 27, 27, 0.22); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .28s ease, visibility .28s ease; }
+    .mobile-menu-overlay.show { opacity: 1; visibility: visible; pointer-events: auto; }
+    .mobile-menu { position: relative; width: min(100%, 460px); background: #fff; border-radius: 0 0 var(--radius-card) var(--radius-card); box-shadow: 0 18px 50px rgba(0,0,0,.24); padding: 42px 20px 30px; transform: translateY(-18px); transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+    .mobile-menu-overlay.show .mobile-menu { transform: translateY(0); }
+    .mobile-menu-close { position: absolute; top: 12px; right: 18px; background: transparent; color: var(--headline); border: none; cursor: pointer; font-size: 32px; line-height: 1; transition: transform .2s ease, color .2s ease; }
+    .mobile-menu-close:hover { color: var(--accent); transform: rotate(90deg); }
+    .mobile-nav { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 0; }
+    .mobile-nav a { width: 100%; padding: 14px 0; text-align: center; color: var(--headline); font-size: 17px; font-weight: 500; border-bottom: 1px solid var(--subtle); }
+    .mobile-nav a:hover { color: var(--accent); }
+    .mobile-nav .btn-primary { width: min(100%, 220px); margin-top: 22px; padding: 13px 20px; border: none; border-radius: 50px; box-shadow: 0 4px 12px rgba(198, 40, 40, .25); }
 
-body.scrolled .nav {
-  background: rgba(246, 241, 241, 0.95);
-  box-shadow: 0 4px 20px rgba(42, 27, 27, 0.06);
-}
+    /* CONTENIDO CATEGORÍAS */
+    .section { padding: 48px 0; }
+    .section-head { text-align: center; margin-bottom: 40px; }
+    .section-title { font-size: 38px; line-height: 1.2; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; margin: 0 0 12px 0; }
+    .section-subtitle { font-size: 16px; color: var(--body); }
+    .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .glowing-wrapper { position: relative; border-radius: var(--radius-card); background: var(--border); box-shadow: var(--shadow-card); transition: transform 0.4s ease, box-shadow 0.4s ease; overflow: hidden; }
+    .glowing-effect { position: absolute; inset: 0; z-index: 1; border-radius: inherit; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(198, 40, 40, 1), transparent 40%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 2px; }
+    @media (hover: hover) { .glowing-wrapper:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 12px 40px rgba(42, 27, 27, 0.15), 0 0 30px rgba(198, 40, 40, 0.1); } .glowing-wrapper:hover .glowing-effect { opacity: 1; } }
+    .glowing-wrapper.touched { transform: translateY(-4px) scale(1.01); box-shadow: 0 8px 30px rgba(198, 40, 40, 0.25), 0 4px 15px rgba(198, 40, 40, 0.15); transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.25s ease; }
+    .category-card { position: relative; z-index: 2; background: var(--card); margin: 2px; border-radius: calc(var(--radius-card) - 2px); overflow: hidden; height: calc(100% - 4px); display: flex; flex-direction: column; border: none; box-shadow: none; transition: transform 0.4s ease; }
+    .category-card img { width: 100%; flex-grow: 1; object-fit: cover; display: block; min-height: 120px; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1); }
+    .glowing-wrapper:hover .category-card img, .glowing-wrapper.touched .category-card img { transform: scale(1.03); }
+    .card-top { padding: 16px 16px 10px 16px; display: flex; flex-direction: column; align-items: center; }
+    .category-name { font-weight: 600; font-size: 20px; color: var(--headline); margin-bottom: 14px; letter-spacing: 0.02em; }
+    .category-btn { display: inline-block; background: var(--accent); color: #FFFFFF !important; padding: 10px 24px; border-radius: var(--radius-button); font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(198, 40, 40, 0.15); }
+    .category-btn:hover { transform: scale(1.04); box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3); }
+    .category-btn:active { transform: scale(0.96); }
 
-.brand{ display:flex; align-items:center; gap:10px; min-width:0; white-space:nowrap; }
-.brand-logo{ width:48px; height:32px; flex:0 0 auto; display:block; }
-.brand-text{ display:flex; align-items:baseline; gap:4px; line-height:1; }
-.brand-text .ulla { color: var(--accent); font-family: "Playfair Display", Georgia, serif; font-size: 24px; font-weight: 700; }
-.brand-text .design { color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-size: 20px; font-weight: 600; }
-.menu-wrap{ margin-left:auto; display:flex; align-items:center; gap:22px; }
-.menu{ display:flex; align-items:center; gap:22px; white-space:nowrap; }
-.menu a{ position:relative; padding:6px 0; }
-.menu a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--accent); transition:.25s ease; }
-.menu a:hover::after{ width:100%; }
-.menu a.active::after { width: 100%; }
-.menu a.active { color: var(--accent); font-weight: 500; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .8s ease-out, transform .8s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
-.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; cursor:pointer; border-radius:var(--radius-button); transition:.2s ease; font-weight:500; white-space:nowrap; flex:0 0 auto; }
-.btn:hover{ transform:translateY(-2px); opacity:.92; }
-.btn-primary{ background:var(--accent); color:#FFFFFF !important; padding:10px 22px; }
-
-/* Menú Hamburguesa */
-.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 20; }
-.hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
-
-/* =========================================
-   MENÚ MÓVIL ANIMADO (Glassmorphism + Escalado)
-   ========================================= */
-.mobile-menu {
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 0 0 var(--radius-card) var(--radius-card);
-  box-shadow: var(--shadow-floating);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  z-index: 100;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-20px) scale(0.98);
-  visibility: hidden;
-  pointer-events: none;
-  overflow: hidden;
-  padding: 0 20px;
-
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.5s ease,
-              visibility 0.5s ease;
-}
-
-.mobile-menu.show {
-  max-height: 600px;
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  visibility: visible;
-  pointer-events: auto;
-  padding: 24px 20px 30px;
-}
-
-.mobile-menu a {
-  font-family: Inter, sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-  color: var(--headline);
-  padding: 12px 0;
-  transition: all 0.2s ease;
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease, color 0.2s;
-}
-
-.mobile-menu.show a {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.mobile-menu.show a:nth-child(1) { transition-delay: 0.05s; }
-.mobile-menu.show a:nth-child(2) { transition-delay: 0.10s; }
-.mobile-menu.show a:nth-child(3) { transition-delay: 0.15s; }
-.mobile-menu.show a:nth-child(4) { transition-delay: 0.20s; }
-.mobile-menu.show a:nth-child(5) { transition-delay: 0.25s; }
-
-.mobile-menu a:hover {
-  color: var(--accent);
-  background: rgba(198, 40, 40, 0.04);
-  border-radius: 6px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.mobile-menu .btn-primary {
-  margin-top: 16px;
-  width: 100%;
-  max-width: 280px;
-  padding: 14px 0;
-  font-size: 16px;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.25);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.mobile-menu.show .btn-primary {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.30s;
-}
-
-.mobile-menu-close {
-  display: none;
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 28px;
-  color: var(--headline);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  line-height: 1;
-  z-index: 10;
-}
-
-.mobile-menu.show .mobile-menu-close {
-  display: block;
-}
-
-.mobile-menu-close:hover {
-  transform: rotate(90deg);
-  color: var(--accent);
-}
-
-/* =========================================
-   CONTENIDO DE CATEGORÍAS
-   ========================================= */
-.section { padding: 48px 0; }
-.section-head { text-align: center; margin-bottom: 40px; }
-.section-title { font-size: 38px; line-height: 1.2; color: var(--headline); font-family: "Playfair Display", Georgia, serif; font-weight: 500; margin: 0 0 12px 0; }
-.section-subtitle { font-size: 16px; color: var(--body); }
-
-.category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-
-/* =========================================
-   GLOWING WRAPPER PARA CATEGORÍAS
-   ========================================= */
-.glowing-wrapper {
-  position: relative;
-  border-radius: var(--radius-card);
-  background: var(--border);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  overflow: hidden;
-}
-
-.glowing-effect {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(198, 40, 40, 1),
-    transparent 40%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 2px; 
-}
-
-@media (hover: hover) {
-  .glowing-wrapper:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 12px 40px rgba(42, 27, 27, 0.15), 0 0 30px rgba(198, 40, 40, 0.1);
-  }
-  .glowing-wrapper:hover .glowing-effect {
-    opacity: 1;
-  }
-}
-
-.glowing-wrapper.touched {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 30px rgba(198, 40, 40, 0.25), 0 4px 15px rgba(198, 40, 40, 0.15);
-  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.25s ease;
-}
-
-.category-card {
-  position: relative;
-  z-index: 2;
-  background: var(--card);
-  margin: 2px;
-  border-radius: calc(var(--radius-card) - 2px);
-  overflow: hidden;
-  height: calc(100% - 4px);
-  display: flex;
-  flex-direction: column;
-  border: none;
-  box-shadow: none;
-  transition: transform 0.4s ease;
-}
-
-.category-card img {
-  width: 100%;
-  flex-grow: 1;
-  object-fit: cover;
-  display: block;
-  min-height: 120px;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.4, 1);
-}
-
-.glowing-wrapper:hover .category-card img,
-.glowing-wrapper.touched .category-card img {
-  transform: scale(1.03);
-}
-
-.card-top {
-  padding: 16px 16px 10px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category-name {
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--headline);
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
-
-.category-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #FFFFFF !important;
-  padding: 10px 24px;
-  border-radius: var(--radius-button);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.15);
-}
-
-.category-btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3);
-}
-
-.category-btn:active {
-  transform: scale(0.96);
-}
-
-/* =========================================
-   ANIMACIONES FADE-UP (Scroll-triggered - ahora permanecen visibles)
-   ========================================= */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 1024px){
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
-  .card-top { padding: 14px 14px 8px 14px; }
-}
-
-@media (max-width: 768px){
-  .hamburger { display: block; }
-  .menu-wrap { display: none; }
-  .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .card-top { padding: 10px 10px 6px 10px; }
-  .category-name { font-size: 15px; margin-bottom: 8px; }
-  .category-btn { padding: 6px 14px; font-size: 12px; }
-}
-</style>
+    @media (max-width: 1024px){ .category-grid { grid-template-columns: repeat(2, 1fr); } .card-top { padding: 14px 14px 8px 14px; } }
+    @media (max-width: 768px){
+      .hamburger { display: block; } .menu-wrap { display: none; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .category-card { min-height: 280px; } .card-top { padding: 10px 10px 6px 10px; }
+      .category-name { font-size: 15px; margin-bottom: 8px; }
+      .category-btn { padding: 6px 14px; font-size: 12px; }
+    }
+  </style>
 </head>
 <body>
 <header class="container">
-<nav class="nav">
-<a class="brand" href="index.html">
-<svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" />
-  <path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" />
-  <path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" />
-  <path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" />
-  <path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" />
-  <path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" />
-</svg>
-<span class="brand-text">
-    <span class="design">Grupo</span>
-    <span class="ulla">UMD</span>
-</span>
-</a>
-
-<div class="menu-wrap">
-<div class="menu">
-<a href="index.html">Inicio</a>
-<a href="categorias.html" class="active">Catalogo</a>
-<a href="nosotros.html">Acerca de nosotros</a>
-<a href="servicios.html">Servicios</a>
-</div>
-<a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
-</div>
-
-<button class="hamburger" onclick="toggleMenu()">
-  <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-</button>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
-  <a href="index.html">Inicio</a>
-  <a href="categorias.html">Catálogo</a>
-  <a href="nosotros.html">Acerca de nosotros</a>
-  <a href="servicios.html">Servicios</a>
-  <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
-</div>
-</nav>
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10 10 L 25 25 L 40 10 L 55 25 L 70 10 L 85 25 L 90 20 L 75 5 L 60 20 L 45 5 L 30 20 L 15 5 Z" fill="#6b6b6b" />
+        <path d="M 30 20 L 15 5 L 30 -10 L 45 5 Z" fill="#a8a8a8" />
+        <path d="M 60 20 L 45 5 L 60 -10 L 75 5 Z" fill="#a8a8a8" />
+        <path d="M 10 20 L 25 35 L 40 20 L 55 35 L 70 20 L 85 35 L 90 30 L 75 15 L 60 30 L 45 15 L 30 30 L 15 15 Z" fill="#a8a8a8" />
+        <path d="M 30 30 L 15 15 L 30 0 L 45 15 Z" fill="#C62828" />
+        <path d="M 60 30 L 45 15 L 60 0 L 75 15 Z" fill="#C62828" />
+      </svg>
+      <span class="brand-text"><span class="design">Grupo</span><span class="ulla">UMD</span></span>
+    </a>
+    <div class="menu-wrap">
+      <div class="menu"><a href="index.html">Inicio</a><a href="categorias.html" class="active">Catalogo</a><a href="nosotros.html">Acerca de nosotros</a><a href="servicios.html">Servicios</a></div>
+      <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+    </div>
+    <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menú"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+  </nav>
 </header>
 
+<!-- OVERLAY Y MENÚ MÓVIL -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMenuFromOverlay(event)">
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" type="button" onclick="toggleMenu()" aria-label="Cerrar menú">×</button>
+    <nav class="mobile-nav">
+      <a href="index.html">Inicio</a>
+      <a href="categorias.html">Catálogo</a>
+      <a href="nosotros.html">Acerca de nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a class="btn btn-primary" href="contactanos.html">Contáctanos</a>
+    </nav>
+  </div>
+</div>
+
 <main class="container section">
-    <div class="section-head fade-up">
-        <h1 class="section-title">Explora nuestras colecciones</h1>
-        <p class="section-subtitle">Selecciona una categoría para descubrir los muebles disponibles.</p>
-    </div>
-
-    <div class="category-grid fade-up">
-        <!-- 1. Sillas -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Sillas</div>
-                    <a href="catalogo.html?categoria=sillas" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="sillascat.jpg" alt="Sillas" class="category-image">
-            </div>
-        </div>
-
-        <!-- 2. Sillones y Sofás -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Sillones y Sofás</div>
-                    <a href="catalogo.html?categoria=sofas" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="sofascat.jpg" alt="Sillones y Sofás" class="category-image">
-            </div>
-        </div>
-
-        <!-- 3. Taburetes -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Taburetes</div>
-                    <a href="catalogo.html?categoria=taburetes" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="taburetescat.jpg" alt="Taburetes" class="category-image">
-            </div>
-        </div>
-
-        <!-- 4. Paneles -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Paneles</div>
-                    <a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="panelescat.jpg" alt="Paneles" class="category-image">
-            </div>
-        </div>
-
-        <!-- 5. Suelos Vinilicos -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Suelos Vinílicos</div>
-                    <a href="catalogo.html?categoria=suelos vinilicos" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="suelovinilico.jpg" alt="Suelos Vinílicos" class="category-image">
-            </div>
-        </div>
-
-        <!-- 6. Lámparas y Decoración -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Lámparas y Decoración</div>
-                    <a href="catalogo.html?categoria=lamparas y decoracion" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="lamparascat.jpg" alt="Lámparas y Decoración" class="category-image">
-            </div>
-        </div>
-
-        <!-- 7. Salones -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Salones</div>
-                    <a href="catalogo.html?categoria=salones" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="salonescat.jpg" alt="Salones" class="category-image">
-            </div>
-        </div>
-
-        <!-- 8. Mesas de comedor -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Mesas de comedor</div>
-                    <a href="catalogo.html?categoria=mesasdecomedor" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="comedorcat.jpg" alt="Mesas de comedor" class="category-image">
-            </div>
-        </div>
-
-        <!-- 9. Centros de Mesa -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Centros de Mesa</div>
-                    <a href="catalogo.html?categoria=mesasdecentro" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="centrocat.jpg" alt="Centros de Mesa" class="category-image">
-            </div>
-        </div>
-
-        <!-- 10. Juvenil -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Juvenil</div>
-                    <a href="catalogo.html?categoria=juvenil" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="juvenilcat.jpg" alt="Juvenil" class="category-image">
-            </div>
-        </div>
-
-        <!-- 11. Exterior -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Exterior</div>
-                    <a href="catalogo.html?categoria=exteriores" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="exteriorcat.jpg" alt="Exterior" class="category-image">
-            </div>
-        </div>
-
-        <!-- 12. Bases metálicas y Tableros -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Bases metálicas y Tableros</div>
-                    <a href="catalogo.html?categoria=basesmetalicas" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="img/bases.jpg" alt="Bases metálicas y Tableros" class="category-image">
-            </div>
-        </div>
-
-        <!-- 13. Bancos de Hostelería -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Bancos de Hostelería</div>
-                    <a href="catalogo.html?categoria=bancos de hosteleria" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="img/bancos.jpg" alt="Bancos de Hostelería" class="category-image">
-            </div>
-        </div>
-
-        <!-- 14. Hotel -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Hotel</div>
-                    <a href="catalogo.html?categoria=hotel" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="img/hotel.jpg" alt="Hotel" class="category-image">
-            </div>
-        </div>
-
-        <!-- 15. Hogar -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Hogar</div>
-                    <a href="catalogo.html?categoria=hogar" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Hogar" class="category-image">
-            </div>
-        </div>
-
-        <!-- 16. Contract -->
-        <div class="glowing-wrapper">
-            <div class="glowing-effect"></div>
-            <div class="category-card">
-                <div class="card-top">
-                    <div class="category-name">Contract</div>
-                    <a href="catalogo.html?categoria=contract" class="category-btn">Ver catálogo</a>
-                </div>
-                <img src="img/contract.jpg" alt="Contract" class="category-image">
-            </div>
-        </div>
-    </div>
+  <div class="section-head fade-up">
+    <h1 class="section-title">Explora nuestras colecciones</h1>
+    <p class="section-subtitle">Selecciona una categoría para descubrir los muebles disponibles.</p>
+  </div>
+  <div class="category-grid fade-up">
+    <!-- 1. Sillas -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Sillas</div><a href="catalogo.html?categoria=sillas" class="category-btn">Ver catálogo</a></div><img src="sillascat.jpg" alt="Sillas" class="category-image"></div></div>
+    <!-- 2. Sillones y Sofás -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Sillones y Sofás</div><a href="catalogo.html?categoria=sofas" class="category-btn">Ver catálogo</a></div><img src="sofascat.jpg" alt="Sillones y Sofás" class="category-image"></div></div>
+    <!-- 3. Taburetes -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Taburetes</div><a href="catalogo.html?categoria=taburetes" class="category-btn">Ver catálogo</a></div><img src="taburetescat.jpg" alt="Taburetes" class="category-image"></div></div>
+    <!-- 4. Paneles -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Paneles</div><a href="catalogo.html?categoria=paneles" class="category-btn">Ver catálogo</a></div><img src="panelescat.jpg" alt="Paneles" class="category-image"></div></div>
+    <!-- 5. Suelos Vinilicos -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Suelos Vinílicos</div><a href="catalogo.html?categoria=suelos vinilicos" class="category-btn">Ver catálogo</a></div><img src="suelovinilico.jpg" alt="Suelos Vinílicos" class="category-image"></div></div>
+    <!-- 6. Lámparas y Decoración -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Lámparas y Decoración</div><a href="catalogo.html?categoria=lamparas y decoracion" class="category-btn">Ver catálogo</a></div><img src="lamparascat.jpg" alt="Lámparas y Decoración" class="category-image"></div></div>
+    <!-- 7. Salones -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Salones</div><a href="catalogo.html?categoria=salones" class="category-btn">Ver catálogo</a></div><img src="salonescat.jpg" alt="Salones" class="category-image"></div></div>
+    <!-- 8. Mesas de comedor -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Mesas de comedor</div><a href="catalogo.html?categoria=mesasdecomedor" class="category-btn">Ver catálogo</a></div><img src="comedorcat.jpg" alt="Mesas de comedor" class="category-image"></div></div>
+    <!-- 9. Centros de Mesa -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Centros de Mesa</div><a href="catalogo.html?categoria=mesasdecentro" class="category-btn">Ver catálogo</a></div><img src="centrocat.jpg" alt="Centros de Mesa" class="category-image"></div></div>
+    <!-- 10. Juvenil -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Juvenil</div><a href="catalogo.html?categoria=juvenil" class="category-btn">Ver catálogo</a></div><img src="juvenilcat.jpg" alt="Juvenil" class="category-image"></div></div>
+    <!-- 11. Exterior -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Exterior</div><a href="catalogo.html?categoria=exteriores" class="category-btn">Ver catálogo</a></div><img src="exteriorcat.jpg" alt="Exterior" class="category-image"></div></div>
+    <!-- 12. Bases metálicas y Tableros -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Bases metálicas y Tableros</div><a href="catalogo.html?categoria=basesmetalicas" class="category-btn">Ver catálogo</a></div><img src="img/bases.jpg" alt="Bases metálicas y Tableros" class="category-image"></div></div>
+    <!-- 13. Bancos de Hostelería -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Bancos de Hostelería</div><a href="catalogo.html?categoria=bancos de hosteleria" class="category-btn">Ver catálogo</a></div><img src="img/bancos.jpg" alt="Bancos de Hostelería" class="category-image"></div></div>
+    <!-- 14. Hotel -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Hotel</div><a href="catalogo.html?categoria=hotel" class="category-btn">Ver catálogo</a></div><img src="img/hotel.jpg" alt="Hotel" class="category-image"></div></div>
+    <!-- 15. Hogar -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Hogar</div><a href="catalogo.html?categoria=hogar" class="category-btn">Ver catálogo</a></div><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Hogar" class="category-image"></div></div>
+    <!-- 16. Contract -->
+    <div class="glowing-wrapper"><div class="glowing-effect"></div><div class="category-card"><div class="card-top"><div class="category-name">Contract</div><a href="catalogo.html?categoria=contract" class="category-btn">Ver catálogo</a></div><img src="img/contract.jpg" alt="Contract" class="category-image"></div></div>
+  </div>
 </main>
 
 <footer class="footer container">Ulla Design &copy; 2026</footer>
 
 <script>
-  // Script para el efecto glowing en escritorio
   const glowingCards = document.querySelectorAll('.glowing-wrapper');
-  glowingCards.forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
+  glowingCards.forEach(card => { card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; card.style.setProperty('--mouse-x', `${x}px`); card.style.setProperty('--mouse-y', `${y}px`); }); });
+  if ('ontouchstart' in window) { glowingCards.forEach(card => { let touchTimer; card.addEventListener('touchstart', function(e) { if (e.target.closest('.category-btn')) return; this.classList.add('touched'); clearTimeout(touchTimer); }); card.addEventListener('touchend', function(e) { touchTimer = setTimeout(() => { this.classList.remove('touched'); }, 600); }); card.addEventListener('touchcancel', function() { this.classList.remove('touched'); clearTimeout(touchTimer); }); }); }
 
-  // Script para el efecto táctil en móvil (touch)
-  if ('ontouchstart' in window) {
-    glowingCards.forEach(card => {
-      let touchTimer;
-      card.addEventListener('touchstart', function(e) {
-        if (e.target.closest('.category-btn')) return;
-        this.classList.add('touched');
-        clearTimeout(touchTimer);
-      });
-      card.addEventListener('touchend', function(e) {
-        touchTimer = setTimeout(() => {
-          this.classList.remove('touched');
-        }, 600);
-      });
-      card.addEventListener('touchcancel', function() {
-        this.classList.remove('touched');
-        clearTimeout(touchTimer);
-      });
-    });
-  }
+  window.addEventListener('scroll', () => { document.body.classList.toggle('scrolled', window.scrollY > 20); });
+  document.addEventListener("DOMContentLoaded", () => { const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' }); document.querySelectorAll('.fade-up').forEach(el => observer.observe(el)); });
 
-  // NAVBAR SCROLL SHADOW
-  window.addEventListener('scroll', () => {
-    document.body.classList.toggle('scrolled', window.scrollY > 20);
-  });
-
-  // INTERSECTION OBSERVER PARA FADE-UP (ahora permanece visible)
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-        // No se quita la clase al salir, así permanecen visibles
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -20px 0px'  // Aparece 80px antes de llegar
-    });
-    const fadeElements = document.querySelectorAll('.fade-up');
-    fadeElements.forEach(el => observer.observe(el));
-  });
-
-  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+  function toggleMenu() { const overlay = document.getElementById("mobileMenuOverlay"); const isOpen = overlay.classList.toggle("show"); document.body.classList.toggle("menu-open", isOpen); }
+  function closeMenuFromOverlay(event) { if (event.target.id === "mobileMenuOverlay") { document.getElementById("mobileMenuOverlay").classList.remove("show"); document.body.classList.remove("menu-open"); } }
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") { document.getElementById("mobileMenuOverlay").classList.remove("show"); document.body.classList.remove("menu-open"); } });
+  window.addEventListener("resize", () => { if (window.innerWidth > 768) { document.getElementById("mobileMenuOverlay").classList.remove("show"); document.body.classList.remove("menu-open"); } });
 </script>
 </body>
 </html>
