@@ -336,27 +336,41 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ================= FILTROS Y BÚSQUEDA =================
-  // LOS EVENTOS DE LOS DROPDOWNS SE MANEJAN EN EL HTML CON onclick
-  // Función global para abrir/cerrar menús
-  window.toggleDropdown = function(triggerId, menuId) {
-    const trigger = document.getElementById(triggerId);
-    const menu = document.getElementById(menuId);
-    if (trigger && menu) {
-      menu.classList.toggle('show');
-      trigger.classList.toggle('active');
-    }
-  };
+  // Asignación de eventos para los desplegables (sin onclick en HTML)
+  const dropdownTrigger = document.getElementById('dropdownTrigger');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const subcategoryTrigger = document.getElementById('subcategoryTrigger');
+  const subcategoryMenu = document.getElementById('subcategoryMenu');
+
+  if (dropdownTrigger && dropdownMenu) {
+      dropdownTrigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('show');
+          dropdownTrigger.classList.toggle('active');
+      });
+  }
+
+  if (subcategoryTrigger && subcategoryMenu) {
+      subcategoryTrigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          subcategoryMenu.classList.toggle('show');
+          subcategoryTrigger.classList.toggle('active');
+      });
+  }
 
   // Cerrar menús al hacer clic fuera
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('.custom-dropdown')) {
-      document.querySelectorAll('.dropdown-menu.show').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll('.dropdown-trigger.active').forEach(el => el.classList.remove('active'));
-    }
+      if (!e.target.closest('.custom-dropdown')) {
+          document.querySelectorAll('.dropdown-menu.show').forEach(el => el.classList.remove('show'));
+          document.querySelectorAll('.dropdown-trigger.active').forEach(el => el.classList.remove('active'));
+      }
   });
 
+  // Filtros
   const categoryBtns = document.querySelectorAll('#categoryFilters .dropdown-item');
   const searchInput = document.getElementById('searchInput');
+  const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
+  const subcategoryFilters = document.getElementById('subcategoryFilters');
 
   let currentCategory = 'todos';
   let currentSubcategory = 'todos';
@@ -378,12 +392,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateSubcategoryMenu(category) {
-      const subcategoryFilters = document.getElementById('subcategoryFilters');
       if (!subcategoryFilters) return;
       subcategoryFilters.innerHTML = '';
       const options = subcategoryMap[category];
       if (options && options.length > 0) {
-          const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
           subcategoryContainer.classList.add('visible');
           options.forEach(sub => {
               const btn = document.createElement('button');
@@ -402,7 +414,6 @@ document.addEventListener('DOMContentLoaded', function() {
           });
           subcategoryFilters.firstChild?.classList.add('active');
       } else {
-          const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
           subcategoryContainer.classList.remove('visible');
           currentSubcategory = 'todos';
       }
@@ -486,5 +497,4 @@ document.addEventListener('DOMContentLoaded', function() {
   window.handleProductModalClick = handleProductModalClick;
   window.toggleMenu = toggleMenu;
   window.applyFilters = applyFilters;
-  window.toggleDropdown = toggleDropdown;
 });
