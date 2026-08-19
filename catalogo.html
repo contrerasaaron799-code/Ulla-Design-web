@@ -82,10 +82,10 @@
     .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
     /* =========================================
-       MENÚ MÓVIL ANIMADO (CORREGIDO - MÁS ELEGANTE)
+       MENÚ MÓVIL ANIMADO (CORREGIDO - AHORA FIJO Y ENCIMA DE TODO)
        ========================================= */
     .mobile-menu {
-      position: absolute;
+      position: fixed; /* <--- CLAVE: Se sale del flujo y cubre todo */
       top: 80px;
       left: 0;
       right: 0;
@@ -95,7 +95,7 @@
       border-radius: 0 0 var(--radius-card) var(--radius-card);
       box-shadow: var(--shadow-floating);
       border-top: 1px solid rgba(255, 255, 255, 0.3);
-      z-index: 2000;
+      z-index: 9999; /* <--- CLAVE: Máxima prioridad */
 
       display: flex;
       flex-direction: column;
@@ -179,7 +179,7 @@
       display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; 
       background: var(--card); padding: 16px 20px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); 
       margin-bottom: 32px; position: relative; z-index: 500; 
-      overflow: visible !important; /* PARA QUE EL DROPDOWN NO SE CORTE */
+      overflow: visible !important; 
     }
     .controls-left { 
       display: flex; align-items: center; gap: 16px; flex-wrap: wrap; 
@@ -189,13 +189,13 @@
     .search-input:focus { border-color: var(--accent); background: var(--card); }
 
     /* =========================================
-       GRUPO DE DESPLEGABLES (Categorías + Subcategorías)
+       GRUPO DE DESPLEGABLES
        ========================================= */
     .dropdown-group {
       display: flex;
       align-items: center;
       gap: 0;
-      overflow: visible; /* PARA QUE NO SE CORTE */
+      overflow: visible;
       position: relative;
     }
 
@@ -221,7 +221,7 @@
       opacity: 1;
       transform: translateX(0);
       margin-left: 16px;
-      overflow: visible; /* Permite que el menú desplegable se vea */
+      overflow: visible;
     }
 
     .dropdown-trigger { display: flex; align-items: center; gap: 10px; background: var(--subtle); border: 1px solid var(--border); color: var(--headline); padding: 10px 20px; border-radius: var(--radius-button); font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: Inter, sans-serif; white-space: nowrap; }
@@ -254,7 +254,7 @@
     .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
     /* =========================================
-       SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
+       SISTEMA MASONRY
        ========================================= */
     .focus-grid {
       column-count: 4;
@@ -387,7 +387,7 @@
     }
 
     /* =========================================
-       MODAL DE PRODUCTO - CORREGIDO PARA IMÁGENES ALTAS
+       MODAL DE PRODUCTO
        ========================================= */
     .product-modal-overlay {
       position: fixed; inset: 0;
@@ -750,7 +750,7 @@
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
     /* =========================================
-       RESPONSIVE (MÓVIL) - CORRECCIÓN FINAL: Z-INDEX PARA CATEGORÍAS
+       RESPONSIVE (MÓVIL) - CORRECCIÓN DE OVERLAP EN DROPDOWNS
        ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -758,8 +758,10 @@
       .catalog-controls { flex-direction: column; align-items: stretch; }
       .search-input { width: 100%; }
       
+      /* CORRECCIÓN: Los dropdowns se apilan verticalmente y no se tapan */
       .dropdown-group {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
         width: 100%;
         overflow: visible !important;
       }
@@ -771,12 +773,6 @@
         width: 100%; 
         justify-content: space-between;
       }
-      
-      /* CORRECCIÓN: Aumentamos z-index del contenedor de categorías para que su menú quede por encima */
-      #filterDropdownContainer {
-        z-index: 2000 !important;
-      }
-
       #subcategoryDropdownContainer {
         max-width: 0;
         opacity: 0;
@@ -800,13 +796,17 @@
         flex-basis: 100%;
         overflow: visible !important;
       }
+      
+      /* CORRECCIÓN: El menú desplegable empuja al de abajo en lugar de taparlo */
       .dropdown-menu { 
+        position: relative !important; 
+        top: auto !important; 
+        left: 0 !important; 
         width: 100% !important; 
         max-width: 100% !important; 
-        left: 0; 
-        right: 0; 
         box-sizing: border-box; 
         padding: 16px;
+        margin-top: 8px;
       }
       .dropdown-options { 
         width: 100%; 
@@ -900,7 +900,7 @@
   <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 </button>
 
-<!-- Menú móvil CORREGIDO -->
+<!-- Menú móvil CORREGIDO CON POSITION FIXED -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
   <nav class="mobile-nav">
