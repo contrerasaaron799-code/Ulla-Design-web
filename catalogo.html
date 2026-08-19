@@ -941,7 +941,7 @@
       <div class="dropdown-group">
         <!-- CATEGORÍAS -->
         <div class="custom-dropdown" id="filterDropdownContainer">
-          <button class="dropdown-trigger" id="dropdownTrigger">Categorías <span class="arrow">▼</span></button>
+          <button class="dropdown-trigger" id="dropdownTrigger" onclick="toggleDropdown('dropdownTrigger', 'dropdownMenu')">Categorías <span class="arrow">▼</span></button>
           <div class="dropdown-menu" id="dropdownMenu">
             <div class="dropdown-section">
               <h4>Categorías</h4>
@@ -971,7 +971,7 @@
 
         <!-- SUBCATEGORÍAS (se desliza) -->
         <div class="custom-dropdown" id="subcategoryDropdownContainer">
-          <button class="dropdown-trigger" id="subcategoryTrigger">Subcategoría <span class="arrow">▼</span></button>
+          <button class="dropdown-trigger" id="subcategoryTrigger" onclick="toggleDropdown('subcategoryTrigger', 'subcategoryMenu')">Subcategoría <span class="arrow">▼</span></button>
           <div class="dropdown-menu" id="subcategoryMenu">
             <div class="dropdown-section">
               <h4>Subcategoría</h4>

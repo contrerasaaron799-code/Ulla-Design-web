@@ -336,42 +336,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ================= FILTROS Y BÚSQUEDA =================
-  const dropdownTrigger = document.getElementById('dropdownTrigger');
-  const dropdownMenu = document.getElementById('dropdownMenu');
-  const dropdownContainer = document.getElementById('filterDropdownContainer');
-  const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
-  const subcategoryTrigger = document.getElementById('subcategoryTrigger');
-  const subcategoryMenu = document.getElementById('subcategoryMenu');
-  const subcategoryFilters = document.getElementById('subcategoryFilters');
+  // LOS EVENTOS DE LOS DROPDOWNS SE MANEJAN EN EL HTML CON onclick
+  // Función global para abrir/cerrar menús
+  window.toggleDropdown = function(triggerId, menuId) {
+    const trigger = document.getElementById(triggerId);
+    const menu = document.getElementById(menuId);
+    if (trigger && menu) {
+      menu.classList.toggle('show');
+      trigger.classList.toggle('active');
+    }
+  };
 
-  let currentCategory = 'todos';
-  let currentSubcategory = 'todos';
-
-  if (dropdownTrigger) {
-      dropdownTrigger.addEventListener('click', (e) => { 
-          e.stopPropagation(); 
-          dropdownMenu.classList.toggle('show'); 
-          dropdownTrigger.classList.toggle('active'); 
-      });
-  }
-
-  document.addEventListener('click', (e) => {
-      if (!e.target.closest('.focus-card')) { 
-          document.querySelectorAll('.focus-card').forEach(c => c.classList.remove('active')); 
-          if (grid) grid.classList.remove('has-active'); 
-      }
-      if (dropdownContainer && !dropdownContainer.contains(e.target)) { 
-          dropdownMenu.classList.remove('show'); 
-          if (dropdownTrigger) dropdownTrigger.classList.remove('active'); 
-      }
-      if (subcategoryContainer && !subcategoryContainer.contains(e.target)) { 
-          subcategoryMenu.classList.remove('show'); 
-          if (subcategoryTrigger) subcategoryTrigger.classList.remove('active'); 
-      }
+  // Cerrar menús al hacer clic fuera
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.custom-dropdown')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.dropdown-trigger.active').forEach(el => el.classList.remove('active'));
+    }
   });
 
   const categoryBtns = document.querySelectorAll('#categoryFilters .dropdown-item');
   const searchInput = document.getElementById('searchInput');
+
+  let currentCategory = 'todos';
+  let currentSubcategory = 'todos';
 
   categoryBtns.forEach(btn => { 
       btn.addEventListener('click', (e) => { 
@@ -390,10 +378,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateSubcategoryMenu(category) {
+      const subcategoryFilters = document.getElementById('subcategoryFilters');
       if (!subcategoryFilters) return;
       subcategoryFilters.innerHTML = '';
       const options = subcategoryMap[category];
       if (options && options.length > 0) {
+          const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
           subcategoryContainer.classList.add('visible');
           options.forEach(sub => {
               const btn = document.createElement('button');
@@ -411,14 +401,8 @@ document.addEventListener('DOMContentLoaded', function() {
               subcategoryFilters.appendChild(btn);
           });
           subcategoryFilters.firstChild?.classList.add('active');
-          if (subcategoryTrigger) {
-              subcategoryTrigger.onclick = (e) => {
-                  e.stopPropagation();
-                  subcategoryMenu.classList.toggle('show');
-                  subcategoryTrigger.classList.toggle('active');
-              };
-          }
       } else {
+          const subcategoryContainer = document.getElementById('subcategoryDropdownContainer');
           subcategoryContainer.classList.remove('visible');
           currentSubcategory = 'todos';
       }
@@ -502,4 +486,5 @@ document.addEventListener('DOMContentLoaded', function() {
   window.handleProductModalClick = handleProductModalClick;
   window.toggleMenu = toggleMenu;
   window.applyFilters = applyFilters;
+  window.toggleDropdown = toggleDropdown;
 });
