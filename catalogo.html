@@ -82,7 +82,7 @@
     .hamburger svg { width: 32px; height: 32px; fill: var(--headline); }
 
     /* =========================================
-       MENÚ MÓVIL ANIMADO (CORREGIDO - AHORA FIJO Y ENCIMA DE TODO)
+       MENÚ MÓVIL ANIMADO (CORREGIDO - FIJO Y ENCIMA DE TODO)
        ========================================= */
     .mobile-menu {
       position: fixed; /* <--- CLAVE: Se sale del flujo y cubre todo */
@@ -750,7 +750,7 @@
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
     /* =========================================
-       RESPONSIVE (MÓVIL) - CORRECCIÓN DE OVERLAP EN DROPDOWNS
+       RESPONSIVE (MÓVIL) - REVERTIDO A POSICIÓN ABSOLUTA EN DROPDOWNS
        ========================================= */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -758,10 +758,8 @@
       .catalog-controls { flex-direction: column; align-items: stretch; }
       .search-input { width: 100%; }
       
-      /* CORRECCIÓN: Los dropdowns se apilan verticalmente y no se tapan */
       .dropdown-group {
-        flex-direction: column;
-        align-items: stretch;
+        flex-wrap: wrap;
         width: 100%;
         overflow: visible !important;
       }
@@ -791,22 +789,18 @@
         opacity: 1;
         transform: translateX(0);
         margin-left: 0;
-        margin-top: 8px;
         width: 100%;
         flex-basis: 100%;
         overflow: visible !important;
       }
-      
-      /* CORRECCIÓN: El menú desplegable empuja al de abajo en lugar de taparlo */
       .dropdown-menu { 
-        position: relative !important; 
-        top: auto !important; 
+        position: absolute !important; /* REVERTIDO PARA QUE FLOTE Y NO ROMPA EL DISEÑO */
+        top: calc(100% + 12px) !important; 
         left: 0 !important; 
         width: 100% !important; 
         max-width: 100% !important; 
         box-sizing: border-box; 
         padding: 16px;
-        margin-top: 8px;
       }
       .dropdown-options { 
         width: 100%; 
@@ -900,7 +894,7 @@
   <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 </button>
 
-<!-- Menú móvil CORREGIDO CON POSITION FIXED -->
+<!-- Menú móvil con position fixed y z-index máximo -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" onclick="toggleMenu()">×</button>
   <nav class="mobile-nav">
