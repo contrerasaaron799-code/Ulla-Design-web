@@ -201,7 +201,7 @@
     .dropdown-item.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 
     /* =========================================
-       SISTEMA DE GRILLA FLEX (Orden Izquierda a Derecha)
+       SISTEMA DE GRILLA FLEX — CORREGIDO
        ========================================= */
     .focus-grid { 
       display: flex;
@@ -210,25 +210,29 @@
       position: relative; 
       z-index: 1; 
       min-height: 300px; 
-      padding: 0 1px; 
+      padding: 0 1px;
+      align-items: flex-start; /* EVITA EL ESTIRAMIENTO VERTICAL DE LAS TARJETAS */
     }
     
     .focus-card { 
-      width: calc(25% - 18px); /* 4 tarjetas por fila exactas */
+      width: calc(25% - 18px);
       position: relative; 
       overflow: hidden; 
       cursor: pointer; 
       background: transparent; 
-      border: 1px solid transparent; 
+      border: none; /* SIN BORDE ALGUNO */
       border-radius: var(--radius-card); 
       box-shadow: var(--shadow-card); 
       transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+      line-height: 0; /* ELIMINA ESPACIO TIPOGRÁFICO RESIDUAL */
     }
     
     .focus-card img { 
       display: block; 
       width: 100%; 
-      height: auto; 
+      height: auto;
+      border: none;
+      background: transparent;
     }
 
     .focus-grid.view-all {
