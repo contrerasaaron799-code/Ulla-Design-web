@@ -3,7 +3,7 @@
   --accent-light: #D95B5B;
   --accent-dark: #8E1E1E;
   --bg: #FAFAFA;
-  --card: #FFFFFF;
+  --card: #FAFAFA;
   --subtle: #EFE8E8;
   --border: #DDCFCF;
   --headline: #2A1B1B;
@@ -81,59 +81,66 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA DE GRILLA - CORRECCIÓN DEFINITIVA (SIN MÁRGENES BLANCOS)
+   SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
    ========================================= */
 .focus-grid { 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  column-count: 4; 
+  column-gap: 24px; 
   min-height: 300px; 
   padding: 0 1px; 
-  align-items: start;
 }
 
 .focus-card { 
-  width: 100%;
-  align-self: start;
+  break-inside: avoid;
   position: relative; 
-  background: transparent;  /* Eliminado el fondo blanco */
-  border: none;             /* Eliminado el borde de la tarjeta */
+  margin-bottom: 24px; 
+  border-radius: var(--radius-card); 
+  overflow: hidden; 
+  cursor: pointer; 
+  background: transparent; 
+  border: 1px solid transparent; 
   box-shadow: var(--shadow-card); 
-  perspective: 1000px; 
+  perspective: 1000px; /* CLAVE: El 3D se aplica individualmente a cada carta */
   transform-style: preserve-3d; 
   will-change: transform;
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease; 
-}
-
-.focus-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-floating);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
 }
 
 .focus-card img { 
   width: 100%; 
   height: auto; 
   display: block; 
-  border-radius: var(--radius-card);
-  border: none;             /* Eliminado el borde de la imagen */
-  background: transparent;  /* Eliminado el fondo blanco de la imagen */
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
 
+/* =========================================
+   ALINEACIÓN CENTRAL (SOLO PARA CATEGORÍAS PRINCIPALES)
+   ========================================= */
 .focus-grid.view-all {
-    display: grid !important;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    column-count: 1 !important;
+}
+
+.focus-grid.view-all .focus-card {
+    width: calc(25% - 18px);
+    margin-bottom: 0;
+    height: auto !important;
+    display: block;
 }
 
 @media (max-width: 1024px) { 
-    .focus-grid { grid-template-columns: repeat(3, 1fr); }
+    .focus-grid.view-all .focus-card {
+        width: calc(33.33% - 16px);
+    }
 }
 @media (max-width: 768px) {
-    .focus-grid { grid-template-columns: repeat(2, 1fr); }
-    .hamburger { display: block; }
-    .menu-wrap { display: none; }
-    .catalog-controls { flex-direction: column; align-items: stretch; }
-    .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
-    .search-input { width: 100%; }
+    .focus-grid.view-all .focus-card {
+        width: calc(50% - 12px);
+    }
 }
 
 /* =========================================
@@ -353,9 +360,22 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
+@media (max-width: 1024px) { 
+  .focus-grid:not(.view-all) { column-count: 3; }
+}
 @media (max-width: 768px) {
+  .hamburger { display: block; }
+  .menu-wrap { display: none; }
+  .focus-grid:not(.view-all) { column-count: 2; }
+  .catalog-controls { flex-direction: column; align-items: stretch; }
+  .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
+  .search-input { width: 100%; }
+  
+  /* Responsive modal tableros */
   .detail-modal-container { padding: 10px; }
   .detail-modal-container img { max-height: 60vh; }
+
+  /* Responsive modal producto */
   .product-modal-overlay { padding: 10px; }
   .product-modal-container { padding: 20px; max-height: 95vh; }
   .product-modal-layout { 
