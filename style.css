@@ -81,26 +81,26 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA MASONRY (COLUMNAS - EFECTO ROMPECABEZAS)
+   SISTEMA DE GRILLA FLEX (Orden Izquierda a Derecha)
    ========================================= */
 .focus-grid { 
-  column-count: 4; 
-  column-gap: 24px; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   min-height: 300px; 
   padding: 0 1px; 
 }
 
 .focus-card { 
-  break-inside: avoid;
+  width: calc(25% - 18px); /* 4 tarjetas por fila */
   position: relative; 
-  margin-bottom: 24px; 
   border-radius: var(--radius-card); 
   overflow: hidden; 
   cursor: pointer; 
   background: transparent; 
   border: 1px solid transparent; 
   box-shadow: var(--shadow-card); 
-  perspective: 1000px; /* CLAVE: El 3D se aplica individualmente a cada carta */
+  perspective: 1000px; 
   transform-style: preserve-3d; 
   will-change: transform;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
@@ -113,34 +113,21 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
 
-/* =========================================
-   ALINEACIÓN CENTRAL (SOLO PARA CATEGORÍAS PRINCIPALES)
-   ========================================= */
+/* Ajuste para compatibilidad con el JS que usa .view-all */
 .focus-grid.view-all {
     display: flex !important;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    column-count: 1 !important;
-}
-
-.focus-grid.view-all .focus-card {
-    width: calc(25% - 18px);
-    margin-bottom: 0;
-    height: auto !important;
-    display: block;
 }
 
 @media (max-width: 1024px) { 
-    .focus-grid.view-all .focus-card {
-        width: calc(33.33% - 16px);
-    }
+    .focus-card { width: calc(33.33% - 16px); }
 }
 @media (max-width: 768px) {
-    .focus-grid.view-all .focus-card {
-        width: calc(50% - 12px);
-    }
+    .focus-card { width: calc(50% - 12px); }
+    .hamburger { display: block; }
+    .menu-wrap { display: none; }
+    .catalog-controls { flex-direction: column; align-items: stretch; }
+    .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
+    .search-input { width: 100%; }
 }
 
 /* =========================================
@@ -360,17 +347,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
-@media (max-width: 1024px) { 
-  .focus-grid:not(.view-all) { column-count: 3; }
-}
 @media (max-width: 768px) {
-  .hamburger { display: block; }
-  .menu-wrap { display: none; }
-  .focus-grid:not(.view-all) { column-count: 2; }
-  .catalog-controls { flex-direction: column; align-items: stretch; }
-  .dropdown-menu { width: 100%; max-width: none; box-sizing: border-box; }
-  .search-input { width: 100%; }
-  
   /* Responsive modal tableros */
   .detail-modal-container { padding: 10px; }
   .detail-modal-container img { max-height: 60vh; }
