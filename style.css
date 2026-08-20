@@ -323,7 +323,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 .btn-add-cart-modal:hover { transform: translateY(-2px); background: var(--accent-dark); }
 
-/* =========================================
+/* ========================================
    CARRITO Y MODALES
    ========================================= */
 .cart-floating-container { position: fixed; bottom: 30px; right: 30px; z-index: 999; }
