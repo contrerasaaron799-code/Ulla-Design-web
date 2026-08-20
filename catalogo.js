@@ -3,16 +3,67 @@ document.addEventListener('DOMContentLoaded', function() {
     let productsData = [];
 
     // =========================================
-    // MAPA DE SUBCATEGORÍAS
+    // CONFIGURACIÓN DE ORDEN DE SUBCATEGORÍAS
+    // =========================================
+    // ⬇️⬇️⬇️ AQUÍ ES DONDE TÚ DECIDES EL ORDEN ⬇️⬇️⬇️
+    // Escribe las subcategorías en el orden que quieras que aparezcan.
+    // Solo afecta cuando estás en "Todos" dentro de Hogar, Hotel o Contract.
+    // Las que NO incluyas aquí aparecerán al final en el orden que vengan.
+    // =========================================
+    const CUSTOM_ORDER = {
+        'hogar': [
+            'juvenil',
+            'mesasdecomedor',
+            'mesasdecentro',
+            'salones',
+            'sillas',
+            'sofas',
+            'taburetes',
+            'paneles'
+            
+        ],
+        'hotel': [
+            'bancos de hosteleria',
+            'mesasdecomedor',
+            'mesasdecentro',
+            'sofas',
+            'taburetes',
+            'lamparas y decoracion',
+            'sillas',
+            'paneles',
+            'salones',
+            'exteriores',
+            'basesmetalicas'
+            
+        ],
+        'contract': [
+            'bancos de hosteleria',
+            'lamparas y decoracion',
+            'sofas',
+            'sillas',
+            'taburetes',
+            'mesasdecomedor',
+            'mesasdecentro',
+            'paneles',
+            'salones',
+            'exteriores',
+            'basesmetalicas'
+        ]
+    };
+    // ⬆️⬆️⬆️ FIN DE CONFIGURACIÓN DE ORDEN ⬆️⬆️⬆️
+    // =========================================
+
+    // =========================================
+    // MAPA DE SUBCATEGORÍAS (NO TOCAR)
     // =========================================
     const subcategoryMap = {
         'hogar': ['todos', 'sillas', 'sofas', 'taburetes', 'paneles', 'salones', 'juvenil', 'mesasdecomedor', 'mesasdecentro'],
         'hotel': ['todos', 'bancos de hosteleria', 'sillas', 'sofas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion'],
-        'contract': ['todos', 'bancos de hosteleria', 'sofas', 'sillas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas']
+        'contract': ['todos', 'bancos de hosteleria', 'sofas', 'sillas', 'taburetes', 'mesasdecomedor', 'mesasdecentro', 'paneles', 'salones', 'exteriores', 'basesmetalicas', 'lamparas y decoracion']
     };
 
     // =========================================
-    // ORDEN PERSONALIZADO DE CATEGORÍAS
+    // ORDEN PERSONALIZADO DE CATEGORÍAS GLOBAL
     // =========================================
     const CATEGORY_ORDER = [
         'sillas',
@@ -36,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // =========================================
-    // NORMALIZADOR DE CATEGORÍAS (Previene errores de Mayúsculas)
+    // NORMALIZADOR DE CATEGORÍAS
     // =========================================
     function getProductCategories(item) {
         let categories = item.categoria || item.category || 'todos';
@@ -124,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 itemImage = 'https://via.placeholder.com/300?text=Sin+imagen';
             }
 
-            // Normalizar categorías antes de inyectar en el DOM
             const itemCategories = getProductCategories(item);
             const itemCategoryText = itemCategories.join(',');
             
@@ -191,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =========================================
-    // MODALES Y CARRITO (Sin cambios en lógica core)
+    // MODALES Y CARRITO
     // =========================================
     function openDetailModal(card) {
         const imgSrc = card.getAttribute('data-detalle');
@@ -448,7 +498,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (options && options.length > 0) {
             subcategoryContainer.classList.add('visible');
             
-            // Diccionario para mostrar nombres más amigables (con mayúsculas, etc.)
             const readableNames = {
                 'todos': 'Todos',
                 'sillas': 'Sillas',
@@ -511,7 +560,6 @@ document.addEventListener('DOMContentLoaded', function() {
             grid.classList.remove('view-all');
         }
 
-        // Filtramos qué se muestra y qué se oculta
         cardsArray.forEach(card => {
             const cardCategories = (card.getAttribute('data-category') || '').split(',');
             const cardName = (card.getAttribute('data-name') || '').toLowerCase();
@@ -535,22 +583,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Ordenar SOLO si estamos en la vista de "todos" las subcategorías (para mantener la organización en bloque)
+        // Solo reordenar si estamos en "todos" dentro de hogar, hotel o contract
         if (currentSubcategory === 'todos') {
             reorderVisibleCards(cardsArray);
         }
     }
 
-    // Esta función agrupa en memoria sin crear HTML intermedio, y hace un "appendChild" directo
-    // Esto previene que se dañe tu maquetación de CSS Grid.
+    // =========================================
+    // REORDENAMIENTO CON ORDEN PERSONALIZADO
+    // =========================================
     function reorderVisibleCards(cardsArray) {
         const visibleCards = cardsArray.filter(card => card.style.display !== 'none');
         const grouped = {};
 
-        // Agrupar tomando la categoría base
         visibleCards.forEach(card => {
             const categories = (card.getAttribute('data-category') || '').split(',');
-            // Extraer la categoría principal para agrupar (la que pertenezca al orden y no sea 'oferta')
             let primaryCategory = categories.find(c => c !== 'oferta' && CATEGORY_ORDER.includes(c));
             if (!primaryCategory) primaryCategory = categories[0] || 'todos';
 
@@ -558,15 +605,26 @@ document.addEventListener('DOMContentLoaded', function() {
             grouped[primaryCategory].push(card);
         });
 
-        // Insertar respetando el CATEGORY_ORDER
-        CATEGORY_ORDER.forEach(cat => {
+        // Si estamos en hogar, hotel o contract y en "todos", usamos el orden personalizado
+        // Si no, usamos el CATEGORY_ORDER global por defecto
+        let orderToUse = CATEGORY_ORDER;
+        
+        if (['hogar', 'hotel', 'contract'].includes(currentCategory) && currentSubcategory === 'todos') {
+            const custom = CUSTOM_ORDER[currentCategory];
+            if (custom && custom.length > 0) {
+                // Combinamos: primero el orden personalizado, luego el resto que no estén en la lista
+                const remaining = CATEGORY_ORDER.filter(c => !custom.includes(c));
+                orderToUse = [...custom, ...remaining];
+            }
+        }
+
+        orderToUse.forEach(cat => {
             if (grouped[cat]) {
                 grouped[cat].forEach(card => grid.appendChild(card));
                 delete grouped[cat];
             }
         });
 
-        // Insertar cualquier restante
         Object.keys(grouped).forEach(cat => {
             grouped[cat].forEach(card => grid.appendChild(card));
         });
