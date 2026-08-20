@@ -3,7 +3,7 @@
   --accent-light: #D95B5B;
   --accent-dark: #8E1E1E;
   --bg: #FAFAFA;
-  --card: #FAFAFA;
+  --card: #FFFFFF;
   --subtle: #EFE8E8;
   --border: #DDCFCF;
   --headline: #2A1B1B;
@@ -81,7 +81,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA DE GRILLA (Orden Horizontal y Altura Dinámica)
+   SISTEMA DE GRILLA (Orden Horizontal y Altura Exacta por Imagen)
    ========================================= */
 .focus-grid { 
   display: grid;
@@ -94,12 +94,13 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 
 .focus-card { 
   width: 100%;
+  align-self: start;
   position: relative; 
   border-radius: var(--radius-card); 
   overflow: hidden; 
   cursor: pointer; 
-  background: transparent; 
-  border: 1px solid transparent; 
+  background: var(--card); 
+  border: 1px solid var(--border); 
   box-shadow: var(--shadow-card); 
   perspective: 1000px; 
   transform-style: preserve-3d; 
