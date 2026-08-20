@@ -200,12 +200,42 @@
     .dropdown-item:hover { background: var(--subtle); border-color: var(--border); }
     .dropdown-item.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 
-    /* CUADRÍCULA */
-    .focus-grid { position: relative; z-index: 1; min-height: 300px; padding: 0 1px; column-count: 4; column-gap: 24px; }
-    .focus-card { break-inside: avoid; position: relative; margin-bottom: 24px; overflow: hidden; cursor: pointer; background: transparent; border: 1px solid transparent; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
-    .focus-card img { display: block; width: 100%; height: auto; }
+    /* =========================================
+       SISTEMA DE GRILLA FLEX (Orden Izquierda a Derecha)
+       ========================================= */
+    .focus-grid { 
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      position: relative; 
+      z-index: 1; 
+      min-height: 300px; 
+      padding: 0 1px; 
+    }
+    
+    .focus-card { 
+      width: calc(25% - 18px); /* 4 tarjetas por fila exactas */
+      position: relative; 
+      overflow: hidden; 
+      cursor: pointer; 
+      background: transparent; 
+      border: 1px solid transparent; 
+      border-radius: var(--radius-card); 
+      box-shadow: var(--shadow-card); 
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+    }
+    
+    .focus-card img { 
+      display: block; 
+      width: 100%; 
+      height: auto; 
+    }
 
-    /* MODALES (RESTAURADOS) */
+    .focus-grid.view-all {
+        display: flex !important;
+    }
+
+    /* MODALES */
     .detail-modal-overlay {
       position: fixed; inset: 0;
       background: rgba(42, 27, 27, 0.8);
@@ -378,7 +408,7 @@
     .toast-notification.show { opacity: 1; transform: translateY(0) scale(1); }
     .toast-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; color: #fff; background: var(--accent); border-radius: 50%; }
 
-    /* CART MODAL (RESTAURADO) */
+    /* CART MODAL */
     .cart-modal-overlay { position: fixed; inset: 0; background: rgba(42, 27, 27, 0.65); backdrop-filter: blur(5px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 20px; }
     .cart-modal-overlay.show { opacity: 1; visibility: visible; }
     .cart-modal-container { background: var(--card); width: 100%; max-width: 750px; border-radius: var(--radius-card); box-shadow: var(--shadow-floating); display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); transform: translateY(20px); transition: transform 0.3s ease; max-height: 90vh; }
@@ -411,9 +441,13 @@
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) { .focus-grid { column-count: 3; } }
+    /* RESPONSIVE FLEX GRID */
+    @media (max-width: 1024px) { 
+      .focus-card { width: calc(33.33% - 16px); } 
+    }
+    
     @media (max-width: 768px) {
+      .focus-card { width: calc(50% - 12px); }
       .hamburger { display: block; }
       .menu-wrap { display: none; }
       .section { padding-top: 28px; }
@@ -429,15 +463,14 @@
       .dropdown-menu { width: 100%; max-width: 100%; padding: 16px; }
       .dropdown-options { width: 100%; }
       .dropdown-item { flex: 1 0 auto; text-align: center; padding: 8px 12px; font-size: 12px; }
-      .focus-grid { column-count: 2; column-gap: 16px; }
-      .focus-card { margin-bottom: 16px; }
       .cart-floating-container { right: 18px; bottom: 18px; z-index: 500; }
       .btn-view-cart { padding: 12px 18px; }
     }
+    
     @media (max-width: 420px) {
       .brand-text .design { font-size: 18px; }
       .brand-text .ulla { font-size: 22px; }
-      .focus-grid { column-count: 2; column-gap: 12px; }
+      .focus-card { width: calc(50% - 8px); }
     }
   </style>
 </head>
@@ -552,7 +585,7 @@
     <span class="toast-message">Producto agregado al carrito</span>
   </div>
 
-  <!-- MODALES RESTAURADOS -->
+  <!-- MODALES -->
   <div class="detail-modal-overlay" id="detailModal" onclick="handleDetailModalClick(event)">
     <div class="detail-modal-container">
       <span class="detail-close-btn" onclick="closeDetailModal()">×</span>

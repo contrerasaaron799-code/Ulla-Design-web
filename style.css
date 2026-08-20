@@ -113,7 +113,6 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
 
-/* Ajuste para compatibilidad con el JS que usa .view-all */
 .focus-grid.view-all {
     display: flex !important;
 }
@@ -348,11 +347,8 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
 @media (max-width: 768px) {
-  /* Responsive modal tableros */
   .detail-modal-container { padding: 10px; }
   .detail-modal-container img { max-height: 60vh; }
-
-  /* Responsive modal producto */
   .product-modal-overlay { padding: 10px; }
   .product-modal-container { padding: 20px; max-height: 95vh; }
   .product-modal-layout { 
