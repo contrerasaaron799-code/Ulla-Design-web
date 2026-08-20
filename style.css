@@ -32,6 +32,7 @@ a { text-decoration: none; color: inherit; }
     font-size: 24px; 
     font-weight: 700; 
 }
+
 .brand-text .design { 
     color: var(--headline); 
     font-family: "Playfair Display", Georgia, serif; 
@@ -80,7 +81,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA DE GRILLA - DEFINITIVO (TARJETA SE ADAPTA A LA IMAGEN)
+   SISTEMA DE GRILLA - CORRECCIÓN DEFINITIVA (SIN MÁRGENES BLANCOS)
    ========================================= */
 .focus-grid { 
   display: grid;
@@ -91,13 +92,12 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   align-items: start;
 }
 
-/* La tarjeta ahora es solo un contenedor transparente */
 .focus-card { 
   width: 100%;
   align-self: start;
   position: relative; 
-  background: transparent;   /* <--- ELIMINADO el fondo blanco */
-  border: none;              /* <--- ELIMINADO el borde de la tarjeta */
+  background: transparent;  /* Eliminado el fondo blanco */
+  border: none;             /* Eliminado el borde de la tarjeta */
   box-shadow: var(--shadow-card); 
   perspective: 1000px; 
   transform-style: preserve-3d; 
@@ -105,20 +105,19 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease; 
 }
 
-/* La imagen ahora es la que tiene el borde, redondeado y fondo blanco */
+.focus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-floating);
+}
+
 .focus-card img { 
   width: 100%; 
   height: auto; 
   display: block; 
   border-radius: var(--radius-card);
-  border: 1px solid var(--border);
-  background: var(--card); /* Opcional: para que se vea un fondo blanco solo dentro de la imagen */
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease, border-color 0.4s ease; 
-}
-
-/* Efecto hover: ilumina el borde de la imagen */
-.focus-card:hover img {
-  border-color: var(--accent);
+  border: none;             /* Eliminado el borde de la imagen */
+  background: transparent;  /* Eliminado el fondo blanco de la imagen */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
 }
 
 .focus-grid.view-all {
