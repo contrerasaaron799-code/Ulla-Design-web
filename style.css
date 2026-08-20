@@ -32,7 +32,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 24px; 
     font-weight: 700; 
 }
-
 .brand-text .design { 
     color: var(--headline); 
     font-family: "Playfair Display", Georgia, serif; 
@@ -81,7 +80,7 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA DE GRILLA (Orden Horizontal y Altura Exacta por Imagen)
+   SISTEMA DE GRILLA - CORREGIDO PARA ADAPTAR TARJETA A LA IMAGEN
    ========================================= */
 .focus-grid { 
   display: grid;
@@ -96,23 +95,27 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
   width: 100%;
   align-self: start;
   position: relative; 
-  border-radius: var(--radius-card); 
-  overflow: hidden; 
-  cursor: pointer; 
-  background: var(--card); 
-  border: 1px solid var(--border); 
+  background: transparent; /* Quitamos el fondo para que la imagen ocupe todo */
+  border: none;           /* Eliminamos el borde de la tarjeta */
   box-shadow: var(--shadow-card); 
   perspective: 1000px; 
   transform-style: preserve-3d; 
   will-change: transform;
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease, border-color 0.4s ease; 
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, filter 0.4s ease; 
 }
 
+/* El borde y redondeado se aplican directamente a la imagen */
 .focus-card img { 
   width: 100%; 
   height: auto; 
   display: block; 
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; 
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease, border-color 0.4s ease; 
+}
+
+.focus-card:hover img {
+  border-color: var(--accent); /* Opcional: iluminar el borde al hover */
 }
 
 .focus-grid.view-all {
