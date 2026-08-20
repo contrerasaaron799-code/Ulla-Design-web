@@ -201,42 +201,44 @@
     .dropdown-item.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 
     /* =========================================
-       SISTEMA DE GRILLA FLEX — TARJETA = IMAGEN
+       SISTEMA DE GRILLA GRID — TARJETAS UNIFORMES
        ========================================= */
     .focus-grid { 
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       position: relative; 
       z-index: 1; 
       min-height: 300px; 
       padding: 0 1px;
-      align-items: center; /* EVITA QUE LAS TARJETAS SE ESTIREN VERTICALMENTE */
     }
-    
+
     .focus-card { 
-      width: calc(25% - 18px);
       position: relative; 
       overflow: hidden; 
       cursor: pointer; 
-      background: transparent; /* SIN FONDO PROPIO */
-      border: none;            /* SIN BORDES */
+      background: #FFFFFF;
+      border: none;
       border-radius: var(--radius-card); 
       box-shadow: var(--shadow-card); 
       transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
-      line-height: 0;          /* ELIMINA ESPACIO TIPOGRÁFICO RESIDUAL */
+      aspect-ratio: 1 / 1.1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    
+
     .focus-card img { 
       display: block; 
-      width: 100%; 
-      height: auto;            /* MANTIENE LA ALTURA NATURAL DE LA IMAGEN */
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       border: none;
       background: transparent;
     }
 
     .focus-grid.view-all {
-        display: flex !important;
+        display: grid !important;
     }
 
     /* MODALES */
@@ -445,13 +447,18 @@
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
 
-    /* RESPONSIVE FLEX GRID */
+    /* RESPONSIVE GRID */
     @media (max-width: 1024px) { 
-      .focus-card { width: calc(33.33% - 16px); } 
+      .focus-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+      } 
     }
-    
+
     @media (max-width: 768px) {
-      .focus-card { width: calc(50% - 12px); }
+      .focus-grid { 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
       .hamburger { display: block; }
       .menu-wrap { display: none; }
       .section { padding-top: 28px; }
@@ -470,13 +477,17 @@
       .cart-floating-container { right: 18px; bottom: 18px; z-index: 500; }
       .btn-view-cart { padding: 12px 18px; }
     }
-    
+
     @media (max-width: 420px) {
       .brand-text .design { font-size: 18px; }
       .brand-text .ulla { font-size: 22px; }
-      .focus-card { width: calc(50% - 8px); }
+      .focus-grid { 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
     }
   </style>
+<base target="_blank">
 </head>
 
 <body>
