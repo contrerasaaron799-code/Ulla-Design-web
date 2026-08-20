@@ -81,18 +81,19 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 .dropdown-divider { height: 1px; background: var(--subtle); margin: 20px 0; }
 
 /* =========================================
-   SISTEMA DE GRILLA FLEX (Orden Izquierda a Derecha)
+   SISTEMA DE GRILLA DINÁMICA (Columnas Fluidas)
    ========================================= */
 .focus-grid { 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+  column-count: 4;
+  column-gap: 24px;
   min-height: 300px; 
   padding: 0 1px; 
 }
 
 .focus-card { 
-  width: calc(25% - 18px); /* 4 tarjetas por fila */
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 24px;
   position: relative; 
   border-radius: var(--radius-card); 
   overflow: hidden; 
@@ -114,14 +115,14 @@ h1, h2, h3, h4 { margin: 0; color: var(--headline); font-family: "Playfair Displ
 }
 
 .focus-grid.view-all {
-    display: flex !important;
+    display: block !important;
 }
 
 @media (max-width: 1024px) { 
-    .focus-card { width: calc(33.33% - 16px); }
+    .focus-grid { column-count: 3; }
 }
 @media (max-width: 768px) {
-    .focus-card { width: calc(50% - 12px); }
+    .focus-grid { column-count: 2; }
     .hamburger { display: block; }
     .menu-wrap { display: none; }
     .catalog-controls { flex-direction: column; align-items: stretch; }
