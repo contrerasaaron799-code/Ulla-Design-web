@@ -159,7 +159,7 @@
     }
 
     /* =========================================
-       HERO - CORREGIDO (BOTÓN ABAJO EN PC Y MÓVIL)
+       HERO - CORREGIDO (BOTÓN ABAJO Y FRASES PEGADAS)
        ========================================= */
     .hero {
       position: relative;
@@ -177,7 +177,7 @@
 
     .hero-inner {
       width: min(50%, 500px);
-      padding: 50px 50px 30px; /* padding inferior para que el botón no quede pegado al borde */
+      padding: 50px 50px 30px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -192,7 +192,7 @@
       line-height: 1.15;
       letter-spacing: -0.01em;
       text-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      margin-bottom: 16px;
+      margin-bottom: 8px; /* REDUCIDO para que la frase quede pegada */
     }
 
     .lead {
@@ -202,6 +202,7 @@
       font-size: 16px;
       line-height: 1.6;
       letter-spacing: 0.02em;
+      margin-top: 0; /* QUITADO cualquier margen superior extra */
       margin-bottom: 24px;
       max-width: 420px;
     }
@@ -362,17 +363,17 @@
       }
       .hero-inner {
         width: 100%;
-        padding: 16px 20px 20px; /* padding inferior para el botón */
+        padding: 16px 20px 20px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        flex-grow: 1; /* IMPORTANTE: Para que el botón pueda ir abajo */
+        flex-grow: 1;
       }
       .hero-inner h1 {
         font-family: "Playfair Display", Georgia, serif !important;
         margin-top: 0;
-        margin-bottom: 6px;
+        margin-bottom: 8px; /* También reducido en móvil */
         font-size: clamp(30px, 6vw, 40px);
         font-weight: 500;
         letter-spacing: -0.01em;
@@ -382,12 +383,12 @@
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 0.02em;
-        margin-top: 4px;
+        margin-top: 0; /* Quitado margen superior */
         margin-bottom: 12px;
         max-width: 90%;
       }
       .hero-inner .hero-actions {
-        margin-top: auto; /* Empuja el botón al fondo */
+        margin-top: auto;
         margin-bottom: 20px;
       }
       .hero-inner .hero-actions .btn-primary {
