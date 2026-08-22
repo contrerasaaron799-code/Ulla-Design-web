@@ -159,7 +159,7 @@
     }
 
     /* =========================================
-       HERO - CORRECCIÓN FINAL ELEGANTE
+       HERO - CORRECCIÓN FINAL (POSICIONAMIENTO)
        ========================================= */
     .hero {
       position: relative;
@@ -173,23 +173,23 @@
         url('sofaparaelinicio.jpg') 75% center/cover no-repeat;
       /* IMAGEN MÁS VIVA (más contraste, brillo y saturación) */
       filter: contrast(1.1) brightness(1.1) saturate(1.2);
-      /* CENTRAR VERTICALMENTE EL CONTENIDO EN PC */
+      /* CONTENIDO MÁS ARRIBA EN PC (NO CENTRADO) */
       display: flex;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .hero-inner {
       width: min(50%, 500px);
-      padding: 60px 50px; /* Ajustado para que respire mejor */
+      padding: 50px 50px; /* Reducido para que quede más arriba */
       position: relative;
     }
 
     /* TEXTO EDITORIAL ELEGANTE */
     h1 {
-      font-family: "Playfair Display", Georgia, serif !important; /* FUERZA LA FUENTE ELEGANTE */
+      font-family: "Playfair Display", Georgia, serif !important;
       color: #1a1a1a;
       font-weight: 500;
-      font-size: clamp(38px, 4vw, 56px); /* Tamaño contenido */
+      font-size: clamp(38px, 4vw, 56px);
       line-height: 1.15;
       letter-spacing: -0.01em;
       text-shadow: 0 1px 4px rgba(0,0,0,0.05);
@@ -337,7 +337,7 @@
        RESPONSIVE - AJUSTES FINOS EN MÓVIL
        ========================================= */
     @media (max-width: 1024px) {
-      .hero-inner { width: 66%; padding: 64px 40px; }
+      .hero-inner { width: 66%; padding: 50px 40px; }
       .cards-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
@@ -346,25 +346,23 @@
       
       .hero {
         min-height: 520px;
-        /* DEGRADADO MÁS SUAVE Y EXTENDIDO EN MÓVIL */
         background:
           linear-gradient(180deg, rgba(246,241,241,0.7) 0%, rgba(246,241,241,0.3) 50%, rgba(246,241,241,0) 100%),
           url('sofas2.jpg') center 20% / cover no-repeat !important;
         display: flex;
         flex-direction: column;
-        /* Ajuste para que el contenido quede arriba y no centrado en móvil */
         align-items: flex-start;
         justify-content: flex-start;
         filter: contrast(1.1) brightness(1.1) saturate(1.2);
       }
       .hero-inner {
         width: 100%;
-        padding: 16px 20px 0; /* Menos espacio arriba y sin padding abajo */
+        padding: 16px 20px 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        flex-grow: 1;
+        flex-grow: 1; /* IMPORTANTE: Para que el botón pueda ir abajo */
       }
       .hero-inner h1 {
         font-family: "Playfair Display", Georgia, serif !important;
@@ -384,8 +382,9 @@
         max-width: 90%;
       }
       .hero-inner .hero-actions {
-        margin-top: 0; /* ELIMINA EL HUECO GIGANTE */
-        margin-bottom: 40px;
+        /* EL BOTÓN VA ABAJO */
+        margin-top: auto; /* EMPUJA EL BOTÓN AL FONDO */
+        margin-bottom: 20px;
       }
       .hero-inner .hero-actions .btn-primary {
         width: auto;
