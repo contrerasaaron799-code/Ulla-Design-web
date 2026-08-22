@@ -159,7 +159,7 @@
     }
 
     /* =========================================
-       HERO - CORRECCIÓN FINAL (POSICIONAMIENTO)
+       HERO - CORREGIDO (BOTÓN ABAJO EN PC Y MÓVIL)
        ========================================= */
     .hero {
       position: relative;
@@ -167,24 +167,23 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--shadow-floating);
-      /* DEGRADADO MÁS SUAVE EN PC */
       background:
         linear-gradient(90deg, rgba(246,241,241,0.95) 0%, rgba(246,241,241,0.75) 30%, rgba(246,241,241,0.2) 70%, rgba(246,241,241,0) 100%),
         url('sofaparaelinicio.jpg') 75% center/cover no-repeat;
-      /* IMAGEN MÁS VIVA (más contraste, brillo y saturación) */
       filter: contrast(1.1) brightness(1.1) saturate(1.2);
-      /* CONTENIDO MÁS ARRIBA EN PC (NO CENTRADO) */
       display: flex;
-      align-items: flex-start;
+      align-items: stretch; /* Para que el hijo ocupe toda la altura */
     }
 
     .hero-inner {
       width: min(50%, 500px);
-      padding: 50px 50px; /* Reducido para que quede más arriba */
+      padding: 50px 50px 30px; /* padding inferior para que el botón no quede pegado al borde */
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* texto arriba */
     }
 
-    /* TEXTO EDITORIAL ELEGANTE */
     h1 {
       font-family: "Playfair Display", Georgia, serif !important;
       color: #1a1a1a;
@@ -207,7 +206,13 @@
       max-width: 420px;
     }
 
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    /* Botón anclado abajo */
+    .hero-actions {
+      margin-top: auto; /* Empuja el botón al fondo */
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     .cards-row {
       display: grid;
@@ -334,10 +339,10 @@
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* =========================================
-       RESPONSIVE - AJUSTES FINOS EN MÓVIL
+       RESPONSIVE - AJUSTES EN MÓVIL
        ========================================= */
     @media (max-width: 1024px) {
-      .hero-inner { width: 66%; padding: 50px 40px; }
+      .hero-inner { width: 66%; padding: 50px 40px 20px; }
       .cards-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
@@ -357,7 +362,7 @@
       }
       .hero-inner {
         width: 100%;
-        padding: 16px 20px 0;
+        padding: 16px 20px 20px; /* padding inferior para el botón */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -382,8 +387,7 @@
         max-width: 90%;
       }
       .hero-inner .hero-actions {
-        /* EL BOTÓN VA ABAJO */
-        margin-top: auto; /* EMPUJA EL BOTÓN AL FONDO */
+        margin-top: auto; /* Empuja el botón al fondo */
         margin-bottom: 20px;
       }
       .hero-inner .hero-actions .btn-primary {
