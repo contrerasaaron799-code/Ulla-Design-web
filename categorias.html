@@ -73,13 +73,14 @@
     @media (max-width: 768px){
       .hamburger { display: block; } .menu-wrap { display: none; }
       .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .category-card { height: 330px; }
+      .category-card { min-height: 0; }
       .card-top { padding: 10px 10px 6px 10px; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
       .category-name { font-size: 15px; margin-bottom: 8px; text-align: center; }
       .category-btn { padding: 6px 14px; font-size: 12px; }
-      .category-card img { min-height: 0; }
+      .category-card img { height: 210px; flex-grow: 0; object-fit: cover; }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
 <header class="container">
