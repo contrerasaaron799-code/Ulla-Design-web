@@ -622,7 +622,27 @@
       text-align: center;
     }
 
+  
+    /* Modo especial para categoría Juvenil (imágenes horizontales) */
+    .focus-grid.juvenil-layout {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .focus-grid.juvenil-layout .focus-card {
+      aspect-ratio: 16 / 10;
+    }
+    @media (max-width: 1024px) {
+      .focus-grid.juvenil-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .focus-grid.juvenil-layout .focus-card {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
   </style>
+<base target="_blank">
 </head>
 
 <body>
@@ -982,6 +1002,45 @@
         }
       });
     })();
+
+  
+    // ===== DETECCIÓN AUTOMÁTICA DE CATEGORÍA JUVENIL =====
+    function updateJuvenilLayout() {
+      const grid = document.getElementById('productGrid');
+      if (!grid) return;
+
+      // Revisar URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlCat = urlParams.get('categoria');
+
+      // Revisar botón activo del dropdown
+      const activeBtn = document.querySelector('#categoryFilters .dropdown-item.active');
+      const btnCat = activeBtn ? activeBtn.dataset.category : '';
+
+      const isJuvenil = urlCat === 'juvenil' || btnCat === 'juvenil';
+
+      if (isJuvenil) {
+        grid.classList.add('juvenil-layout');
+      } else {
+        grid.classList.remove('juvenil-layout');
+      }
+    }
+
+    // Al cargar la página
+    document.addEventListener('DOMContentLoaded', updateJuvenilLayout);
+
+    // Al hacer click en cualquier filtro de categoría (esperamos a que catalogo.js marque el activo)
+    const catFilters = document.getElementById('categoryFilters');
+    if (catFilters) {
+      catFilters.addEventListener('click', () => setTimeout(updateJuvenilLayout, 60));
+    }
+
+    // Si catalogo.js re-renderiza el grid, re-aplicamos la clase
+    const productGrid = document.getElementById('productGrid');
+    if (productGrid) {
+      const observer = new MutationObserver(() => updateJuvenilLayout());
+      observer.observe(productGrid, { childList: true });
+    }
 
   </script>
 
