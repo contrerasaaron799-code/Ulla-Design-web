@@ -623,12 +623,17 @@
     }
 
   
-    /* Modo especial para categoría Juvenil (imágenes horizontales) */
+
+
+      /* ===== MODO JUVENIL: imágenes horizontales ===== */
     .focus-grid.juvenil-layout {
       grid-template-columns: repeat(3, 1fr);
     }
     .focus-grid.juvenil-layout .focus-card {
       aspect-ratio: 16 / 10;
+    }
+    .focus-grid.juvenil-layout .focus-card img {
+      object-fit: cover;
     }
     @media (max-width: 1024px) {
       .focus-grid.juvenil-layout {
@@ -637,7 +642,12 @@
     }
     @media (max-width: 768px) {
       .focus-grid.juvenil-layout .focus-card {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 3 / 2;
+      }
+      .focus-grid.juvenil-layout .focus-card img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -1004,43 +1014,58 @@
     })();
 
   
-    // ===== DETECCIÓN AUTOMÁTICA DE CATEGORÍA JUVENIL =====
-    function updateJuvenilLayout() {
+
+  
+    // ===== DETECCIÓN ROBUSTA DE CATEGORÍA JUVENIL =====
+    (function() {
       const grid = document.getElementById('productGrid');
       if (!grid) return;
 
-      // Revisar URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const urlCat = urlParams.get('categoria');
+      function checkJuvenil() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlCat = urlParams.get('categoria');
 
-      // Revisar botón activo del dropdown
-      const activeBtn = document.querySelector('#categoryFilters .dropdown-item.active');
-      const btnCat = activeBtn ? activeBtn.dataset.category : '';
+        // Revisar botón activo
+        const activeBtn = document.querySelector('#categoryFilters .dropdown-item.active');
+        const btnCat = activeBtn ? activeBtn.dataset.category : '';
 
-      const isJuvenil = urlCat === 'juvenil' || btnCat === 'juvenil';
+        const isJuvenil = urlCat === 'juvenil' || btnCat === 'juvenil';
 
-      if (isJuvenil) {
-        grid.classList.add('juvenil-layout');
-      } else {
-        grid.classList.remove('juvenil-layout');
+        if (isJuvenil) {
+          grid.classList.add('juvenil-layout');
+        } else {
+          grid.classList.remove('juvenil-layout');
+        }
       }
-    }
 
-    // Al cargar la página
-    document.addEventListener('DOMContentLoaded', updateJuvenilLayout);
+      // Ejecutar varias veces para asegurar que catalogo.js ya haya hecho su trabajo
+      document.addEventListener('DOMContentLoaded', () => {
+        checkJuvenil();
+        setTimeout(checkJuvenil, 100);
+        setTimeout(checkJuvenil, 500);
+        setTimeout(checkJuvenil, 1000);
+      });
 
-    // Al hacer click en cualquier filtro de categoría (esperamos a que catalogo.js marque el activo)
-    const catFilters = document.getElementById('categoryFilters');
-    if (catFilters) {
-      catFilters.addEventListener('click', () => setTimeout(updateJuvenilLayout, 60));
-    }
+      // Revisar al hacer click en filtros
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('.dropdown-item')) {
+          setTimeout(checkJuvenil, 50);
+          setTimeout(checkJuvenil, 300);
+        }
+      });
 
-    // Si catalogo.js re-renderiza el grid, re-aplicamos la clase
-    const productGrid = document.getElementById('productGrid');
-    if (productGrid) {
-      const observer = new MutationObserver(() => updateJuvenilLayout());
-      observer.observe(productGrid, { childList: true });
-    }
+      // Observer por si catalogo.js re-renderiza el grid
+      const observer = new MutationObserver(() => checkJuvenil());
+      observer.observe(grid, { childList: true });
+
+      // Revisar también si cambia la URL (pushState)
+      const originalPushState = history.pushState;
+      history.pushState = function() {
+        originalPushState.apply(this, arguments);
+        setTimeout(checkJuvenil, 100);
+      };
+      window.addEventListener('popstate', () => setTimeout(checkJuvenil, 100));
+    })();
 
   </script>
 
